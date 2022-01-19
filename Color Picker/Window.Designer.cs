@@ -144,6 +144,7 @@
             // 
             // eyedropper
             // 
+            this.eyedropper.AllowDrop = true;
             this.eyedropper.BackgroundImage = global::Color_Picker.Properties.Resources.eyedropper;
             this.eyedropper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.eyedropper.Dock = System.Windows.Forms.DockStyle.Left;
@@ -152,6 +153,8 @@
             this.eyedropper.Name = "eyedropper";
             this.eyedropper.Size = new System.Drawing.Size(32, 32);
             this.eyedropper.TabIndex = 0;
+            this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
+            this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
             this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
             this.eyedropper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseDown);
             this.eyedropper.MouseEnter += new System.EventHandler(this.eyedropper_MouseEnter);

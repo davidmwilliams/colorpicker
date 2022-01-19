@@ -608,5 +608,80 @@ namespace Color_Picker
                 }
             }
         }
+
+        private void eyedropper_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.None;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.Copy;
+                
+                string input = e.Data.GetData(DataFormats.Text).ToString();
+                if (!string.IsNullOrEmpty(input))
+                {
+                    if (input.StartsWith("#"))
+                    {
+                        if (input.Length == 7)
+                        {
+                            // Test: #ee55cc ee44cc
+                            // It's probably hex.
+                            // I'll make a better solution later.\
+                            Color droppedColor = ColorTranslator.FromHtml(input);
+
+                            eyedropper.BackColor = droppedColor;
+                        }
+                    }
+                    else
+                    {
+                        if (input.Length == 6)
+                        {
+                            // It's probably hex.
+                            // Prepend a hash.
+
+                            input = "#" + e.Data.GetData(DataFormats.Text).ToString();
+                            Color droppedColor = ColorTranslator.FromHtml(input);
+
+                            eyedropper.BackColor = droppedColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void eyedropper_DragDrop(object sender, DragEventArgs e)
+        {
+            string input = e.Data.GetData(DataFormats.Text).ToString();
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (input.StartsWith("#"))
+                {
+                    if(input.Length == 7)
+                    {
+                        // Test: #ee55cc ee44cc
+                        // It's probably hex.
+                        // I'll make a better solution later.\
+                        Color droppedColor = ColorTranslator.FromHtml(input);
+
+                        CreateColorPanel(droppedColor, defaultColorPanelWidth);
+                    }
+                }
+                else
+                {
+                    if(input.Length == 6)
+                    {
+                        // It's probably hex.
+                        // Prepend a hash.
+
+                        input = "#" + e.Data.GetData(DataFormats.Text).ToString();
+                        Color droppedColor = ColorTranslator.FromHtml(input);
+
+                        CreateColorPanel(droppedColor, defaultColorPanelWidth);
+                    }
+                }
+            }
+        }
     }
 }
