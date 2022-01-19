@@ -36,6 +36,7 @@ namespace Color_Picker
         public ColorDialog colorDialog;
 
         private bool mouseMoved;
+        public int defaultColorPanelWidth;
 
         public static VisibilityTypes Visibility { get; set; }
 
@@ -85,6 +86,8 @@ namespace Color_Picker
             colorDialog.FullOpen = true;
             colorDialog.ShowHelp = true;
             colorDialog.AnyColor = true;
+
+            defaultColorPanelWidth = 10;
 
             InitializeComponent();
         }
@@ -490,26 +493,34 @@ namespace Color_Picker
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            menuItem3.Checked = false;
-            menuItem4.Checked = false;
-            menuItem5.Checked = false;
-            menuItem2.Checked = true;
+            HEXMenuItem.Checked = false;
+            CMYKMenuItem.Checked = false;
+            HSBMenuItem.Checked = false;
+            RGBMenuItem.Checked = true;
         }
 
         private void menuItem3_Click(object sender, EventArgs e)
         {
-            menuItem4.Checked = false;
-            menuItem2.Checked = false;
-            menuItem5.Checked = false;
-            menuItem3.Checked = true;
+            CMYKMenuItem.Checked = false;
+            RGBMenuItem.Checked = false;
+            HSBMenuItem.Checked = false;
+            HEXMenuItem.Checked = true;
         }
 
         private void menuItem4_Click(object sender, EventArgs e)
         {
-            menuItem3.Checked = false;
-            menuItem2.Checked = false;
-            menuItem5.Checked = false;
-            menuItem4.Checked = true;
+            HEXMenuItem.Checked = false;
+            RGBMenuItem.Checked = false;
+            HSBMenuItem.Checked = false;
+            CMYKMenuItem.Checked = true;
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            HEXMenuItem.Checked = false;
+            RGBMenuItem.Checked = false;
+            CMYKMenuItem.Checked = false;
+            HSBMenuItem.Checked = true;
         }
 
         private void menuItem6_Click(object sender, EventArgs e)
@@ -527,13 +538,33 @@ namespace Color_Picker
             }
         }
 
-        private void menuItem5_Click(object sender, EventArgs e)
+        private void useWideColorPanelsMenuItem_Click(object sender, EventArgs e)
         {
+            if ((sender as MenuItem).Checked)
+            {
+                defaultColorPanelWidth = 10;
+                (sender as MenuItem).Checked = false;
 
-            menuItem3.Checked = false;
-            menuItem2.Checked = false;
-            menuItem4.Checked = false;
-            menuItem5.Checked = true;
+                ChangeColorPanelWidth();
+            }
+            else
+            {
+                defaultColorPanelWidth = 24;
+                (sender as MenuItem).Checked = true;
+
+                ChangeColorPanelWidth();
+            }
+        }
+
+        private void ChangeColorPanelWidth()
+        {
+            foreach (Panel colorPanel in colorHistoryPanel.Controls)
+            {
+                if (!colorPanel.IsDisposed)
+                {
+                    colorPanel.Width = defaultColorPanelWidth;
+                }
+            }
         }
     }
 }

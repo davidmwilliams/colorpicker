@@ -40,13 +40,14 @@
             this.eyedropper = new System.Windows.Forms.Panel();
             this.colorOptionsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.CMYKMenuItem = new System.Windows.Forms.MenuItem();
+            this.HEXMenuItem = new System.Windows.Forms.MenuItem();
+            this.HSBMenuItem = new System.Windows.Forms.MenuItem();
+            this.RGBMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
+            this.useWideColorPanelsMenuItem = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,46 +165,47 @@
             this.menuItem1,
             this.menuItem6,
             this.menuItem7,
+            this.useWideColorPanelsMenuItem,
             this.menuItem8});
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem4,
-            this.menuItem3,
-            this.menuItem5,
-            this.menuItem2});
+            this.CMYKMenuItem,
+            this.HEXMenuItem,
+            this.HSBMenuItem,
+            this.RGBMenuItem});
             this.menuItem1.Text = "Copy...";
             // 
-            // menuItem4
+            // CMYKMenuItem
             // 
-            this.menuItem4.Index = 0;
-            this.menuItem4.RadioCheck = true;
-            this.menuItem4.Text = "CMYK";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            this.CMYKMenuItem.Index = 0;
+            this.CMYKMenuItem.RadioCheck = true;
+            this.CMYKMenuItem.Text = "CMYK";
+            this.CMYKMenuItem.Click += new System.EventHandler(this.menuItem4_Click);
             // 
-            // menuItem3
+            // HEXMenuItem
             // 
-            this.menuItem3.Index = 1;
-            this.menuItem3.RadioCheck = true;
-            this.menuItem3.Text = "HEX";
-            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            this.HEXMenuItem.Index = 1;
+            this.HEXMenuItem.RadioCheck = true;
+            this.HEXMenuItem.Text = "HEX";
+            this.HEXMenuItem.Click += new System.EventHandler(this.menuItem3_Click);
             // 
-            // menuItem5
+            // HSBMenuItem
             // 
-            this.menuItem5.Index = 2;
-            this.menuItem5.RadioCheck = true;
-            this.menuItem5.Text = "HSB";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            this.HSBMenuItem.Index = 2;
+            this.HSBMenuItem.RadioCheck = true;
+            this.HSBMenuItem.Text = "HSB";
+            this.HSBMenuItem.Click += new System.EventHandler(this.menuItem5_Click);
             // 
-            // menuItem2
+            // RGBMenuItem
             // 
-            this.menuItem2.Checked = true;
-            this.menuItem2.Index = 3;
-            this.menuItem2.RadioCheck = true;
-            this.menuItem2.Text = "RGB";
-            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            this.RGBMenuItem.Checked = true;
+            this.RGBMenuItem.Index = 3;
+            this.RGBMenuItem.RadioCheck = true;
+            this.RGBMenuItem.Text = "RGB";
+            this.RGBMenuItem.Click += new System.EventHandler(this.menuItem2_Click);
             // 
             // menuItem6
             // 
@@ -218,8 +220,14 @@
             // 
             // menuItem8
             // 
-            this.menuItem8.Index = 3;
+            this.menuItem8.Index = 4;
             this.menuItem8.Text = "More Options...";
+            // 
+            // useWideColorPanelsMenuItem
+            // 
+            this.useWideColorPanelsMenuItem.Index = 3;
+            this.useWideColorPanelsMenuItem.Text = "Use Wide Color Panels";
+            this.useWideColorPanelsMenuItem.Click += new System.EventHandler(this.useWideColorPanelsMenuItem_Click);
             // 
             // Window
             // 
@@ -264,13 +272,14 @@
         private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
         private System.Windows.Forms.ContextMenu colorOptionsContextMenu;
         private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem RGBMenuItem;
+        private System.Windows.Forms.MenuItem HEXMenuItem;
+        private System.Windows.Forms.MenuItem CMYKMenuItem;
+        private System.Windows.Forms.MenuItem HSBMenuItem;
         private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.MenuItem useWideColorPanelsMenuItem;
     }
 }
 
