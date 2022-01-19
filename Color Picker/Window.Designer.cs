@@ -46,8 +46,9 @@
             this.RGBMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.useWideColorPanelsMenuItem = new System.Windows.Forms.MenuItem();
+            this.menuItem8 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,6 +167,7 @@
             // 
             this.colorOptionsContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem1,
+            this.menuItem2,
             this.menuItem6,
             this.menuItem7,
             this.useWideColorPanelsMenuItem,
@@ -183,6 +185,7 @@
             // 
             // CMYKMenuItem
             // 
+            this.CMYKMenuItem.Enabled = false;
             this.CMYKMenuItem.Index = 0;
             this.CMYKMenuItem.RadioCheck = true;
             this.CMYKMenuItem.Text = "CMYK";
@@ -212,25 +215,31 @@
             // 
             // menuItem6
             // 
-            this.menuItem6.Index = 1;
+            this.menuItem6.Index = 2;
             this.menuItem6.Text = "Clear Color Strip";
             this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem7
             // 
-            this.menuItem7.Index = 2;
+            this.menuItem7.Index = 3;
             this.menuItem7.Text = "-";
-            // 
-            // menuItem8
-            // 
-            this.menuItem8.Index = 4;
-            this.menuItem8.Text = "More Options...";
             // 
             // useWideColorPanelsMenuItem
             // 
-            this.useWideColorPanelsMenuItem.Index = 3;
+            this.useWideColorPanelsMenuItem.Index = 4;
             this.useWideColorPanelsMenuItem.Text = "Use Wide Color Panels";
             this.useWideColorPanelsMenuItem.Click += new System.EventHandler(this.useWideColorPanelsMenuItem_Click);
+            // 
+            // menuItem8
+            // 
+            this.menuItem8.Index = 5;
+            this.menuItem8.Text = "More Options...";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 1;
+            this.menuItem2.Text = "Remove";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
             // 
             // Window
             // 
@@ -283,6 +292,7 @@
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem useWideColorPanelsMenuItem;
+        private System.Windows.Forms.MenuItem menuItem2;
     }
 }
 

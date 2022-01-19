@@ -35,6 +35,7 @@ namespace Color_Picker
         public Timer timer = new Timer();
         public ColorDialog colorDialog;
         public static Color selectedColor;
+        private Panel selectedColorPanel;
         private bool mouseMoved;
         public int defaultColorPanelWidth;
 
@@ -333,6 +334,7 @@ namespace Color_Picker
             if(e.Button == MouseButtons.Right)
             {
                 selectedColor = (sender as Panel).BackColor;
+                selectedColorPanel = (sender as Panel);
             }
         }
 
@@ -563,6 +565,9 @@ namespace Color_Picker
             RGBMenuItem.Checked = false;
             CMYKMenuItem.Checked = false;
             HSBMenuItem.Checked = true;
+
+            Console.WriteLine(selectedColor.GetHue() + "," + selectedColor.GetSaturation() + "," + selectedColor.GetBrightness());
+
         }
 
         private void menuItem6_Click(object sender, EventArgs e)
@@ -662,7 +667,7 @@ namespace Color_Picker
                     {
                         // Test: #ee55cc ee44cc
                         // It's probably hex.
-                        // I'll make a better solution later.\
+                        // I'll make a better solution later.
                         Color droppedColor = ColorTranslator.FromHtml(input);
 
                         CreateColorPanel(droppedColor, defaultColorPanelWidth);
@@ -680,6 +685,24 @@ namespace Color_Picker
 
                         CreateColorPanel(droppedColor, defaultColorPanelWidth);
                     }
+                }
+            }
+        }
+
+        private void menuItem2_Click_1(object sender, EventArgs e)
+        {
+            // Remove the Color Panel.
+            if(selectedColorPanel != null && !selectedColorPanel.IsDisposed)
+            {
+                ColorPallette pallette = History.Pallette.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
+
+                selectedColorPanel.Dispose();
+                selectedColorPanel = null;
+                colorHistoryPanel.Controls.Remove(selectedColorPanel);
+
+                if(pallette != null)
+                {
+                    History.Pallette.Remove(pallette);
                 }
             }
         }
