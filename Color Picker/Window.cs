@@ -34,7 +34,7 @@ namespace Color_Picker
 
         public Timer timer = new Timer();
         public ColorDialog colorDialog;
-
+        public static Color selectedColor;
         private bool mouseMoved;
         public int defaultColorPanelWidth;
 
@@ -307,10 +307,19 @@ namespace Color_Picker
                 //pickedColorPanel.MouseUp += PickedColorPanel_MouseUp;
                 pickedColorPanel.MouseEnter += PickedColorPanel_MouseEnter;
                 pickedColorPanel.MouseLeave += PickedColorPanel_MouseLeave;
+                pickedColorPanel.MouseClick += PickedColorPanel_MouseClick;
 
                 pickedColorPanel.ContextMenu = colorOptionsContextMenu;
 
                 colorHistoryPanel.Controls.Add(pickedColorPanel);
+            }
+        }
+
+        private void PickedColorPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                selectedColor = (sender as Panel).BackColor;
             }
         }
 
@@ -497,6 +506,22 @@ namespace Color_Picker
             CMYKMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
             RGBMenuItem.Checked = true;
+
+            // Copy the RGB value to the user's Clipboard.
+            if(selectedColor != null)
+            {
+                int aValue = selectedColor.A;
+
+                if (aValue < 255)
+                {
+                    Clipboard.SetText(selectedColor.A + ", " + selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
+                }
+                else
+                {
+                    Clipboard.SetText(selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
+                }
+
+            }
         }
 
         private void menuItem3_Click(object sender, EventArgs e)
