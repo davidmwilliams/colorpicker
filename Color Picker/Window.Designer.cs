@@ -34,21 +34,21 @@
             this.pickColorPanel = new System.Windows.Forms.Panel();
             this.pickColorLink = new System.Windows.Forms.LinkLabel();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
-            this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.informationPanel = new System.Windows.Forms.Panel();
             this.openClosePanel = new System.Windows.Forms.Panel();
             this.eyedropper = new System.Windows.Forms.Panel();
+            this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.colorOptionsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.CMYKMenuItem = new System.Windows.Forms.MenuItem();
             this.HEXMenuItem = new System.Windows.Forms.MenuItem();
             this.HSBMenuItem = new System.Windows.Forms.MenuItem();
             this.RGBMenuItem = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.useWideColorPanelsMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.settingsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
@@ -102,16 +102,6 @@
             // 
             this.tip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.tip.ToolTipTitle = "Hint:";
-            // 
-            // colorHistoryPanel
-            // 
-            this.colorHistoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorHistoryPanel.Location = new System.Drawing.Point(44, 0);
-            this.colorHistoryPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.colorHistoryPanel.Name = "colorHistoryPanel";
-            this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
-            this.colorHistoryPanel.TabIndex = 6;
-            this.colorHistoryPanel.WrapContents = false;
             // 
             // informationPanel
             // 
@@ -171,6 +161,16 @@
             this.eyedropper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseUp);
             this.eyedropper.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.eyedropper_PreviewKeyDown);
             // 
+            // colorHistoryPanel
+            // 
+            this.colorHistoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.colorHistoryPanel.Location = new System.Drawing.Point(44, 0);
+            this.colorHistoryPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.colorHistoryPanel.Name = "colorHistoryPanel";
+            this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
+            this.colorHistoryPanel.TabIndex = 6;
+            this.colorHistoryPanel.WrapContents = false;
+            // 
             // colorOptionsContextMenu
             // 
             this.colorOptionsContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
@@ -193,7 +193,6 @@
             // 
             // CMYKMenuItem
             // 
-            this.CMYKMenuItem.Enabled = false;
             this.CMYKMenuItem.Index = 0;
             this.CMYKMenuItem.RadioCheck = true;
             this.CMYKMenuItem.Text = "CMYK";
@@ -221,6 +220,12 @@
             this.RGBMenuItem.Text = "RGB";
             this.RGBMenuItem.Click += new System.EventHandler(this.menuItem2_Click);
             // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 1;
+            this.menuItem2.Text = "Remove";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
+            // 
             // menuItem6
             // 
             this.menuItem6.Index = 2;
@@ -242,12 +247,6 @@
             // 
             this.menuItem8.Index = 5;
             this.menuItem8.Text = "More Options...";
-            // 
-            // menuItem2
-            // 
-            this.menuItem2.Index = 1;
-            this.menuItem2.Text = "Remove";
-            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
             // 
             // settingsContextMenu
             // 

@@ -34,6 +34,9 @@ namespace Color_Picker
             // Get the App version and display it to the user.
             Version appVersion = Assembly.GetExecutingAssembly().GetName().Version;
             versionLabel.Text = "v" + appVersion.Major + "." + appVersion.Minor + "." + appVersion.Build + ".";
+
+            pictureBox2.Hide();
+            pictureBox3.Hide();
         }
 
         private void okButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)

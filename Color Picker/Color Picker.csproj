@@ -26,7 +26,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -108,6 +108,7 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="ColorPallette.cs" />
+    <Compile Include="Convert.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
@@ -155,6 +156,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="eyedropper.ico" />
+    <None Include="Resources\frownyface.png" />
+    <None Include="Resources\smileyface.png" />
     <None Include="Resources\ColorPickerUserGuide.pdf" />
     <None Include="Resources\information2.png" />
     <None Include="Resources\information.png" />

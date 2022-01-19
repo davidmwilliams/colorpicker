@@ -113,6 +113,16 @@ namespace Color_Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap frownyface {
+            get {
+                object obj = ResourceManager.GetObject("frownyface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap information {
             get {
                 object obj = ResourceManager.GetObject("information", resourceCulture);
@@ -126,6 +136,16 @@ namespace Color_Picker.Properties {
         internal static System.Drawing.Bitmap information2 {
             get {
                 object obj = ResourceManager.GetObject("information2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smileyface {
+            get {
+                object obj = ResourceManager.GetObject("smileyface", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -557,6 +557,9 @@ namespace Color_Picker
             RGBMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
             CMYKMenuItem.Checked = true;
+
+            string result = Convert.ToCMYK(selectedColor.R, selectedColor.G, selectedColor.B);
+            Clipboard.SetText(result);
         }
 
         private void menuItem5_Click(object sender, EventArgs e)
@@ -566,7 +569,7 @@ namespace Color_Picker
             CMYKMenuItem.Checked = false;
             HSBMenuItem.Checked = true;
 
-            Console.WriteLine(selectedColor.GetHue() + "," + selectedColor.GetSaturation() + "," + selectedColor.GetBrightness());
+            Clipboard.SetText(selectedColor.GetHue() + "," + selectedColor.GetSaturation() + "," + selectedColor.GetBrightness());
 
         }
 
