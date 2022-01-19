@@ -134,6 +134,17 @@ namespace Color_Picker
             }
         }
 
+        private static string HexConverter(Color c)
+        {
+            byte r = c.R;
+            string str = r.ToString("X2");
+            r = c.G;
+            string str1 = r.ToString("X2");
+            r = c.B;
+            string str2 = string.Concat(str, str1, r.ToString("X2"));
+            return str2;
+        }
+
         private void PickColorFromScreen()
         {
             Color selectedColor = GetColorAt(Cursor.Position.X, Cursor.Position.Y);
@@ -533,6 +544,9 @@ namespace Color_Picker
             RGBMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
             HEXMenuItem.Checked = true;
+
+            string hexCode = HexConverter(selectedColor);
+            Clipboard.SetText(hexCode);
         }
 
         private void menuItem4_Click(object sender, EventArgs e)
