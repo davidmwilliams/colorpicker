@@ -49,6 +49,8 @@
             this.useWideColorPanelsMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.settingsContextMenu = new System.Windows.Forms.ContextMenu();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             this.exitPanel.Name = "exitPanel";
             this.exitPanel.Size = new System.Drawing.Size(12, 32);
             this.exitPanel.TabIndex = 2;
+            this.tip.SetToolTip(this.exitPanel, "Exit");
             this.exitPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.exitPanel_MouseClick);
             this.exitPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.exitPanel_MouseDown);
             this.exitPanel.MouseEnter += new System.EventHandler(this.exitPanel_MouseEnter);
@@ -91,6 +94,7 @@
             this.pickColorLink.TabIndex = 0;
             this.pickColorLink.TabStop = true;
             this.pickColorLink.Text = "Pick";
+            this.tip.SetToolTip(this.pickColorLink, "Pick a color.");
             this.pickColorLink.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(57)))), ((int)(((byte)(198)))));
             this.pickColorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.pickColorLink_LinkClicked);
             // 
@@ -119,6 +123,7 @@
             this.informationPanel.Name = "informationPanel";
             this.informationPanel.Size = new System.Drawing.Size(12, 32);
             this.informationPanel.TabIndex = 5;
+            this.tip.SetToolTip(this.informationPanel, "About Color Picker");
             this.informationPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseClick);
             this.informationPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseDown);
             this.informationPanel.MouseEnter += new System.EventHandler(this.informationPanel_MouseEnter);
@@ -136,6 +141,7 @@
             this.openClosePanel.Name = "openClosePanel";
             this.openClosePanel.Size = new System.Drawing.Size(12, 32);
             this.openClosePanel.TabIndex = 1;
+            this.tip.SetToolTip(this.openClosePanel, "Click to open and/or close, or drag to resize.");
             this.openClosePanel.Click += new System.EventHandler(this.openClosePanel_Click);
             this.openClosePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseDown);
             this.openClosePanel.MouseEnter += new System.EventHandler(this.openClosePanel_MouseEnter);
@@ -154,6 +160,8 @@
             this.eyedropper.Name = "eyedropper";
             this.eyedropper.Size = new System.Drawing.Size(32, 32);
             this.eyedropper.TabIndex = 0;
+            this.tip.SetToolTip(this.eyedropper, "Click to find a color on the screen or drag and drop a color value onto the EyeDr" +
+        "opper to add it to the Color Strip.");
             this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
             this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
             this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
@@ -241,6 +249,16 @@
             this.menuItem2.Text = "Remove";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
             // 
+            // settingsContextMenu
+            // 
+            this.settingsContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem3});
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 0;
+            this.menuItem3.Text = "Settings";
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -293,6 +311,8 @@
         private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem useWideColorPanelsMenuItem;
         private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.ContextMenu settingsContextMenu;
+        private System.Windows.Forms.MenuItem menuItem3;
     }
 }
 
