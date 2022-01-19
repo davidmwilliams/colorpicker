@@ -175,7 +175,6 @@
             this.menuItem5,
             this.menuItem2});
             this.menuItem1.Text = "Copy...";
-            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
             // menuItem4
             // 
@@ -196,6 +195,7 @@
             this.menuItem5.Index = 2;
             this.menuItem5.RadioCheck = true;
             this.menuItem5.Text = "HSB";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // menuItem2
             // 

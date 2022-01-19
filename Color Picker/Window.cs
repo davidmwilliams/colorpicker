@@ -488,19 +488,11 @@ namespace Color_Picker
             }
         }
 
-        private void menuItem1_Click(object sender, EventArgs e)
-        {
-            menuItem3.Checked = false;
-            menuItem2.Checked = false;
-            menuItem4.Checked = false;
-            menuItem1.Checked = true;
-        }
-
         private void menuItem2_Click(object sender, EventArgs e)
         {
             menuItem3.Checked = false;
             menuItem4.Checked = false;
-            menuItem1.Checked = false;
+            menuItem5.Checked = false;
             menuItem2.Checked = true;
         }
 
@@ -508,7 +500,7 @@ namespace Color_Picker
         {
             menuItem4.Checked = false;
             menuItem2.Checked = false;
-            menuItem1.Checked = false;
+            menuItem5.Checked = false;
             menuItem3.Checked = true;
         }
 
@@ -516,7 +508,7 @@ namespace Color_Picker
         {
             menuItem3.Checked = false;
             menuItem2.Checked = false;
-            menuItem1.Checked = false;
+            menuItem5.Checked = false;
             menuItem4.Checked = true;
         }
 
@@ -533,6 +525,15 @@ namespace Color_Picker
                 History.Pallette.Clear();
                 History.Delete(Program.ColorHistoryFilePath);
             }
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+
+            menuItem3.Checked = false;
+            menuItem2.Checked = false;
+            menuItem4.Checked = false;
+            menuItem5.Checked = true;
         }
     }
 }
