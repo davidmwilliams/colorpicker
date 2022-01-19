@@ -12,6 +12,21 @@ namespace Color_Picker
 		[DataMember]
 		public System.Drawing.Color Color { get; set; }
 
+		private int colorPanelWidth;
+
+		[DataMember]
+		public int ColorPanelWidth
+        {
+			get
+			{
+				return this.colorPanelWidth;
+			}
+			set
+			{
+				colorPanelWidth = value | 10;
+			}
+        }
+
 		public ColorPallette() { }
 	}
 }

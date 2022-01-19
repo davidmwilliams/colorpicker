@@ -142,13 +142,14 @@ namespace Color_Picker
             {
                 ColorPallette colorPallette = new ColorPallette()
                 {
-                    Color = selectedColor
+                    Color = selectedColor,
+                    ColorPanelWidth = defaultColorPanelWidth
                 };
 
                 //Program.history = new History();
                 History.Pallette.Add(colorPallette);
 
-                CreateColorPanel(selectedColor);
+                CreateColorPanel(selectedColor, defaultColorPanelWidth);
             }
         }
 
@@ -271,13 +272,14 @@ namespace Color_Picker
 
                     ColorPallette colorPallette = new ColorPallette()
                     {
-                        Color = pickedColor
+                        Color = pickedColor,
+                        ColorPanelWidth = defaultColorPanelWidth
                     };
 
                     //Program.history = new History();
                     History.Pallette.Add(colorPallette);
 
-                    CreateColorPanel(pickedColor);
+                    CreateColorPanel(pickedColor, defaultColorPanelWidth);
 
                     // We're done. Show the window again.
                     Visibility = VisibilityTypes.Visible;
@@ -291,13 +293,13 @@ namespace Color_Picker
             }
         }
 
-        private void CreateColorPanel(Color pickedColor)
+        private void CreateColorPanel(Color pickedColor, int colorPanelWidth)
         {
             if (pickedColor != null)
             {
                 Panel pickedColorPanel = new Panel();
                 pickedColorPanel.BackColor = pickedColor;
-                pickedColorPanel.Width = 10;
+                pickedColorPanel.Width = colorPanelWidth;
                 pickedColorPanel.Height = this.Height;
                 pickedColorPanel.Margin = new Padding(0, 0, 0, 0);
 
@@ -495,7 +497,8 @@ namespace Color_Picker
             {
                 foreach (ColorPallette pallette in History.Pallette)
                 {
-                    CreateColorPanel(pallette.Color);
+                    defaultColorPanelWidth = pallette.ColorPanelWidth;
+                    CreateColorPanel(pallette.Color, pallette.ColorPanelWidth);
                 }
             }
         }
