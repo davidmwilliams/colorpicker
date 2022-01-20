@@ -331,10 +331,37 @@ namespace Color_Picker
 
         private void PickedColorPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 selectedColor = (sender as Panel).BackColor;
                 selectedColorPanel = (sender as Panel);
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                selectedColor = (sender as Panel).BackColor;
+                selectedColorPanel = (sender as Panel);
+
+                foreach (MenuItem item in menuItem1.MenuItems)
+                {
+                    if(item.Checked)
+                    {
+                        switch (item.Text)
+                        {
+                            case "CMYK":
+                                Clipboard.SetText(Convert.ToCMYK(selectedColor.R, selectedColor.G, selectedColor.B));
+                                break;
+                            case "HEX":
+                                Clipboard.SetText(HexConverter(selectedColor));
+                                break;
+                            case "HSB":
+                                Clipboard.SetText(selectedColor.GetHue() + "," + selectedColor.GetSaturation() + "," + selectedColor.GetBrightness());
+                                break;
+                            case "RGB":
+                                Clipboard.SetText(selectedColor.R + "," + selectedColor.G + "," + selectedColor.B);
+                                break;
+                        }
+                    }
+                }
             }
         }
 
