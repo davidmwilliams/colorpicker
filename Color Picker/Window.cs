@@ -658,6 +658,11 @@ namespace Color_Picker
                     colorPanel.Width = defaultColorPanelWidth;
                 }
             }
+
+            foreach (ColorPallette pallette in History.Pallette)
+            {
+                pallette.ColorPanelWidth = defaultColorPanelWidth;
+            }
         }
 
         private void eyedropper_DragEnter(object sender, DragEventArgs e)
