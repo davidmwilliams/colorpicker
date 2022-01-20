@@ -95,7 +95,18 @@ namespace Color_Picker
 
         private void Window_Load(object sender, EventArgs e)
         {
-            defaultSize = new Size(275, 32);
+            foreach(ColorPallette pallette in History.Pallette)
+            {
+                if (pallette.DefaultWindowWidth > 275)
+                {
+                    defaultSize = new Size(History.Pallette[0].DefaultWindowWidth, 32);
+                }
+                else
+                {
+                    defaultSize = new Size(275, 32);
+                }
+            }
+
             SetLocation();
         }
 
@@ -522,6 +533,11 @@ namespace Color_Picker
             // Save Color Pallette.
             if ((Program.history == null ? false : History.Pallette.Count >= 1))
             {
+                foreach (ColorPallette pallette in History.Pallette)
+                {
+                    pallette.DefaultWindowWidth = this.Width;
+                }
+
                 History.Save(Program.ColorHistoryFilePath);
             }
 
@@ -735,6 +751,10 @@ namespace Color_Picker
                     History.Pallette.Remove(pallette);
                 }
             }
+        }
+
+        private void Window_SizeChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -12,6 +12,9 @@ namespace Color_Picker
 		[DataMember]
 		public System.Drawing.Color Color { get; set; }
 
+		[DataMember]
+		public int DefaultWindowWidth { get; set; }
+
 		private int colorPanelWidth;
 
 		[DataMember]
