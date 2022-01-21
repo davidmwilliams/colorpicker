@@ -13,6 +13,7 @@ namespace Color_Picker
     public partial class ColorOptions : Form
     {
         public static bool focused;
+        private Color originalSelectedColor;
 
         public enum ColorTypes
         {
@@ -33,7 +34,13 @@ namespace Color_Picker
 
         private void ColorOptions_Shown(object sender, EventArgs e)
         {
+            originalSelectedColor = SelectedColor;
+
             SetChosenColor();
+
+            rValueTextField.Text = rTrackBar.Value.ToString();
+            gValueTextField.Text = gTrackBar.Value.ToString();
+            bValueTextField.Text = bTrackBar.Value.ToString();
         }
 
         private void SetChosenColor()
@@ -66,6 +73,7 @@ namespace Color_Picker
             colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
+            rValueTextField.Text = rTrackBar.Value.ToString();
         }
 
         private void gTrackBar_Scroll(object sender, EventArgs e)
@@ -73,6 +81,7 @@ namespace Color_Picker
             colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
+            gValueTextField.Text = gTrackBar.Value.ToString();
         }
 
         private void bTrackBar_Scroll(object sender, EventArgs e)
@@ -80,7 +89,7 @@ namespace Color_Picker
             colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
-
+            bValueTextField.Text = bTrackBar.Value.ToString();
         }
 
         private void okButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
@@ -129,6 +138,43 @@ namespace Color_Picker
             Window.selectedColors.Add(SelectedColor);
             focused = true;
             Window.ActiveForm.Activate();
+        }
+
+        private void resetColorChoiceLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            colorPanel.BackColor = originalSelectedColor;
+            SelectedColor = originalSelectedColor;
+
+            rTrackBar.Value = SelectedColor.R;
+            gTrackBar.Value = SelectedColor.G;
+            bTrackBar.Value = SelectedColor.B;
+        }
+
+        private void rValueTextField_TextChanged(object sender, EventArgs e)
+        {
+            int colorValue;
+
+            Int32.TryParse(rValueTextField.Text, out colorValue);
+
+            rTrackBar.Value = colorValue;
+        }
+
+        private void gValueTextField_TextChanged(object sender, EventArgs e)
+        {
+            int colorValue;
+
+            Int32.TryParse(gValueTextField.Text, out colorValue);
+
+            gTrackBar.Value = colorValue;
+        }
+
+        private void bValueTextField_TextChanged(object sender, EventArgs e)
+        {
+            int colorValue;
+
+            Int32.TryParse(bValueTextField.Text, out colorValue);
+
+            bTrackBar.Value = colorValue;
         }
     }
 }

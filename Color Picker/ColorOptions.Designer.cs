@@ -43,6 +43,10 @@
             this.colorNameLabel = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addColorButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
+            this.resetColorChoiceLink = new System.Windows.Forms.LinkLabel();
+            this.rValueTextField = new System.Windows.Forms.TextBox();
+            this.gValueTextField = new System.Windows.Forms.TextBox();
+            this.bValueTextField = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bTrackBar)).BeginInit();
@@ -55,7 +59,7 @@
             this.colorPanel.Location = new System.Drawing.Point(14, 14);
             this.colorPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.colorPanel.Name = "colorPanel";
-            this.colorPanel.Size = new System.Drawing.Size(257, 37);
+            this.colorPanel.Size = new System.Drawing.Size(329, 37);
             this.colorPanel.TabIndex = 0;
             this.tip.SetToolTip(this.colorPanel, "Show this color in fullscreen.");
             this.colorPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseClick);
@@ -72,7 +76,7 @@
             "HSB",
             "HSL",
             "RGB"});
-            this.selectedColorStyleComboBox.Location = new System.Drawing.Point(185, 57);
+            this.selectedColorStyleComboBox.Location = new System.Drawing.Point(257, 57);
             this.selectedColorStyleComboBox.Name = "selectedColorStyleComboBox";
             this.selectedColorStyleComboBox.Size = new System.Drawing.Size(86, 23);
             this.selectedColorStyleComboBox.TabIndex = 1;
@@ -85,7 +89,7 @@
             this.rTrackBar.Location = new System.Drawing.Point(14, 122);
             this.rTrackBar.Maximum = 255;
             this.rTrackBar.Name = "rTrackBar";
-            this.rTrackBar.Size = new System.Drawing.Size(257, 45);
+            this.rTrackBar.Size = new System.Drawing.Size(281, 45);
             this.rTrackBar.TabIndex = 2;
             this.rTrackBar.Scroll += new System.EventHandler(this.rTrackBar_Scroll);
             // 
@@ -101,7 +105,7 @@
             this.separator1.Location = new System.Drawing.Point(14, 86);
             this.separator1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 32);
             this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(257, 1);
+            this.separator1.Size = new System.Drawing.Size(329, 1);
             this.separator1.TabIndex = 3;
             this.separator1.Text = "separator1";
             this.separator1.Thickness = 1;
@@ -131,7 +135,7 @@
             this.gTrackBar.Location = new System.Drawing.Point(14, 188);
             this.gTrackBar.Maximum = 255;
             this.gTrackBar.Name = "gTrackBar";
-            this.gTrackBar.Size = new System.Drawing.Size(257, 45);
+            this.gTrackBar.Size = new System.Drawing.Size(281, 45);
             this.gTrackBar.TabIndex = 5;
             this.gTrackBar.Scroll += new System.EventHandler(this.gTrackBar_Scroll);
             // 
@@ -151,7 +155,7 @@
             this.bTrackBar.Location = new System.Drawing.Point(14, 254);
             this.bTrackBar.Maximum = 255;
             this.bTrackBar.Name = "bTrackBar";
-            this.bTrackBar.Size = new System.Drawing.Size(257, 45);
+            this.bTrackBar.Size = new System.Drawing.Size(281, 45);
             this.bTrackBar.TabIndex = 7;
             this.bTrackBar.Scroll += new System.EventHandler(this.bTrackBar_Scroll);
             // 
@@ -184,7 +188,7 @@
             this.okButton.FocusedColor = System.Drawing.Color.Empty;
             this.okButton.HasBorder = true;
             this.okButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.okButton.Location = new System.Drawing.Point(187, 310);
+            this.okButton.Location = new System.Drawing.Point(259, 310);
             this.okButton.Name = "okButton";
             this.okButton.RequiresConfirmation = false;
             this.okButton.SeparatorDistance = 0;
@@ -238,7 +242,7 @@
             this.addColorButton.FocusedColor = System.Drawing.Color.Empty;
             this.addColorButton.HasBorder = true;
             this.addColorButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.addColorButton.Location = new System.Drawing.Point(156, 57);
+            this.addColorButton.Location = new System.Drawing.Point(228, 57);
             this.addColorButton.Name = "addColorButton";
             this.addColorButton.RequiresConfirmation = false;
             this.addColorButton.SeparatorDistance = 0;
@@ -251,12 +255,62 @@
             this.addColorButton.UsingTexturedBackground = false;
             this.addColorButton.Clicked += new System.EventHandler<ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs>(this.addColorButton_Clicked);
             // 
+            // resetColorChoiceLink
+            // 
+            this.resetColorChoiceLink.AutoSize = true;
+            this.resetColorChoiceLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.resetColorChoiceLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(114)))), ((int)(((byte)(145)))));
+            this.resetColorChoiceLink.Location = new System.Drawing.Point(12, 315);
+            this.resetColorChoiceLink.Name = "resetColorChoiceLink";
+            this.resetColorChoiceLink.Size = new System.Drawing.Size(35, 15);
+            this.resetColorChoiceLink.TabIndex = 12;
+            this.resetColorChoiceLink.TabStop = true;
+            this.resetColorChoiceLink.Text = "Reset";
+            this.resetColorChoiceLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.resetColorChoiceLink_LinkClicked);
+            // 
+            // rValueTextField
+            // 
+            this.rValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
+            this.rValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rValueTextField.Location = new System.Drawing.Point(301, 128);
+            this.rValueTextField.Name = "rValueTextField";
+            this.rValueTextField.Size = new System.Drawing.Size(42, 23);
+            this.rValueTextField.TabIndex = 13;
+            this.rValueTextField.TextChanged += new System.EventHandler(this.rValueTextField_TextChanged);
+            // 
+            // gValueTextField
+            // 
+            this.gValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
+            this.gValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gValueTextField.Location = new System.Drawing.Point(301, 194);
+            this.gValueTextField.Name = "gValueTextField";
+            this.gValueTextField.Size = new System.Drawing.Size(42, 23);
+            this.gValueTextField.TabIndex = 14;
+            this.gValueTextField.TextChanged += new System.EventHandler(this.gValueTextField_TextChanged);
+            // 
+            // bValueTextField
+            // 
+            this.bValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
+            this.bValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bValueTextField.Location = new System.Drawing.Point(301, 260);
+            this.bValueTextField.Name = "bValueTextField";
+            this.bValueTextField.Size = new System.Drawing.Size(42, 23);
+            this.bValueTextField.TabIndex = 15;
+            this.bValueTextField.TextChanged += new System.EventHandler(this.bValueTextField_TextChanged);
+            // 
             // ColorOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(284, 347);
+            this.ClientSize = new System.Drawing.Size(356, 347);
+            this.Controls.Add(this.bValueTextField);
+            this.Controls.Add(this.gValueTextField);
+            this.Controls.Add(this.rValueTextField);
+            this.Controls.Add(this.resetColorChoiceLink);
             this.Controls.Add(this.addColorButton);
             this.Controls.Add(this.colorNameLabel);
             this.Controls.Add(this.okButton);
@@ -272,7 +326,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimumSize = new System.Drawing.Size(300, 386);
+            this.MinimumSize = new System.Drawing.Size(372, 386);
             this.Name = "ColorOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Options";
@@ -300,5 +354,9 @@
         private System.Windows.Forms.Label colorNameLabel;
         private System.Windows.Forms.ToolTip tip;
         private ALMSTWKND.UI.WindowsForms.Controls.Button addColorButton;
+        private System.Windows.Forms.LinkLabel resetColorChoiceLink;
+        private System.Windows.Forms.TextBox rValueTextField;
+        private System.Windows.Forms.TextBox gValueTextField;
+        private System.Windows.Forms.TextBox bValueTextField;
     }
 }
