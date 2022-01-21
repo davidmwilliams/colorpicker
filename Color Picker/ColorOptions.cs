@@ -148,6 +148,10 @@ namespace Color_Picker
             rTrackBar.Value = SelectedColor.R;
             gTrackBar.Value = SelectedColor.G;
             bTrackBar.Value = SelectedColor.B;
+
+            rValueTextField.Text = SelectedColor.R.ToString();
+            gValueTextField.Text = SelectedColor.G.ToString();
+            bValueTextField.Text = SelectedColor.B.ToString();
         }
 
         private void rValueTextField_TextChanged(object sender, EventArgs e)
