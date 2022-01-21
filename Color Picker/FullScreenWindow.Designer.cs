@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colorSlider1 = new Color_Picker.ColorSlider();
             this.SuspendLayout();
+            // 
+            // colorSlider1
+            // 
+            this.colorSlider1.Location = new System.Drawing.Point(67, 65);
+            this.colorSlider1.Name = "colorSlider1";
+            this.colorSlider1.Size = new System.Drawing.Size(75, 23);
+            this.colorSlider1.SliderColor = Color_Picker.ColorSlider.Colors.Blue;
+            this.colorSlider1.TabIndex = 0;
+            this.colorSlider1.Text = "colorSlider1";
             // 
             // FullScreenWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(10, 10);
+            this.ClientSize = new System.Drawing.Size(266, 182);
+            this.Controls.Add(this.colorSlider1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -51,5 +62,7 @@
         }
 
         #endregion
+
+        private ColorSlider colorSlider1;
     }
 }
