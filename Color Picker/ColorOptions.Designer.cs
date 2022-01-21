@@ -65,11 +65,13 @@
             "CMYK",
             "HEX",
             "HSB",
+            "HSL",
             "RGB"});
             this.selectedColorStyleComboBox.Location = new System.Drawing.Point(185, 57);
             this.selectedColorStyleComboBox.Name = "selectedColorStyleComboBox";
             this.selectedColorStyleComboBox.Size = new System.Drawing.Size(86, 23);
             this.selectedColorStyleComboBox.TabIndex = 1;
+            this.selectedColorStyleComboBox.SelectionChangeCommitted += new System.EventHandler(this.selectedColorStyleComboBox_SelectionChangeCommitted);
             // 
             // rTrackBar
             // 

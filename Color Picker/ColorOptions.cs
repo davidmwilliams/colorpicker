@@ -87,5 +87,22 @@ namespace Color_Picker
 
             this.DialogResult = DialogResult.OK;
         }
+
+        private void selectedColorStyleComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch(selectedColorStyleComboBox.SelectedText)
+            {
+                case "CMYK":
+                    break;
+                case "HEX":
+                    break;
+                case "HSB":
+                    break;
+                case "HSL":
+                    break;
+                case "RGB":
+                    break;
+            }
+        }
     }
 }
