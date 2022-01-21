@@ -12,6 +12,8 @@ namespace Color_Picker
 {
     public partial class ColorOptions : Form
     {
+        public static bool focused;
+
         public enum ColorTypes
         {
             CMYK,
@@ -71,8 +73,6 @@ namespace Color_Picker
             colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
-
-
         }
 
         private void bTrackBar_Scroll(object sender, EventArgs e)
@@ -85,10 +85,50 @@ namespace Color_Picker
 
         private void okButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
         {
-            SelectedColor = colorPanel.BackColor;
-            
+            SelectedColor = colorPanel.BackColor;            
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void selectedColorStyleComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch(selectedColorStyleComboBox.SelectedText)
+            {
+                case "CMYK":
+                    break;
+                case "HEX":
+                    break;
+                case "HSB":
+                    break;
+                case "HSL":
+                    break;
+                case "RGB":
+                    break;
+            }
+        }
+
+        private void colorPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                FullScreenWindow.SelectedColor = colorPanel.BackColor;
+
+                using (FullScreenWindow fullScreenWindow = new FullScreenWindow())
+                {
+                    if(fullScreenWindow.ShowDialog() == DialogResult.OK)
+                    {
+                        // TODO: Something.
+                    }
+                }
+            }
+        }
+
+        private void addColorButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            SelectedColor = colorPanel.BackColor;
+            Window.selectedColors.Add(SelectedColor);
+            focused = true;
+            Window.ActiveForm.Activate();
         }
     }
 }

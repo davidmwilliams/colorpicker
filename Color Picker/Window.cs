@@ -38,7 +38,7 @@ namespace Color_Picker
         private Panel selectedColorPanel;
         private bool mouseMoved;
         public int defaultColorPanelWidth;
-
+        public static List<Color> selectedColors;
         public static VisibilityTypes Visibility { get; set; }
 
         public Size defaultSize;
@@ -83,6 +83,7 @@ namespace Color_Picker
             timer.Tick += Timer_Tick;
 
             colorDialog = new ColorDialog();
+            selectedColors = new List<Color>();
 
             colorDialog.FullOpen = true;
             colorDialog.ShowHelp = true;
@@ -821,10 +822,50 @@ namespace Color_Picker
 
                         CreateColorPanel(selectedColor, defaultColorPanelWidth);
 
+                        foreach(Color color in selectedColors)
+                        {
+                            ColorPallette thisColorPallette = new ColorPallette()
+                            {
+                                Color = color,
+                                ColorPanelWidth = defaultColorPanelWidth
+                            };
+
+                            History.Pallette.Add(thisColorPallette);
+
+                            CreateColorPanel(color, defaultColorPanelWidth);
+                        }
+
                         Visibility = VisibilityTypes.Visible;
                         SetLocation();
                     }
                 }
+                else
+                {
+                    foreach (Color color in selectedColors)
+                    {
+                        ColorPallette thisColorPallette = new ColorPallette()
+                        {
+                            Color = color,
+                            ColorPanelWidth = defaultColorPanelWidth
+                        };
+
+                        History.Pallette.Add(thisColorPallette);
+
+                        CreateColorPanel(color, defaultColorPanelWidth);
+                    }
+
+                    Visibility = VisibilityTypes.Visible;
+                    SetLocation();
+                }
+            }
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            if(ColorOptions.focused)
+            {
+                Visibility = VisibilityTypes.PartiallyVisible;
+                SetLocation();
             }
         }
     }
