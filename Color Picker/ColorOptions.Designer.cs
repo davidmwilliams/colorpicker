@@ -98,7 +98,7 @@
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.separator1.CanHighlight = false;
-            this.separator1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(138)))), ((int)(((byte)(238)))));
+            this.separator1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(205)))), ((int)(((byte)(224)))));
             this.separator1.Direction = "Horizontal";
             this.separator1.DisabledColor = System.Drawing.Color.Empty;
             this.separator1.HighlightColor = System.Drawing.Color.Empty;
