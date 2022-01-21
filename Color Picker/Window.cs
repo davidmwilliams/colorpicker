@@ -825,6 +825,11 @@ namespace Color_Picker
                         SetLocation();
                     }
                 }
+                else
+                {
+                    Visibility = VisibilityTypes.Visible;
+                    SetLocation();
+                }
             }
         }
     }

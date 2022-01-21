@@ -120,5 +120,10 @@ namespace Color_Picker
                 }
             }
         }
+
+        private void ColorOptions_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

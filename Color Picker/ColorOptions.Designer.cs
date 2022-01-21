@@ -233,6 +233,7 @@
             this.Name = "ColorOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Options";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ColorOptions_FormClosing);
             this.Shown += new System.EventHandler(this.ColorOptions_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).EndInit();
