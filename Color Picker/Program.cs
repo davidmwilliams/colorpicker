@@ -38,7 +38,7 @@ namespace Color_Picker
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] arguments)
         {
             Program.appVersion = Application.ProductVersion;
             Program.EnsureAppDataDirectoryExists();
