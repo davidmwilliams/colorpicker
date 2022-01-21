@@ -774,8 +774,58 @@ namespace Color_Picker
             }
         }
 
+        public void ChangeEyeDropperBackgroundColor(Color color)
+        {
+            eyedropper.BackColor = color;
+        }
+
         private void Window_SizeChanged(object sender, EventArgs e)
         {
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            ColorOptions.SelectedColor = selectedColor;
+
+            if (RGBMenuItem.Checked)
+                ColorOptions.SelectedColorType = ColorOptions.ColorTypes.RGB;
+            else if (CMYKMenuItem.Checked)
+                ColorOptions.SelectedColorType = ColorOptions.ColorTypes.CMYK;
+            else if (HEXMenuItem.Checked)
+                ColorOptions.SelectedColorType = ColorOptions.ColorTypes.HEX;
+            else if(HSBMenuItem.Checked)
+                ColorOptions.SelectedColorType = ColorOptions.ColorTypes.HSB;
+            
+            using (ColorOptions colorOptions = new ColorOptions())
+            {
+                if(colorOptions.ShowDialog(this) == DialogResult.OK)
+                {
+                    // TODO: Something.
+                    if(ColorOptions.SelectedColor != null)
+                    {
+                        selectedColor = ColorOptions.SelectedColor;
+
+                        ColorPallette colorPallette = new ColorPallette()
+                        {
+                            Color = selectedColor,
+                            ColorPanelWidth = defaultColorPanelWidth
+                        };
+
+                        //Program.history = new History();
+                        History.Pallette.Add(colorPallette);
+
+                        CreateColorPanel(selectedColor, defaultColorPanelWidth);
+
+                        Visibility = VisibilityTypes.Visible;
+                        SetLocation();
+                    }
+                }
+            }
         }
     }
 }
