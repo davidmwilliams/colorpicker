@@ -23,7 +23,7 @@ namespace Color_Picker
         {
             this.BackColor = SelectedColor;
 
-            this.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            this.Bounds = Screen.PrimaryScreen.Bounds;
             this.CenterToScreen();
         }
 

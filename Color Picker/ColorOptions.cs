@@ -12,6 +12,8 @@ namespace Color_Picker
 {
     public partial class ColorOptions : Form
     {
+        public static bool focused;
+
         public enum ColorTypes
         {
             CMYK,
@@ -121,9 +123,12 @@ namespace Color_Picker
             }
         }
 
-        private void ColorOptions_FormClosing(object sender, FormClosingEventArgs e)
+        private void addColorButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
         {
-
+            SelectedColor = colorPanel.BackColor;
+            Window.selectedColors.Add(SelectedColor);
+            focused = true;
+            Window.ActiveForm.Activate();
         }
     }
 }

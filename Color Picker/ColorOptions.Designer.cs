@@ -42,6 +42,7 @@
             this.okButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.colorNameLabel = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
+            this.addColorButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bTrackBar)).BeginInit();
@@ -209,12 +210,54 @@
             this.tip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.tip.ToolTipTitle = "Hint:";
             // 
+            // addColorButton
+            // 
+            this.addColorButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.addColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.addColorButton.BackgroundImageLayout = null;
+            this.addColorButton.BackgroundTexture = null;
+            this.addColorButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
+            this.addColorButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(165)))), ((int)(((byte)(173)))));
+            this.addColorButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.addColorButton.BorderThickness = 1F;
+            this.addColorButton.CheckboxActiveColor = System.Drawing.Color.Empty;
+            this.addColorButton.CheckboxBackgroundColor = System.Drawing.Color.Empty;
+            this.addColorButton.CheckboxHighlightColor = System.Drawing.Color.Empty;
+            this.addColorButton.CheckmarkColor = System.Drawing.Color.Empty;
+            this.addColorButton.CheckmarkThickness = 0F;
+            this.addColorButton.ConfirmedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.addColorButton.ConfirmedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.addColorButton.ConfirmedCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.addColorButton.ConfirmedCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.addColorButton.DisabledBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.addColorButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.addColorButton.DisabledCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.addColorButton.DisabledCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.addColorButton.DisabledSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.addColorButton.FocusedBorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.addColorButton.FocusedColor = System.Drawing.Color.Empty;
+            this.addColorButton.HasBorder = true;
+            this.addColorButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
+            this.addColorButton.Location = new System.Drawing.Point(156, 57);
+            this.addColorButton.Name = "addColorButton";
+            this.addColorButton.RequiresConfirmation = false;
+            this.addColorButton.SeparatorDistance = 0;
+            this.addColorButton.Size = new System.Drawing.Size(23, 23);
+            this.addColorButton.StyleButtonSeparately = false;
+            this.addColorButton.SynchronizeCheckMarkWithBorderSettings = false;
+            this.addColorButton.TabIndex = 11;
+            this.addColorButton.Text = "+";
+            this.tip.SetToolTip(this.addColorButton, "Add this color to the Color Strip without closing the window.");
+            this.addColorButton.UsingTexturedBackground = false;
+            this.addColorButton.Clicked += new System.EventHandler<ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs>(this.addColorButton_Clicked);
+            // 
             // ColorOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(284, 347);
+            this.Controls.Add(this.addColorButton);
             this.Controls.Add(this.colorNameLabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.label3);
@@ -233,7 +276,6 @@
             this.Name = "ColorOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Options";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ColorOptions_FormClosing);
             this.Shown += new System.EventHandler(this.ColorOptions_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).EndInit();
@@ -257,5 +299,6 @@
         private ALMSTWKND.UI.WindowsForms.Controls.Button okButton;
         private System.Windows.Forms.Label colorNameLabel;
         private System.Windows.Forms.ToolTip tip;
+        private ALMSTWKND.UI.WindowsForms.Controls.Button addColorButton;
     }
 }

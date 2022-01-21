@@ -34,6 +34,9 @@
             this.pickColorPanel = new System.Windows.Forms.Panel();
             this.pickColorLink = new System.Windows.Forms.LinkLabel();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
+            this.informationPanel = new System.Windows.Forms.Panel();
+            this.openClosePanel = new System.Windows.Forms.Panel();
+            this.eyedropper = new System.Windows.Forms.Panel();
             this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.colorOptionsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
@@ -48,9 +51,6 @@
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.settingsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.informationPanel = new System.Windows.Forms.Panel();
-            this.openClosePanel = new System.Windows.Forms.Panel();
-            this.eyedropper = new System.Windows.Forms.Panel();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,6 +102,64 @@
             // 
             this.tip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.tip.ToolTipTitle = "Hint:";
+            // 
+            // informationPanel
+            // 
+            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
+            this.informationPanel.BackgroundImage = global::Color_Picker.Properties.Resources.information2;
+            this.informationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.informationPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.informationPanel.Location = new System.Drawing.Point(203, 0);
+            this.informationPanel.Name = "informationPanel";
+            this.informationPanel.Size = new System.Drawing.Size(12, 32);
+            this.informationPanel.TabIndex = 5;
+            this.tip.SetToolTip(this.informationPanel, "About Color Picker");
+            this.informationPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseClick);
+            this.informationPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseDown);
+            this.informationPanel.MouseEnter += new System.EventHandler(this.informationPanel_MouseEnter);
+            this.informationPanel.MouseLeave += new System.EventHandler(this.informationPanel_MouseLeave);
+            this.informationPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseUp);
+            // 
+            // openClosePanel
+            // 
+            this.openClosePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
+            this.openClosePanel.BackgroundImage = global::Color_Picker.Properties.Resources.draggergrey;
+            this.openClosePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.openClosePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.openClosePanel.Location = new System.Drawing.Point(32, 0);
+            this.openClosePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.openClosePanel.Name = "openClosePanel";
+            this.openClosePanel.Size = new System.Drawing.Size(12, 32);
+            this.openClosePanel.TabIndex = 1;
+            this.tip.SetToolTip(this.openClosePanel, "Click to open and/or close, or drag to resize.");
+            this.openClosePanel.Click += new System.EventHandler(this.openClosePanel_Click);
+            this.openClosePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseDown);
+            this.openClosePanel.MouseEnter += new System.EventHandler(this.openClosePanel_MouseEnter);
+            this.openClosePanel.MouseLeave += new System.EventHandler(this.openClosePanel_MouseLeave);
+            this.openClosePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseMove);
+            this.openClosePanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseUp);
+            // 
+            // eyedropper
+            // 
+            this.eyedropper.AllowDrop = true;
+            this.eyedropper.BackgroundImage = global::Color_Picker.Properties.Resources.eyedropper;
+            this.eyedropper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.eyedropper.Dock = System.Windows.Forms.DockStyle.Left;
+            this.eyedropper.Location = new System.Drawing.Point(0, 0);
+            this.eyedropper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.eyedropper.Name = "eyedropper";
+            this.eyedropper.Size = new System.Drawing.Size(32, 32);
+            this.eyedropper.TabIndex = 0;
+            this.tip.SetToolTip(this.eyedropper, "Click to find a color on the screen or drag and drop a color value onto the EyeDr" +
+        "opper to add it to the Color Strip.");
+            this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
+            this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
+            this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
+            this.eyedropper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseDown);
+            this.eyedropper.MouseEnter += new System.EventHandler(this.eyedropper_MouseEnter);
+            this.eyedropper.MouseLeave += new System.EventHandler(this.eyedropper_MouseLeave);
+            this.eyedropper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseUp);
+            this.eyedropper.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.eyedropper_PreviewKeyDown);
             // 
             // colorHistoryPanel
             // 
@@ -202,64 +260,6 @@
             this.menuItem3.Index = 0;
             this.menuItem3.Text = "Settings";
             // 
-            // informationPanel
-            // 
-            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
-            this.informationPanel.BackgroundImage = global::Color_Picker.Properties.Resources.information2;
-            this.informationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.informationPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.informationPanel.Location = new System.Drawing.Point(203, 0);
-            this.informationPanel.Name = "informationPanel";
-            this.informationPanel.Size = new System.Drawing.Size(12, 32);
-            this.informationPanel.TabIndex = 5;
-            this.tip.SetToolTip(this.informationPanel, "About Color Picker");
-            this.informationPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseClick);
-            this.informationPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseDown);
-            this.informationPanel.MouseEnter += new System.EventHandler(this.informationPanel_MouseEnter);
-            this.informationPanel.MouseLeave += new System.EventHandler(this.informationPanel_MouseLeave);
-            this.informationPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.informationPanel_MouseUp);
-            // 
-            // openClosePanel
-            // 
-            this.openClosePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(227)))));
-            this.openClosePanel.BackgroundImage = global::Color_Picker.Properties.Resources.draggergrey;
-            this.openClosePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.openClosePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.openClosePanel.Location = new System.Drawing.Point(32, 0);
-            this.openClosePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.openClosePanel.Name = "openClosePanel";
-            this.openClosePanel.Size = new System.Drawing.Size(12, 32);
-            this.openClosePanel.TabIndex = 1;
-            this.tip.SetToolTip(this.openClosePanel, "Click to open and/or close, or drag to resize.");
-            this.openClosePanel.Click += new System.EventHandler(this.openClosePanel_Click);
-            this.openClosePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseDown);
-            this.openClosePanel.MouseEnter += new System.EventHandler(this.openClosePanel_MouseEnter);
-            this.openClosePanel.MouseLeave += new System.EventHandler(this.openClosePanel_MouseLeave);
-            this.openClosePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseMove);
-            this.openClosePanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.openClosePanel_MouseUp);
-            // 
-            // eyedropper
-            // 
-            this.eyedropper.AllowDrop = true;
-            this.eyedropper.BackgroundImage = global::Color_Picker.Properties.Resources.eyedropper;
-            this.eyedropper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.eyedropper.Dock = System.Windows.Forms.DockStyle.Left;
-            this.eyedropper.Location = new System.Drawing.Point(0, 0);
-            this.eyedropper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.eyedropper.Name = "eyedropper";
-            this.eyedropper.Size = new System.Drawing.Size(32, 32);
-            this.eyedropper.TabIndex = 0;
-            this.tip.SetToolTip(this.eyedropper, "Click to find a color on the screen or drag and drop a color value onto the EyeDr" +
-        "opper to add it to the Color Strip.");
-            this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
-            this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
-            this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
-            this.eyedropper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseDown);
-            this.eyedropper.MouseEnter += new System.EventHandler(this.eyedropper_MouseEnter);
-            this.eyedropper.MouseLeave += new System.EventHandler(this.eyedropper_MouseLeave);
-            this.eyedropper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseUp);
-            this.eyedropper.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.eyedropper_PreviewKeyDown);
-            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -280,6 +280,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Color Picker";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.Window_Activated);
             this.Deactivate += new System.EventHandler(this.Window_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Window_FormClosing);
             this.Load += new System.EventHandler(this.Window_Load);
