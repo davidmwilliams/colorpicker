@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorOptions));
             this.colorPanel = new System.Windows.Forms.Panel();
             this.selectedColorStyleComboBox = new System.Windows.Forms.ComboBox();
@@ -40,6 +41,7 @@
             this.bTrackBar = new System.Windows.Forms.TrackBar();
             this.okButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.colorNameLabel = new System.Windows.Forms.Label();
+            this.tip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bTrackBar)).BeginInit();
@@ -54,6 +56,8 @@
             this.colorPanel.Name = "colorPanel";
             this.colorPanel.Size = new System.Drawing.Size(257, 37);
             this.colorPanel.TabIndex = 0;
+            this.tip.SetToolTip(this.colorPanel, "Show this color in fullscreen.");
+            this.colorPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseClick);
             // 
             // selectedColorStyleComboBox
             // 
@@ -200,6 +204,11 @@
             this.colorNameLabel.Size = new System.Drawing.Size(0, 15);
             this.colorNameLabel.TabIndex = 10;
             // 
+            // tip
+            // 
+            this.tip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.tip.ToolTipTitle = "Hint:";
+            // 
             // ColorOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -246,5 +255,6 @@
         private System.Windows.Forms.TrackBar bTrackBar;
         private ALMSTWKND.UI.WindowsForms.Controls.Button okButton;
         private System.Windows.Forms.Label colorNameLabel;
+        private System.Windows.Forms.ToolTip tip;
     }
 }

@@ -116,6 +116,12 @@
     </Compile>
     <Compile Include="ColorPallette.cs" />
     <Compile Include="Convert.cs" />
+    <Compile Include="FullScreenWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullScreenWindow.Designer.cs">
+      <DependentUpon>FullScreenWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="History.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorOptions.resx">
       <DependentUpon>ColorOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullScreenWindow.resx">
+      <DependentUpon>FullScreenWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Window.resx">
       <DependentUpon>Window.cs</DependentUpon>

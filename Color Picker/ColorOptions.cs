@@ -104,5 +104,21 @@ namespace Color_Picker
                     break;
             }
         }
+
+        private void colorPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                FullScreenWindow.SelectedColor = colorPanel.BackColor;
+
+                using (FullScreenWindow fullScreenWindow = new FullScreenWindow())
+                {
+                    if(fullScreenWindow.ShowDialog() == DialogResult.OK)
+                    {
+                        // TODO: Something.
+                    }
+                }
+            }
+        }
     }
 }
