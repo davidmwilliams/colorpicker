@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -108,6 +108,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorOptions.Designer.cs">
+      <DependentUpon>ColorOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorPallette.cs" />
     <Compile Include="Convert.cs" />
     <Compile Include="History.cs" />
@@ -121,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorOptions.resx">
+      <DependentUpon>ColorOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Window.resx">
       <DependentUpon>Window.cs</DependentUpon>
