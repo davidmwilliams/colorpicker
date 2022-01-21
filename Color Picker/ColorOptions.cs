@@ -71,8 +71,6 @@ namespace Color_Picker
             colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
-
-
         }
 
         private void bTrackBar_Scroll(object sender, EventArgs e)
@@ -85,8 +83,7 @@ namespace Color_Picker
 
         private void okButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
         {
-            SelectedColor = colorPanel.BackColor;
-            
+            SelectedColor = colorPanel.BackColor;            
 
             this.DialogResult = DialogResult.OK;
         }
