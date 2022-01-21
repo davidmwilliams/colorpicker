@@ -551,10 +551,26 @@ namespace Color_Picker
         {
             if (History.Pallette != null && History.Pallette.Count >= 1)
             {
+                bool usingWideColorPanels = false;
+
                 foreach (ColorPallette pallette in History.Pallette)
                 {
+                    if (pallette.ColorPanelWidth >= 24)
+                        usingWideColorPanels = true;
+                    else
+                        usingWideColorPanels = false;
+
                     defaultColorPanelWidth = pallette.ColorPanelWidth;
                     CreateColorPanel(pallette.Color, pallette.ColorPanelWidth);
+                }
+
+                if (usingWideColorPanels)
+                {
+                    useWideColorPanelsMenuItem.Checked = true;
+                }
+                else
+                {
+                    useWideColorPanelsMenuItem.Checked = false;
                 }
             }
         }
@@ -657,6 +673,11 @@ namespace Color_Picker
                 {
                     colorPanel.Width = defaultColorPanelWidth;
                 }
+            }
+
+            foreach (ColorPallette pallette in History.Pallette)
+            {
+                pallette.ColorPanelWidth = defaultColorPanelWidth;
             }
         }
 
