@@ -304,17 +304,12 @@ namespace Color_Picker
                     History.Pallette.Add(colorPallette);
 
                     CreateColorPanel(pickedColor, defaultColorPanelWidth);
-
-                    // We're done. Show the window again.
-                    Visibility = VisibilityTypes.Visible;
-                    SetLocation();
-                }
-                else
-                {
-                    // Figure out what to do here.
-
                 }
             }
+
+            // We're done. Show the window again.
+            Visibility = VisibilityTypes.Visible;
+            SetLocation();
         }
 
         private void CreateColorPanel(Color pickedColor, int colorPanelWidth)
