@@ -43,6 +43,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Magenta;
             this.Load += new System.EventHandler(this.FullScreenWindow_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullScreenWindow_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FullScreenWindow_MouseClick);

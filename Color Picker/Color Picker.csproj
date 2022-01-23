@@ -129,6 +129,12 @@
       <DependentUpon>FullScreenWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="History.cs" />
+    <Compile Include="RGBLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RGBLine.Designer.cs">
+      <DependentUpon>RGBLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="transparency.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FullScreenWindow.resx">
       <DependentUpon>FullScreenWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RGBLine.resx">
+      <DependentUpon>RGBLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Window.resx">
       <DependentUpon>Window.cs</DependentUpon>

@@ -272,7 +272,7 @@ namespace Color_Picker
             Int32.TryParse(aValueTextField.Text, out value);
 
             if (value >= 0 && value <= 254)
-                aValueTextField.Text = (value - 1).ToString();
+                aValueTextField.Text = (value + 1).ToString();
         }
     }
 }
