@@ -190,7 +190,6 @@
             this.HSBMenuItem,
             this.RGBMenuItem});
             this.menuItem1.Text = "Copy...";
-            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
             // CMYKMenuItem
             // 
@@ -285,7 +284,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Window_FormClosing);
             this.Load += new System.EventHandler(this.Window_Load);
             this.Shown += new System.EventHandler(this.Window_Shown);
-            this.SizeChanged += new System.EventHandler(this.Window_SizeChanged);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Window_KeyPress);
             this.pickColorPanel.ResumeLayout(false);
             this.pickColorPanel.PerformLayout();

@@ -831,15 +831,6 @@ namespace Color_Picker
             eyedropper.BackColor = color;
         }
 
-        private void Window_SizeChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void menuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void menuItem8_Click(object sender, EventArgs e)
         {
             ColorOptions.SelectedColor = selectedColor;

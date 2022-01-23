@@ -53,9 +53,15 @@
             this.gMinusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.bPlusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.bMinusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
+            this.aTrackBar = new System.Windows.Forms.TrackBar();
+            this.aPlusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
+            this.aMinusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
+            this.aValueTextField = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // colorPanel
@@ -92,10 +98,10 @@
             // 
             this.rTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rTrackBar.Location = new System.Drawing.Point(15, 122);
+            this.rTrackBar.Location = new System.Drawing.Point(32, 104);
             this.rTrackBar.Maximum = 255;
             this.rTrackBar.Name = "rTrackBar";
-            this.rTrackBar.Size = new System.Drawing.Size(210, 45);
+            this.rTrackBar.Size = new System.Drawing.Size(193, 45);
             this.rTrackBar.TabIndex = 2;
             this.rTrackBar.Scroll += new System.EventHandler(this.rTrackBar_Scroll);
             // 
@@ -128,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 170);
+            this.label2.Location = new System.Drawing.Point(12, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 15);
             this.label2.TabIndex = 6;
@@ -138,17 +144,17 @@
             // 
             this.gTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gTrackBar.Location = new System.Drawing.Point(15, 201);
+            this.gTrackBar.Location = new System.Drawing.Point(33, 155);
             this.gTrackBar.Maximum = 255;
             this.gTrackBar.Name = "gTrackBar";
-            this.gTrackBar.Size = new System.Drawing.Size(210, 45);
+            this.gTrackBar.Size = new System.Drawing.Size(192, 45);
             this.gTrackBar.TabIndex = 5;
             this.gTrackBar.Scroll += new System.EventHandler(this.gTrackBar_Scroll);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 236);
+            this.label3.Location = new System.Drawing.Point(12, 206);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 15);
             this.label3.TabIndex = 8;
@@ -158,10 +164,10 @@
             // 
             this.bTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bTrackBar.Location = new System.Drawing.Point(15, 267);
+            this.bTrackBar.Location = new System.Drawing.Point(32, 206);
             this.bTrackBar.Maximum = 255;
             this.bTrackBar.Name = "bTrackBar";
-            this.bTrackBar.Size = new System.Drawing.Size(210, 45);
+            this.bTrackBar.Size = new System.Drawing.Size(193, 45);
             this.bTrackBar.TabIndex = 7;
             this.bTrackBar.Scroll += new System.EventHandler(this.bTrackBar_Scroll);
             // 
@@ -194,7 +200,7 @@
             this.okButton.FocusedColor = System.Drawing.Color.Empty;
             this.okButton.HasBorder = true;
             this.okButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.okButton.Location = new System.Drawing.Point(259, 333);
+            this.okButton.Location = new System.Drawing.Point(259, 310);
             this.okButton.Name = "okButton";
             this.okButton.RequiresConfirmation = false;
             this.okButton.SeparatorDistance = 0;
@@ -263,10 +269,11 @@
             // 
             // resetColorChoiceLink
             // 
+            this.resetColorChoiceLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.resetColorChoiceLink.AutoSize = true;
             this.resetColorChoiceLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.resetColorChoiceLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(114)))), ((int)(((byte)(145)))));
-            this.resetColorChoiceLink.Location = new System.Drawing.Point(11, 338);
+            this.resetColorChoiceLink.Location = new System.Drawing.Point(11, 315);
             this.resetColorChoiceLink.Name = "resetColorChoiceLink";
             this.resetColorChoiceLink.Size = new System.Drawing.Size(35, 15);
             this.resetColorChoiceLink.TabIndex = 12;
@@ -279,7 +286,7 @@
             this.rValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.rValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rValueTextField.Location = new System.Drawing.Point(260, 127);
+            this.rValueTextField.Location = new System.Drawing.Point(260, 109);
             this.rValueTextField.Name = "rValueTextField";
             this.rValueTextField.Size = new System.Drawing.Size(42, 23);
             this.rValueTextField.TabIndex = 13;
@@ -290,7 +297,7 @@
             this.gValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.gValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gValueTextField.Location = new System.Drawing.Point(260, 206);
+            this.gValueTextField.Location = new System.Drawing.Point(260, 160);
             this.gValueTextField.Name = "gValueTextField";
             this.gValueTextField.Size = new System.Drawing.Size(42, 23);
             this.gValueTextField.TabIndex = 14;
@@ -301,7 +308,7 @@
             this.bValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.bValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bValueTextField.Location = new System.Drawing.Point(260, 272);
+            this.bValueTextField.Location = new System.Drawing.Point(260, 211);
             this.bValueTextField.Name = "bValueTextField";
             this.bValueTextField.Size = new System.Drawing.Size(42, 23);
             this.bValueTextField.TabIndex = 15;
@@ -310,6 +317,7 @@
             // rMinusButton
             // 
             this.rMinusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.rMinusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.rMinusButton.BackgroundImageLayout = null;
             this.rMinusButton.BackgroundTexture = null;
             this.rMinusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -334,7 +342,7 @@
             this.rMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.rMinusButton.HasBorder = false;
             this.rMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.rMinusButton.Location = new System.Drawing.Point(231, 127);
+            this.rMinusButton.Location = new System.Drawing.Point(231, 109);
             this.rMinusButton.Name = "rMinusButton";
             this.rMinusButton.RequiresConfirmation = false;
             this.rMinusButton.SeparatorDistance = 0;
@@ -349,6 +357,7 @@
             // rPlusButton
             // 
             this.rPlusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.rPlusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.rPlusButton.BackgroundImageLayout = null;
             this.rPlusButton.BackgroundTexture = null;
             this.rPlusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -373,7 +382,7 @@
             this.rPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.rPlusButton.HasBorder = false;
             this.rPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.rPlusButton.Location = new System.Drawing.Point(308, 127);
+            this.rPlusButton.Location = new System.Drawing.Point(308, 109);
             this.rPlusButton.Name = "rPlusButton";
             this.rPlusButton.RequiresConfirmation = false;
             this.rPlusButton.SeparatorDistance = 0;
@@ -388,6 +397,7 @@
             // gPlusButton
             // 
             this.gPlusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.gPlusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.gPlusButton.BackgroundImageLayout = null;
             this.gPlusButton.BackgroundTexture = null;
             this.gPlusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -412,7 +422,7 @@
             this.gPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.gPlusButton.HasBorder = false;
             this.gPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.gPlusButton.Location = new System.Drawing.Point(308, 206);
+            this.gPlusButton.Location = new System.Drawing.Point(308, 160);
             this.gPlusButton.Name = "gPlusButton";
             this.gPlusButton.RequiresConfirmation = false;
             this.gPlusButton.SeparatorDistance = 0;
@@ -427,6 +437,7 @@
             // gMinusButton
             // 
             this.gMinusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.gMinusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.gMinusButton.BackgroundImageLayout = null;
             this.gMinusButton.BackgroundTexture = null;
             this.gMinusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -451,7 +462,7 @@
             this.gMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.gMinusButton.HasBorder = false;
             this.gMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.gMinusButton.Location = new System.Drawing.Point(231, 206);
+            this.gMinusButton.Location = new System.Drawing.Point(231, 160);
             this.gMinusButton.Name = "gMinusButton";
             this.gMinusButton.RequiresConfirmation = false;
             this.gMinusButton.SeparatorDistance = 0;
@@ -466,6 +477,7 @@
             // bPlusButton
             // 
             this.bPlusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.bPlusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.bPlusButton.BackgroundImageLayout = null;
             this.bPlusButton.BackgroundTexture = null;
             this.bPlusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -490,7 +502,7 @@
             this.bPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.bPlusButton.HasBorder = false;
             this.bPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.bPlusButton.Location = new System.Drawing.Point(308, 272);
+            this.bPlusButton.Location = new System.Drawing.Point(308, 211);
             this.bPlusButton.Name = "bPlusButton";
             this.bPlusButton.RequiresConfirmation = false;
             this.bPlusButton.SeparatorDistance = 0;
@@ -505,6 +517,7 @@
             // bMinusButton
             // 
             this.bMinusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.bMinusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
             this.bMinusButton.BackgroundImageLayout = null;
             this.bMinusButton.BackgroundTexture = null;
             this.bMinusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
@@ -529,7 +542,7 @@
             this.bMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.bMinusButton.HasBorder = false;
             this.bMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.bMinusButton.Location = new System.Drawing.Point(231, 272);
+            this.bMinusButton.Location = new System.Drawing.Point(231, 211);
             this.bMinusButton.Name = "bMinusButton";
             this.bMinusButton.RequiresConfirmation = false;
             this.bMinusButton.SeparatorDistance = 0;
@@ -541,12 +554,126 @@
             this.bMinusButton.UsingTexturedBackground = false;
             this.bMinusButton.Clicked += new System.EventHandler<ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs>(this.bMinusButton_Clicked);
             // 
+            // aTrackBar
+            // 
+            this.aTrackBar.Location = new System.Drawing.Point(33, 257);
+            this.aTrackBar.Maximum = 255;
+            this.aTrackBar.Name = "aTrackBar";
+            this.aTrackBar.Size = new System.Drawing.Size(192, 45);
+            this.aTrackBar.TabIndex = 22;
+            this.aTrackBar.Scroll += new System.EventHandler(this.aTrackBar_Scroll);
+            // 
+            // aPlusButton
+            // 
+            this.aPlusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.aPlusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            this.aPlusButton.BackgroundImageLayout = null;
+            this.aPlusButton.BackgroundTexture = null;
+            this.aPlusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
+            this.aPlusButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(165)))), ((int)(((byte)(173)))));
+            this.aPlusButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.aPlusButton.BorderThickness = 0F;
+            this.aPlusButton.CheckboxActiveColor = System.Drawing.Color.Empty;
+            this.aPlusButton.CheckboxBackgroundColor = System.Drawing.Color.Empty;
+            this.aPlusButton.CheckboxHighlightColor = System.Drawing.Color.Empty;
+            this.aPlusButton.CheckmarkColor = System.Drawing.Color.Empty;
+            this.aPlusButton.CheckmarkThickness = 0F;
+            this.aPlusButton.ConfirmedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.aPlusButton.ConfirmedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.aPlusButton.ConfirmedCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.aPlusButton.ConfirmedCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.aPlusButton.DisabledBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.aPlusButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aPlusButton.DisabledCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.aPlusButton.DisabledCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aPlusButton.DisabledSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aPlusButton.FocusedBorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.aPlusButton.FocusedColor = System.Drawing.Color.Empty;
+            this.aPlusButton.HasBorder = false;
+            this.aPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
+            this.aPlusButton.Location = new System.Drawing.Point(308, 262);
+            this.aPlusButton.Name = "aPlusButton";
+            this.aPlusButton.RequiresConfirmation = false;
+            this.aPlusButton.SeparatorDistance = 0;
+            this.aPlusButton.Size = new System.Drawing.Size(23, 23);
+            this.aPlusButton.StyleButtonSeparately = false;
+            this.aPlusButton.SynchronizeCheckMarkWithBorderSettings = false;
+            this.aPlusButton.TabIndex = 25;
+            this.aPlusButton.Text = "+";
+            this.aPlusButton.UsingTexturedBackground = false;
+            this.aPlusButton.Clicked += new System.EventHandler<ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs>(this.aPlusButton_Clicked);
+            // 
+            // aMinusButton
+            // 
+            this.aMinusButton.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(210)))), ((int)(((byte)(214)))));
+            this.aMinusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            this.aMinusButton.BackgroundImageLayout = null;
+            this.aMinusButton.BackgroundTexture = null;
+            this.aMinusButton.BackgroundTextureLayout = System.Windows.Forms.ImageLayout.None;
+            this.aMinusButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(165)))), ((int)(((byte)(173)))));
+            this.aMinusButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.aMinusButton.BorderThickness = 0F;
+            this.aMinusButton.CheckboxActiveColor = System.Drawing.Color.Empty;
+            this.aMinusButton.CheckboxBackgroundColor = System.Drawing.Color.Empty;
+            this.aMinusButton.CheckboxHighlightColor = System.Drawing.Color.Empty;
+            this.aMinusButton.CheckmarkColor = System.Drawing.Color.Empty;
+            this.aMinusButton.CheckmarkThickness = 0F;
+            this.aMinusButton.ConfirmedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.aMinusButton.ConfirmedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.aMinusButton.ConfirmedCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.aMinusButton.ConfirmedCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.aMinusButton.DisabledBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.aMinusButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aMinusButton.DisabledCheckBoxBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
+            this.aMinusButton.DisabledCheckmarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aMinusButton.DisabledSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.aMinusButton.FocusedBorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.aMinusButton.FocusedColor = System.Drawing.Color.Empty;
+            this.aMinusButton.HasBorder = false;
+            this.aMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
+            this.aMinusButton.Location = new System.Drawing.Point(231, 262);
+            this.aMinusButton.Name = "aMinusButton";
+            this.aMinusButton.RequiresConfirmation = false;
+            this.aMinusButton.SeparatorDistance = 0;
+            this.aMinusButton.Size = new System.Drawing.Size(23, 23);
+            this.aMinusButton.StyleButtonSeparately = false;
+            this.aMinusButton.SynchronizeCheckMarkWithBorderSettings = false;
+            this.aMinusButton.TabIndex = 24;
+            this.aMinusButton.Text = "-";
+            this.aMinusButton.UsingTexturedBackground = false;
+            this.aMinusButton.Clicked += new System.EventHandler<ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs>(this.aMinusButton_Clicked);
+            // 
+            // aValueTextField
+            // 
+            this.aValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
+            this.aValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.aValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.aValueTextField.Location = new System.Drawing.Point(260, 262);
+            this.aValueTextField.Name = "aValueTextField";
+            this.aValueTextField.Size = new System.Drawing.Size(42, 23);
+            this.aValueTextField.TabIndex = 23;
+            this.aValueTextField.TextChanged += new System.EventHandler(this.aValueTextField_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 257);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 15);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "A";
+            // 
             // ColorOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(356, 370);
+            this.ClientSize = new System.Drawing.Size(356, 347);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.aPlusButton);
+            this.Controls.Add(this.aMinusButton);
+            this.Controls.Add(this.aValueTextField);
+            this.Controls.Add(this.aTrackBar);
             this.Controls.Add(this.bPlusButton);
             this.Controls.Add(this.bMinusButton);
             this.Controls.Add(this.gPlusButton);
@@ -580,6 +707,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,5 +738,10 @@
         private ALMSTWKND.UI.WindowsForms.Controls.Button gMinusButton;
         private ALMSTWKND.UI.WindowsForms.Controls.Button bPlusButton;
         private ALMSTWKND.UI.WindowsForms.Controls.Button bMinusButton;
+        private System.Windows.Forms.TrackBar aTrackBar;
+        private ALMSTWKND.UI.WindowsForms.Controls.Button aPlusButton;
+        private ALMSTWKND.UI.WindowsForms.Controls.Button aMinusButton;
+        private System.Windows.Forms.TextBox aValueTextField;
+        private System.Windows.Forms.Label label4;
     }
 }
