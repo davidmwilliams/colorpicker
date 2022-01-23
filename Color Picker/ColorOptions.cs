@@ -180,5 +180,59 @@ namespace Color_Picker
 
             bTrackBar.Value = colorValue;
         }
+
+        private void rMinusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(rValueTextField.Text, out value);
+
+            if(value >= 0 && value <= 254)
+                rValueTextField.Text = (value - 1).ToString();
+        }
+
+        private void rPlusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(rValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                rValueTextField.Text = (value + 1).ToString();
+        }
+
+        private void gMinusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(gValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                gValueTextField.Text = (value - 1).ToString();
+        }
+
+        private void gPlusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(gValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                gValueTextField.Text = (value + 1).ToString();
+        }
+
+        private void bMinusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(bValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                bValueTextField.Text = (value - 1).ToString();
+        }
+
+        private void bPlusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(bValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                bValueTextField.Text = (value + 1).ToString();
+        }
     }
 }

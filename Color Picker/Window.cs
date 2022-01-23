@@ -40,7 +40,7 @@ namespace Color_Picker
         public int defaultColorPanelWidth;
         public static List<Color> selectedColors;
         public static VisibilityTypes Visibility { get; set; }
-
+        public int transparency;
         public Size defaultSize;
         public Point lastMouseLocation;
         public bool pressing;
@@ -96,7 +96,7 @@ namespace Color_Picker
 
         private void Window_Load(object sender, EventArgs e)
         {
-            foreach(ColorPallette pallette in History.Pallette)
+            foreach (ColorPallette pallette in History.Pallette)
             {
                 if (pallette.DefaultWindowWidth > 275)
                 {
@@ -329,6 +329,7 @@ namespace Color_Picker
                 pickedColorPanel.MouseEnter += PickedColorPanel_MouseEnter;
                 pickedColorPanel.MouseLeave += PickedColorPanel_MouseLeave;
                 pickedColorPanel.MouseClick += PickedColorPanel_MouseClick;
+                pickedColorPanel.MouseWheel += PickedColorPanel_MouseWheel;
 
                 pickedColorPanel.ContextMenu = colorOptionsContextMenu;
 
@@ -336,7 +337,60 @@ namespace Color_Picker
             }
         }
 
-        private void PickedColorPanel_MouseClick(object sender, MouseEventArgs e)
+        private void PickedColorPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            selectedColor = (sender as Panel).BackColor;
+            transparency = (int)selectedColor.A;
+            Color oldColor = selectedColor;
+
+            if (e.Delta == 120)
+            {
+                if (transparency < 255)
+                {
+                    // Change the transparency.
+                    transparency++;
+
+                    // Update it with selected Color and BackColor of panel.
+                    selectedColor = Color.FromArgb(transparency, oldColor.R, oldColor.G, oldColor.B);
+                    (sender as Panel).BackColor = Color.FromArgb(transparency, oldColor.R, oldColor.G, oldColor.B);
+                    eyedropper.BackColor = selectedColor;
+
+                    this.tip.ToolTipTitle = "Transparency:";
+                    this.tip.SetToolTip((sender as Panel), transparency.ToString());
+
+                    // Update it in the list.
+                    ColorPallette pallette = History.Pallette.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    if (pallette != null)
+                    {
+                        History.Pallette[History.Pallette.IndexOf(pallette)].Color = selectedColor;
+                    }
+                }
+            }
+            else
+            {
+                if (transparency > 0)
+                {
+                    transparency--;
+
+                    // Update it with selected Color and BackColor of panel.
+                    selectedColor = Color.FromArgb(transparency, oldColor.R, oldColor.G, oldColor.B);
+                    (sender as Panel).BackColor = Color.FromArgb(transparency, oldColor.R, oldColor.G, oldColor.B);
+                    eyedropper.BackColor = selectedColor;
+
+                    this.tip.ToolTipTitle = "Transparency:";
+                    this.tip.SetToolTip((sender as Panel), transparency.ToString());
+
+                    // Update it in the list.
+                    ColorPallette pallette = History.Pallette.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    if (pallette != null)
+                    {
+                        History.Pallette[History.Pallette.IndexOf(pallette)].Color = selectedColor;
+                    }
+                }
+            }
+        }
+
+        public void PickedColorPanel_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -375,6 +429,8 @@ namespace Color_Picker
         private void PickedColorPanel_MouseLeave(object sender, EventArgs e)
         {
             eyedropper.BackColor = Color.FromArgb(244, 245, 247);
+
+            this.tip.ToolTipTitle = "Hint:";
         }
 
         private void PickedColorPanel_MouseEnter(object sender, EventArgs e)
