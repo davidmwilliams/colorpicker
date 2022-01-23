@@ -1,0 +1,3 @@
+﻿namespace Color_Picker
+{
+}

@@ -129,6 +129,7 @@
       <DependentUpon>FullScreenWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="History.cs" />
+    <Compile Include="transparency.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>
