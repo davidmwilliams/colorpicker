@@ -127,6 +127,12 @@
     <Compile Include="ColorWheel.Designer.cs">
       <DependentUpon>ColorWheel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorWheelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorWheelDialog.Designer.cs">
+      <DependentUpon>ColorWheelDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Convert.cs" />
     <Compile Include="FullScreenWindow.cs">
       <SubType>Form</SubType>
@@ -155,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorOptions.resx">
       <DependentUpon>ColorOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorWheel.resx">
+      <DependentUpon>ColorWheel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorWheelDialog.resx">
+      <DependentUpon>ColorWheelDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullScreenWindow.resx">
       <DependentUpon>FullScreenWindow.cs</DependentUpon>

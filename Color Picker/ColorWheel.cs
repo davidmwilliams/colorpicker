@@ -25,6 +25,10 @@ namespace Color_Picker
         [DisplayName("Line Thickness")]
         public float LineThickness { get; set; }
 
+        public Color SelectedColor { get; set; }
+        public Bitmap screenBitmap = new Bitmap(1, 1);
+
+
         public ColorWheel()
         {
             InitializeComponent();
@@ -169,6 +173,19 @@ namespace Color_Picker
                 g += dg;
                 b += db;
             }
+        }
+
+        private void ColorWheel_MouseMove(object sender, MouseEventArgs e)
+        {
+            SelectedColor = GetColorAt(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        public Color GetColorAt(int x, int y)
+        {
+            Rectangle bounds = new Rectangle(x, y, 1, 1);
+            using (Graphics graphics = Graphics.FromImage(screenBitmap))
+                graphics.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            return screenBitmap.GetPixel(0, 0);
         }
     }
 }

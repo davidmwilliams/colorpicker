@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ColorWheel
+            // 
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColorWheel_MouseMove);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

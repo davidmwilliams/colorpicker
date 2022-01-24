@@ -287,29 +287,52 @@ namespace Color_Picker
 
         private void pickColorLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (colorDialog.ShowDialog(this) == DialogResult.OK)
+            using (ColorWheelDialog dialog = new ColorWheelDialog())
             {
-                // Assume that we have a color.
-                if (colorDialog.Color != null)
+                if(dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    Color pickedColor = colorDialog.Color;
-
-                    ColorPallette colorPallette = new ColorPallette()
+                    if(dialog.Colors != null)
                     {
-                        Color = pickedColor,
-                        ColorPanelWidth = defaultColorPanelWidth
-                    };
+                        foreach(Color color in dialog.Colors)
+                        {
+                            ColorPallette colorPallette = new ColorPallette()
+                            {
+                                Color = color,
+                                ColorPanelWidth = defaultColorPanelWidth
+                            };
 
-                    //Program.history = new History();
-                    History.Pallette.Add(colorPallette);
+                            History.Pallette.Add(colorPallette);
 
-                    CreateColorPanel(pickedColor, defaultColorPanelWidth);
+                            CreateColorPanel(color, defaultColorPanelWidth);
+                        }
+                    }
                 }
             }
 
-            // We're done. Show the window again.
-            Visibility = VisibilityTypes.Visible;
-            SetLocation();
+                // Obsolete
+                //if (colorDialog.ShowDialog(this) == DialogResult.OK)
+                //{
+                //    // Assume that we have a color.
+                //    if (colorDialog.Color != null)
+                //    {
+                //        Color pickedColor = colorDialog.Color;
+
+                //        ColorPallette colorPallette = new ColorPallette()
+                //        {
+                //            Color = pickedColor,
+                //            ColorPanelWidth = defaultColorPanelWidth
+                //        };
+
+                //        //Program.history = new History();
+                //        History.Pallette.Add(colorPallette);
+
+                //        CreateColorPanel(pickedColor, defaultColorPanelWidth);
+                //    }
+                //}
+
+                // We're done. Show the window again.
+                Visibility = VisibilityTypes.Visible;
+                SetLocation();
         }
 
         private void CreateColorPanel(Color pickedColor, int colorPanelWidth)
@@ -441,21 +464,13 @@ namespace Color_Picker
         //private void PickedColorPanel_MouseUp(object sender, MouseEventArgs e)
         //{
         //    pressing = false;
-
-        //    if((sender as Panel).Dock == DockStyle.None)
-        //    {
-        //        (sender as Panel).Dock = DockStyle.Left;
-        //    }
         //}
 
         //private void PickedColorPanel_MouseMove(object sender, MouseEventArgs e)
         //{
         //    if(pressing)
         //    {
-        //        foreach(Panel panel in colorHistoryPanel.Controls)
-        //        {
-        //            panel.Location = new Point(panel.Location.X - (lastMouseLocation.X - e.X), panel.Location.Y);
-        //        }
+        //        colorHistoryPanel.Left = (colorHistoryPanel.Left - lastMouseLocation.X + e.X);
         //    }
         //}
 
@@ -465,9 +480,9 @@ namespace Color_Picker
 
         //    lastMouseLocation = e.Location;
 
-        //    if ((sender as Panel).Dock.HasFlag(DockStyle.Left))
+        //    if(colorHistoryPanel.Dock.HasFlag(DockStyle.Fill))
         //    {
-        //        (sender as Panel).Dock = DockStyle.None;
+        //        colorHistoryPanel.Dock = DockStyle.None;
         //    }
         //}
 
