@@ -43,7 +43,7 @@ namespace Color_Picker
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            //this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
             InitializeComponent();
 
@@ -63,9 +63,6 @@ namespace Color_Picker
                         {
                             pe.Graphics.DrawLine(aGradientPen, new Point(0, 0), new Point(255, 0));
                         }
-
-                        //pe.Graphics.DrawLine(new Pen(Color.FromArgb(255, i, 0, 0), LineThickness),
-                        //    0, 0, i, 1);
                     }
                     break;
                     case Colors.Green:
@@ -75,9 +72,6 @@ namespace Color_Picker
                         {
                             pe.Graphics.DrawLine(aGradientPen, new Point(0, 0), new Point(255, 0));
                         }
-
-                        //pe.Graphics.DrawLine(new Pen(Color.FromArgb(255, i, 0, 0), LineThickness),
-                        //    0, 0, i, 1);
                     }
                     break;
                 case Colors.Blue:
@@ -87,9 +81,6 @@ namespace Color_Picker
                         {
                             pe.Graphics.DrawLine(aGradientPen, new Point(0, 0), new Point(255, 0));
                         }
-
-                        //pe.Graphics.DrawLine(new Pen(Color.FromArgb(255, i, 0, 0), LineThickness),
-                        //    0, 0, i, 1);
                     }
                     break;
                 case Colors.Shade:
