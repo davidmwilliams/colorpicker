@@ -36,6 +36,8 @@
             this.colorPanel = new System.Windows.Forms.Panel();
             this.rgbLine1 = new Color_Picker.RGBLine();
             this.colorWheel = new Color_Picker.ColorWheel();
+            this.colorPanelContextMenu = new System.Windows.Forms.ContextMenu();
+            this.removeContextMenuItem = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // separator1
@@ -200,6 +202,17 @@
             this.colorWheel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseClick);
             this.colorWheel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseMove);
             // 
+            // colorPanelContextMenu
+            // 
+            this.colorPanelContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.removeContextMenuItem});
+            // 
+            // removeContextMenuItem
+            // 
+            this.removeContextMenuItem.Index = 0;
+            this.removeContextMenuItem.Text = "Remove";
+            this.removeContextMenuItem.Click += new System.EventHandler(this.removeContextMenuItem_Click);
+            // 
             // ColorWheelDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,5 +246,7 @@
         private System.Windows.Forms.LinkLabel clearColorsLink;
         private System.Windows.Forms.Panel colorPanel;
         private RGBLine rgbLine1;
+        private System.Windows.Forms.ContextMenu colorPanelContextMenu;
+        private System.Windows.Forms.MenuItem removeContextMenuItem;
     }
 }
