@@ -35,6 +35,9 @@
             this.MaximumSize = new System.Drawing.Size(255, 1);
             this.MinimumSize = new System.Drawing.Size(255, 1);
             this.Size = new System.Drawing.Size(255, 1);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RGBLine_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RGBLine_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RGBLine_MouseUp);
             this.ResumeLayout(false);
 
         }
