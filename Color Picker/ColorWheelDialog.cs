@@ -50,6 +50,9 @@ namespace Color_Picker
 
             addedColorsPanel.Controls.Add(panel);
 
+            rgbLine1.ChosenColor = selectedColor;
+            rgbLine1.Refresh();
+
             Colors.Add(selectedColor);
         }
 
