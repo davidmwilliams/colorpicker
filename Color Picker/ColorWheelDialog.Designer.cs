@@ -34,10 +34,10 @@
             this.addColorButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.clearColorsLink = new System.Windows.Forms.LinkLabel();
             this.colorPanel = new System.Windows.Forms.Panel();
-            this.rgbLine1 = new Color_Picker.RGBLine();
-            this.colorWheel = new Color_Picker.ColorWheel();
             this.colorPanelContextMenu = new System.Windows.Forms.ContextMenu();
             this.removeContextMenuItem = new System.Windows.Forms.MenuItem();
+            this.rgbLine1 = new Color_Picker.RGBLine();
+            this.colorWheel = new Color_Picker.ColorWheel();
             this.SuspendLayout();
             // 
             // separator1
@@ -164,6 +164,7 @@
             this.clearColorsLink.TabIndex = 5;
             this.clearColorsLink.TabStop = true;
             this.clearColorsLink.Text = "Clear";
+            this.clearColorsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.clearColorsLink_LinkClicked);
             // 
             // colorPanel
             // 
@@ -173,34 +174,6 @@
             this.colorPanel.Name = "colorPanel";
             this.colorPanel.Size = new System.Drawing.Size(304, 32);
             this.colorPanel.TabIndex = 6;
-            // 
-            // rgbLine1
-            // 
-            this.rgbLine1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rgbLine1.ChosenColor = System.Drawing.Color.Empty;
-            this.rgbLine1.LineThickness = 1F;
-            this.rgbLine1.Location = new System.Drawing.Point(37, 309);
-            this.rgbLine1.MaximumSize = new System.Drawing.Size(255, 1);
-            this.rgbLine1.MinimumSize = new System.Drawing.Size(255, 1);
-            this.rgbLine1.Name = "rgbLine1";
-            this.rgbLine1.SelectedColor = Color_Picker.RGBLine.Colors.Shade;
-            this.rgbLine1.Size = new System.Drawing.Size(255, 1);
-            this.rgbLine1.TabIndex = 7;
-            this.rgbLine1.Text = "rgbLine1";
-            // 
-            // colorWheel
-            // 
-            this.colorWheel.LineThickness = 2F;
-            this.colorWheel.Location = new System.Drawing.Point(36, 12);
-            this.colorWheel.Name = "colorWheel";
-            this.colorWheel.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.colorWheel.SelectedColor = System.Drawing.Color.Empty;
-            this.colorWheel.Size = new System.Drawing.Size(256, 256);
-            this.colorWheel.TabIndex = 0;
-            this.colorWheel.Text = "colorWheel1";
-            this.colorWheel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseClick);
-            this.colorWheel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseMove);
             // 
             // colorPanelContextMenu
             // 
@@ -212,6 +185,34 @@
             this.removeContextMenuItem.Index = 0;
             this.removeContextMenuItem.Text = "Remove";
             this.removeContextMenuItem.Click += new System.EventHandler(this.removeContextMenuItem_Click);
+            // 
+            // rgbLine1
+            // 
+            this.rgbLine1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.rgbLine1.ChosenColor = System.Drawing.Color.Empty;
+            this.rgbLine1.LineThickness = 3F;
+            this.rgbLine1.Location = new System.Drawing.Point(37, 309);
+            this.rgbLine1.MaximumSize = new System.Drawing.Size(255, 10);
+            this.rgbLine1.MinimumSize = new System.Drawing.Size(255, 10);
+            this.rgbLine1.Name = "rgbLine1";
+            this.rgbLine1.SelectedColor = Color_Picker.RGBLine.Colors.Shade;
+            this.rgbLine1.Size = new System.Drawing.Size(255, 10);
+            this.rgbLine1.TabIndex = 7;
+            this.rgbLine1.Text = "rgbLine1";
+            // 
+            // colorWheel
+            // 
+            this.colorWheel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.colorWheel.LineThickness = 2F;
+            this.colorWheel.Location = new System.Drawing.Point(36, 12);
+            this.colorWheel.Name = "colorWheel";
+            this.colorWheel.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.colorWheel.SelectedColor = System.Drawing.Color.Empty;
+            this.colorWheel.Size = new System.Drawing.Size(256, 256);
+            this.colorWheel.TabIndex = 0;
+            this.colorWheel.Text = "colorWheel1";
+            this.colorWheel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseClick);
+            this.colorWheel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.colorWheel_MouseMove);
             // 
             // ColorWheelDialog
             // 
@@ -227,6 +228,7 @@
             this.Controls.Add(this.addedColorsPanel);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.colorWheel);
+            this.MinimumSize = new System.Drawing.Size(344, 486);
             this.Name = "ColorWheelDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Chooser";
