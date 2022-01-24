@@ -102,5 +102,11 @@ namespace Color_Picker
         {
             addedColorsPanel.Controls.Remove(currentColorPanel);
         }
+
+        private void clearColorsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Colors.Clear();
+            addedColorsPanel.Controls.Clear();
+        }
     }
 }

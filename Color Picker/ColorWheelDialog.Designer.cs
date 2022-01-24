@@ -164,6 +164,7 @@
             this.clearColorsLink.TabIndex = 5;
             this.clearColorsLink.TabStop = true;
             this.clearColorsLink.Text = "Clear";
+            this.clearColorsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.clearColorsLink_LinkClicked);
             // 
             // colorPanel
             // 
@@ -187,8 +188,7 @@
             // 
             // rgbLine1
             // 
-            this.rgbLine1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgbLine1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.rgbLine1.ChosenColor = System.Drawing.Color.Empty;
             this.rgbLine1.LineThickness = 3F;
             this.rgbLine1.Location = new System.Drawing.Point(37, 309);
@@ -202,6 +202,7 @@
             // 
             // colorWheel
             // 
+            this.colorWheel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.colorWheel.LineThickness = 2F;
             this.colorWheel.Location = new System.Drawing.Point(36, 12);
             this.colorWheel.Name = "colorWheel";
@@ -227,6 +228,7 @@
             this.Controls.Add(this.addedColorsPanel);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.colorWheel);
+            this.MinimumSize = new System.Drawing.Size(344, 486);
             this.Name = "ColorWheelDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Chooser";
