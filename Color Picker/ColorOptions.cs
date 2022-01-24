@@ -41,6 +41,8 @@ namespace Color_Picker
             rValueTextField.Text = rTrackBar.Value.ToString();
             gValueTextField.Text = gTrackBar.Value.ToString();
             bValueTextField.Text = bTrackBar.Value.ToString();
+            aValueTextField.Text = aTrackBar.Value.ToString();
+
         }
 
         private void SetChosenColor()
@@ -66,6 +68,7 @@ namespace Color_Picker
             rTrackBar.Value = SelectedColor.R;
             gTrackBar.Value = SelectedColor.G;
             bTrackBar.Value = SelectedColor.B;
+            aTrackBar.Value = SelectedColor.A;
         }
 
         private void rTrackBar_Scroll(object sender, EventArgs e)
@@ -233,6 +236,43 @@ namespace Color_Picker
 
             if (value >= 0 && value <= 254)
                 bValueTextField.Text = (value + 1).ToString();
+        }
+
+        private void aTrackBar_Scroll(object sender, EventArgs e)
+        {
+            colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+            SelectedColor = colorPanel.BackColor;
+            colorNameLabel.Text = SelectedColor.Name;
+            aValueTextField.Text = aTrackBar.Value.ToString();
+        }
+
+        private void aValueTextField_TextChanged(object sender, EventArgs e)
+        {
+            int colorValue;
+
+            Int32.TryParse(aValueTextField.Text, out colorValue);
+
+            aTrackBar.Value = colorValue; colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+            SelectedColor = colorPanel.BackColor;
+            colorNameLabel.Text = SelectedColor.Name;
+        }
+
+        private void aMinusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(aValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                aValueTextField.Text = (value - 1).ToString();
+        }
+
+        private void aPlusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
+        {
+            int value;
+            Int32.TryParse(aValueTextField.Text, out value);
+
+            if (value >= 0 && value <= 254)
+                aValueTextField.Text = (value + 1).ToString();
         }
     }
 }
