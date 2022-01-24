@@ -16,6 +16,7 @@ namespace Color_Picker
         private int sliderXLocation;
         private bool pressing;
         private Point lastMouseLocation;
+        private Color selectedColor { get; set; }
 
         public enum Colors
         {
@@ -125,7 +126,9 @@ namespace Color_Picker
 
         private void RGBLine_MouseDown(object sender, MouseEventArgs e)
         {
-            pressing = true;
+            if(!pressing)
+                pressing = true;
+
             lastMouseLocation = e.Location;
         }
 
