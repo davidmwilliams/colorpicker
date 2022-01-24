@@ -19,6 +19,7 @@ namespace Color_Picker
         bool pressing;
         Point lastMouseLocation;
         public List<Color> Colors;
+        public Panel currentColorPanel;
 
         public ColorWheelDialog()
         {
@@ -44,13 +45,23 @@ namespace Color_Picker
             panel.BackColor = selectedColor;
             panel.Width = 10;
             panel.Height = 32;
+            panel.ContextMenu = colorPanelContextMenu;
             panel.MouseDown += Panel_MouseDown;
             panel.MouseMove += Panel_MouseMove;
             panel.MouseUp += Panel_MouseUp;
+            panel.MouseEnter += Panel_MouseEnter;
 
             addedColorsPanel.Controls.Add(panel);
 
+            rgbLine1.ChosenColor = selectedColor;
+            rgbLine1.Refresh();
+
             Colors.Add(selectedColor);
+        }
+
+        private void Panel_MouseEnter(object sender, EventArgs e)
+        {
+            currentColorPanel = (sender as Panel);
         }
 
         private void Panel_MouseUp(object sender, MouseEventArgs e)
@@ -79,12 +90,17 @@ namespace Color_Picker
 
         private void ColorWheelDialog_MouseClick(object sender, MouseEventArgs e)
         {
-            addedColorsPanel.Location = new Point(12, 324);
+            addedColorsPanel.Location = new Point(12, 367);
         }
 
         private void applyButton_Confirmed(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonConfirmedEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void removeContextMenuItem_Click(object sender, EventArgs e)
+        {
+            addedColorsPanel.Controls.Remove(currentColorPanel);
         }
     }
 }
