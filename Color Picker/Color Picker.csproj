@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -147,7 +147,6 @@
     <Compile Include="RGBLine.Designer.cs">
       <DependentUpon>RGBLine.cs</DependentUpon>
     </Compile>
-    <Compile Include="transparency.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>
