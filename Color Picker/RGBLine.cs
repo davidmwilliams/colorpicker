@@ -15,7 +15,8 @@ namespace Color_Picker
     {
         private int sliderXLocation;
         private bool pressing;
-        private Point lastMouseLocation;
+        private Point lastMouseLocation,
+            lastGuideLocation;
         private Color selectedColor { get; set; }
 
         public enum Colors
@@ -50,7 +51,7 @@ namespace Color_Picker
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-            sliderXLocation = this.Width = (int)1.0f;
+            sliderXLocation = this.Width - (int)1.0f;
 
             InitializeComponent();
 
