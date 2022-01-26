@@ -14,9 +14,13 @@ namespace Color_Picker
     public partial class RGBLine : Control
     {
         private int sliderXLocation;
+        public Bitmap screenBitmap = new Bitmap(1, 1);
         private bool pressing;
         private Point lastMouseLocation,
+            currentLocation,
             lastGuideLocation;
+        private bool moving;
+
         private Color selectedColor { get; set; }
 
         public enum Colors
@@ -74,7 +78,7 @@ namespace Color_Picker
                         }
                     }
                     break;
-                    case Colors.Green:
+                case Colors.Green:
                     using (Brush aGradientBrush = new LinearGradientBrush(new Point(0, 0), new Point(255, (int)LineThickness), Color.Black, Color.Green))
                     {
                         using (Pen aGradientPen = new Pen(aGradientBrush))
@@ -93,50 +97,67 @@ namespace Color_Picker
                     }
                     break;
                 case Colors.Shade:
-                        using (Brush shadedGradientBrush = new LinearGradientBrush(new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new PointF(255, (int)LineThickness), Color.White, ChosenColor))
+                    using (Brush shadedGradientBrush = new LinearGradientBrush(new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new PointF(255, (int)LineThickness), Color.White, ChosenColor))
+                    {
+                        using (Pen shadedGradientPen = new Pen(shadedGradientBrush))
                         {
-                            using (Pen shadedGradientPen = new Pen(shadedGradientBrush))
-                            {
-                                pe.Graphics.DrawLine(shadedGradientPen, new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new Point(255, (this.Height / 2) - (int)(LineThickness / 2)));
-                            }
+                            pe.Graphics.DrawLine(shadedGradientPen, new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new Point(255, (this.Height / 2) - (int)(LineThickness / 2)));
                         }
+                    }
 
                     if (pressing)
                     {
-                        pe.Graphics.DrawLine(new Pen(Color.Black, 1.0f),
-                            lastMouseLocation.X,
-                            2,
-                            lastMouseLocation.X,
-                            this.Height - 2
-                            );
+                        if (moving)
+                        {
+                            pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                            Point[] points2 = { new Point(currentLocation.X + lastMouseLocation.X, 0), new Point(currentLocation.X + lastMouseLocation.X + 5, 5), new Point(currentLocation.X + lastMouseLocation.X + 10, 0) };
+                            pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
+
+                            // Get the color below the tip of the triangle.
+                        }
+                        else
+                        {
+                            pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                            Point[] points2 = { new Point(lastMouseLocation.X, 0), new Point(lastMouseLocation.X + 5, 5), new Point(lastMouseLocation.X + 10, 0) };
+                            pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
+                        }
                     }
                     else
                     {
-                        pe.Graphics.DrawLine(new Pen(Color.Black, 1.0f),
-                            this.Width - 1.0f,
-                            2,
-                            this.Width - 1.0f,
-                            this.Height - 2
-                            );
+                        pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                        Point[] points2 = { new Point(this.Width - 10 | 0, 0), new Point(this.Width - 10 + 5, 5), new Point(this.Width - 10 + 10, 0) };
+                        pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
                     }
-                        break;
+                    break;
             }
 
             base.OnPaint(pe);
         }
 
+        public Color GetColorAt(int x, int y)
+        {
+            Rectangle bounds = new Rectangle(x, y, 1, 1);
+            using (Graphics graphics = Graphics.FromImage(screenBitmap))
+                graphics.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            return screenBitmap.GetPixel(0, 0);
+        }
+
         private void RGBLine_MouseDown(object sender, MouseEventArgs e)
         {
-            if(!pressing)
+            if (!pressing)
                 pressing = true;
 
             lastMouseLocation = e.Location;
+
+            this.Refresh();
         }
 
         private void RGBLine_MouseMove(object sender, MouseEventArgs e)
         {
-            if(pressing)
+            if (pressing)
             {
+                moving = true;
+                currentLocation = e.Location;
                 this.Refresh();
             }
         }

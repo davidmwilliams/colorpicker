@@ -134,6 +134,12 @@
       <DependentUpon>ColorWheelDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Convert.cs" />
+    <Compile Include="CustCont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustCont.Designer.cs">
+      <DependentUpon>CustCont.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullScreenWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
       <DependentUpon>FullScreenWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="History.cs" />
+    <Compile Include="PushButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PushButton.Designer.cs">
+      <DependentUpon>PushButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="RGBLine.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -169,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FullScreenWindow.resx">
       <DependentUpon>FullScreenWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PushButton.resx">
+      <DependentUpon>PushButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RGBLine.resx">
       <DependentUpon>RGBLine.cs</DependentUpon>
