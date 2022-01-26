@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Color_Picker
@@ -20,6 +14,7 @@ namespace Color_Picker
             currentLocation,
             lastGuideLocation;
         private bool moving;
+        public Color ManuallySelectedColor;
 
         private Color selectedColor { get; set; }
 
@@ -55,6 +50,7 @@ namespace Color_Picker
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
+            this.BackColor = Color.Transparent;
             sliderXLocation = this.Width - (int)1.0f;
 
             InitializeComponent();
@@ -99,7 +95,7 @@ namespace Color_Picker
                 case Colors.Shade:
                     using (Brush shadedGradientBrush = new LinearGradientBrush(new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new PointF(255, (int)LineThickness), Color.White, ChosenColor))
                     {
-                        using (Pen shadedGradientPen = new Pen(shadedGradientBrush))
+                        using (Pen shadedGradientPen = new Pen(shadedGradientBrush, LineThickness))
                         {
                             pe.Graphics.DrawLine(shadedGradientPen, new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new Point(255, (this.Height / 2) - (int)(LineThickness / 2)));
                         }
@@ -107,25 +103,30 @@ namespace Color_Picker
 
                     if (pressing)
                     {
+                        // Get the color below the tip of the triangle.
+                        // Please help, I am having difficulty here.
+                        Color color = GetColorAt(Cursor.Position.X, Cursor.Position.Y);
+
+                        ManuallySelectedColor = color;
+
                         if (moving)
                         {
                             pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                            Point[] points2 = { new Point(currentLocation.X + lastMouseLocation.X, 0), new Point(currentLocation.X + lastMouseLocation.X + 5, 5), new Point(currentLocation.X + lastMouseLocation.X + 10, 0) };
+                            Point[] points2 = { new Point(currentLocation.X, -3), new Point(currentLocation.X + 5, 3), new Point(currentLocation.X + 10, -3) };
                             pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
 
-                            // Get the color below the tip of the triangle.
                         }
                         else
                         {
                             pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                            Point[] points2 = { new Point(lastMouseLocation.X, 0), new Point(lastMouseLocation.X + 5, 5), new Point(lastMouseLocation.X + 10, 0) };
+                            Point[] points2 = { new Point(lastMouseLocation.X, -3), new Point(lastMouseLocation.X + 5, 3), new Point(lastMouseLocation.X + 10, -3) };
                             pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
                         }
                     }
                     else
                     {
                         pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                        Point[] points2 = { new Point(this.Width - 10 | 0, 0), new Point(this.Width - 10 + 5, 5), new Point(this.Width - 10 + 10, 0) };
+                        Point[] points2 = { new Point(this.Width - 10 | 0, -2), new Point(this.Width - 10 + 5, 3), new Point(this.Width - 10 + 10, -2) };
                         pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
                     }
                     break;
