@@ -50,6 +50,7 @@ namespace Color_Picker
             panel.MouseMove += Panel_MouseMove;
             panel.MouseUp += Panel_MouseUp;
             panel.MouseEnter += Panel_MouseEnter;
+            panel.MouseClick += Panel_MouseClick;
 
             addedColorsPanel.Controls.Add(panel);
 
@@ -57,6 +58,12 @@ namespace Color_Picker
             rgbLine1.Refresh();
 
             Colors.Add(selectedColor);
+        }
+
+        private void Panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Color color = (sender as Panel).BackColor;
+            colorPanel.BackColor = color;
         }
 
         private void Panel_MouseEnter(object sender, EventArgs e)
