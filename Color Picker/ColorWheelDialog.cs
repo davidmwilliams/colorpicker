@@ -115,5 +115,37 @@ namespace Color_Picker
             Colors.Clear();
             addedColorsPanel.Controls.Clear();
         }
+
+        private void rgbLine1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(rgbLine1.ManuallySelectedColor != Color.Empty)
+            {
+                colorPanel.BackColor = rgbLine1.ManuallySelectedColor;
+            }
+        }
+
+        private void rgbLine1_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Add the selected color to the color panel.
+            Color selectedColor = colorPanel.BackColor;
+
+            Panel panel = new Panel();
+            panel.BackColor = selectedColor;
+            panel.Width = 10;
+            panel.Height = 32;
+            panel.ContextMenu = colorPanelContextMenu;
+            panel.MouseDown += Panel_MouseDown;
+            panel.MouseMove += Panel_MouseMove;
+            panel.MouseUp += Panel_MouseUp;
+            panel.MouseEnter += Panel_MouseEnter;
+            panel.MouseClick += Panel_MouseClick;
+
+            addedColorsPanel.Controls.Add(panel);
+
+            rgbLine1.ChosenColor = selectedColor;
+            rgbLine1.Refresh();
+
+            Colors.Add(selectedColor);
+        }
     }
 }
