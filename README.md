@@ -2,6 +2,8 @@
 A free and open source Color Picker for Windows is back with a new version. See below for previous version.
 
 <img src="/ColorPicker.png" alt="Color Picker Screenshot"/>&nbsp;<img src="/ColorPicker2.png" alt="Alternate Color Picker Screenshot"/>
+<img src="/ColorPicker4.png" alt="Alternate Color Picker Screenshot"/>
+<img src="/ColorPicker7.png" alt="Alternate Color Picker Screenshot"/>
 # Color Picker - Screenshot
 
 ## Versions
