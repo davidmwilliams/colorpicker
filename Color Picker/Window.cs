@@ -96,6 +96,11 @@ namespace Color_Picker
 
         private void Window_Load(object sender, EventArgs e)
         {
+            if (History.Pallette == null || History.Pallette.Count == 0)
+            {
+                defaultSize = new Size(275, 32);
+            }
+
             foreach (ColorPallette pallette in History.Pallette)
             {
                 if (pallette.DefaultWindowWidth > 275)
