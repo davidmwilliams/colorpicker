@@ -49,6 +49,7 @@ namespace Color_Picker
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
             this.BackColor = Color.Transparent;
             sliderXLocation = this.Width - (int)1.0f;
@@ -97,7 +98,7 @@ namespace Color_Picker
                     {
                         using (Pen shadedGradientPen = new Pen(shadedGradientBrush, LineThickness))
                         {
-                            pe.Graphics.DrawLine(shadedGradientPen, new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new Point(255, (this.Height / 2) - (int)(LineThickness / 2)));
+                            pe.Graphics.DrawLine(shadedGradientPen, new Point(0, (this.Height / 2) - (int)(LineThickness / 2) + 5), new Point(255, (this.Height / 2) - (int)(LineThickness / 2) + 5));
                         }
                     }
 
@@ -111,22 +112,39 @@ namespace Color_Picker
 
                         if (moving)
                         {
-                            pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                            Point[] points2 = { new Point(currentLocation.X, -3), new Point(currentLocation.X + 5, 3), new Point(currentLocation.X + 10, -3) };
+                            Point[] points2 =
+                            {
+                                new Point(currentLocation.X - 5, -3),
+                                new Point(currentLocation.X, 3),
+                                new Point(currentLocation.X + 5, -3)
+                            };
+
                             pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
 
                         }
                         else
                         {
-                            pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                            Point[] points2 = { new Point(lastMouseLocation.X, -3), new Point(lastMouseLocation.X + 5, 3), new Point(lastMouseLocation.X + 10, -3) };
+                            Point[] points2 = 
+                            {
+                                new Point(currentLocation.X - 5, -3),
+                                new Point(currentLocation.X, 3),
+                                new Point(currentLocation.X + 5, -3)
+                                //new Point(lastMouseLocation.X, -3), 
+                                //new Point(lastMouseLocation.X + 5, 3), 
+                                //new Point(lastMouseLocation.X + 10, -3)
+                            };
+
                             pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
                         }
                     }
                     else
                     {
-                        pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                        Point[] points2 = { new Point(this.Width - 10 | 0, -2), new Point(this.Width - 10 + 5, 3), new Point(this.Width - 10 + 10, -2) };
+                        Point[] points2 = 
+                        { 
+                            new Point(this.Width - 10 | 0, -2), 
+                            new Point(this.Width - 10 + 5, 3), 
+                            new Point(this.Width - 10 + 10, -2) 
+                        };
                         pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
                     }
                     break;

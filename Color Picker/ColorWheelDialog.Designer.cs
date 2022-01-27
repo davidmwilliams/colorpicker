@@ -191,7 +191,7 @@
             this.rgbLine1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.rgbLine1.BackColor = System.Drawing.Color.Transparent;
             this.rgbLine1.ChosenColor = System.Drawing.Color.Empty;
-            this.rgbLine1.LineThickness = 5F;
+            this.rgbLine1.LineThickness = 7F;
             this.rgbLine1.Location = new System.Drawing.Point(37, 306);
             this.rgbLine1.MaximumSize = new System.Drawing.Size(255, 10);
             this.rgbLine1.MinimumSize = new System.Drawing.Size(255, 10);
