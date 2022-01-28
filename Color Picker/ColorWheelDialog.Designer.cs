@@ -174,6 +174,7 @@
             this.colorPanel.Name = "colorPanel";
             this.colorPanel.Size = new System.Drawing.Size(304, 32);
             this.colorPanel.TabIndex = 6;
+            this.colorPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseClick);
             // 
             // colorPanelContextMenu
             // 
