@@ -23,6 +23,9 @@ namespace Color_Picker
 
         public ColorWheelDialog()
         {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
             InitializeComponent();
             lastMouseLocation = new Point();
             Colors = new List<Color>();
@@ -146,6 +149,22 @@ namespace Color_Picker
             rgbLine1.Refresh();
 
             Colors.Add(selectedColor);
+        }
+
+        private void colorPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                FullScreenWindow.SelectedColor = (sender as Panel).BackColor;
+
+                using (FullScreenWindow fullScreenWindow = new FullScreenWindow())
+                {
+                    if(fullScreenWindow.ShowDialog(this) == DialogResult.OK)
+                    {
+
+                    }
+                }
+            }
         }
     }
 }
