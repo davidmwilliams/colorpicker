@@ -446,7 +446,17 @@ namespace Color_Picker
                                 Clipboard.SetText(selectedColor.GetHue() + "," + selectedColor.GetSaturation() + "," + selectedColor.GetBrightness());
                                 break;
                             case "RGB":
-                                Clipboard.SetText(selectedColor.R + "," + selectedColor.G + "," + selectedColor.B);
+                                int aValue = selectedColor.A;
+
+                                if (aValue < 255)
+                                {
+                                    Clipboard.SetText(selectedColor.A + ", " + selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
+                                }
+                                else
+                                {
+                                    Clipboard.SetText(selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
+                                }
+
                                 break;
                         }
                     }

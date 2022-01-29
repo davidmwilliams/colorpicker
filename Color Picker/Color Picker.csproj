@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="RGBLine.Designer.cs">
       <DependentUpon>RGBLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Slider.Designer.cs">
+      <DependentUpon>Slider.cs</DependentUpon>
     </Compile>
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
