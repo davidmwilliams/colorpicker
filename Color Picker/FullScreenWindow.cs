@@ -16,6 +16,8 @@ namespace Color_Picker
 
         public FullScreenWindow()
         {
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+
             InitializeComponent();
         }
 
