@@ -45,6 +45,8 @@ namespace Color_Picker
         public Point lastMouseLocation;
         public bool pressing;
         private bool pickingColor;
+        private bool inSelectMode;
+        private bool shiftDown;
 
         public void SetLocation()
         {
@@ -358,11 +360,33 @@ namespace Color_Picker
                 pickedColorPanel.MouseLeave += PickedColorPanel_MouseLeave;
                 pickedColorPanel.MouseClick += PickedColorPanel_MouseClick;
                 pickedColorPanel.MouseWheel += PickedColorPanel_MouseWheel;
+                pickedColorPanel.PreviewKeyDown += PickedColorPanel_PreviewKeyDown;
 
                 pickedColorPanel.ContextMenu = colorOptionsContextMenu;
 
                 colorHistoryPanel.Controls.Add(pickedColorPanel);
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message message, Keys keyData)
+        {
+            if(keyData == Keys.Delete)
+            {
+                foreach(Panel panel in colorHistoryPanel.Controls)
+                {
+                    if(panel.Height == 20)
+                    {
+                        RemoveColorPanel(panel);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private void PickedColorPanel_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            MessageBox.Show("Hi.");
         }
 
         private void PickedColorPanel_MouseWheel(object sender, MouseEventArgs e)
@@ -427,6 +451,27 @@ namespace Color_Picker
             }
             else if (e.Button == MouseButtons.Left)
             {
+                if(inSelectMode)
+                {
+                    if ((sender as Panel).Height <= 20)
+                    {
+                        (sender as Panel).Height = this.Height;
+                    }
+                    else
+                    {
+                        (sender as Panel).Height = 20;
+                    }
+                }
+                else
+                {
+                    if((sender as Panel).Height <= 20)
+                    {
+                        (sender as Panel).Height = this.Height;
+                    }
+                }
+
+                shiftDown = false;
+
                 selectedColor = (sender as Panel).BackColor;
                 selectedColorPanel = (sender as Panel);
 
@@ -840,14 +885,33 @@ namespace Color_Picker
 
         private void menuItem2_Click_1(object sender, EventArgs e)
         {
+            RemoveColorPanel(sender as Panel);
+        }
+
+        private void RemoveColorPanel(Panel panel)
+        {
             // Remove the Color Panel.
-            if(selectedColorPanel != null && !selectedColorPanel.IsDisposed)
+            if (selectedColorPanel != null && !selectedColorPanel.IsDisposed)
             {
                 ColorPallette pallette = History.Pallette.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
 
                 selectedColorPanel.Dispose();
                 selectedColorPanel = null;
                 colorHistoryPanel.Controls.Remove(selectedColorPanel);
+
+                if (pallette != null)
+                {
+                    History.Pallette.Remove(pallette);
+                }
+            }
+
+            if(panel != null && !panel.IsDisposed)
+            {
+                ColorPallette pallette = History.Pallette.Where(x => x.Color == panel.BackColor).FirstOrDefault();
+
+                panel.Dispose();
+                panel = null;
+                colorHistoryPanel.Controls.Remove(panel);
 
                 if(pallette != null)
                 {
@@ -938,6 +1002,20 @@ namespace Color_Picker
             {
                 Visibility = VisibilityTypes.PartiallyVisible;
                 SetLocation();
+            }
+        }
+
+        private void menuItem4_Click_1(object sender, EventArgs e)
+        {
+            if ((sender as MenuItem).Checked)
+            {
+                inSelectMode = false;
+                (sender as MenuItem).Checked = false;
+            }
+            else
+            {
+                inSelectMode = true;
+                (sender as MenuItem).Checked = true;
             }
         }
     }

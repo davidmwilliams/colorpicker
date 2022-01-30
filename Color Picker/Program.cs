@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,10 @@ namespace Color_Picker
 {
     internal static class Program
     {
+        [DllImport("kernel32.dll")]
+        static extern bool AttachConsole(int dwProcessId);
+        private const int ATTACH_PARENT_PROCESS = -1;
+
         public static Version version;
 
         public static string appVersion;
@@ -40,6 +45,13 @@ namespace Color_Picker
         [STAThread]
         static void Main(string[] arguments)
         {
+            AttachConsole(ATTACH_PARENT_PROCESS);
+
+            if(Console.ReadLine() == "H")
+            {
+                Console.WriteLine("HI");
+            }
+
             Program.appVersion = Application.ProductVersion;
             Program.EnsureAppDataDirectoryExists();
             if (History.Exists(Program.ColorHistoryFilePath))
