@@ -37,7 +37,6 @@
             this.informationPanel = new System.Windows.Forms.Panel();
             this.openClosePanel = new System.Windows.Forms.Panel();
             this.eyedropper = new System.Windows.Forms.Panel();
-            this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.colorOptionsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.CMYKMenuItem = new System.Windows.Forms.MenuItem();
@@ -51,6 +50,8 @@
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.settingsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,21 +162,12 @@
             this.eyedropper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseUp);
             this.eyedropper.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.eyedropper_PreviewKeyDown);
             // 
-            // colorHistoryPanel
-            // 
-            this.colorHistoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorHistoryPanel.Location = new System.Drawing.Point(44, 0);
-            this.colorHistoryPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.colorHistoryPanel.Name = "colorHistoryPanel";
-            this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
-            this.colorHistoryPanel.TabIndex = 6;
-            this.colorHistoryPanel.WrapContents = false;
-            // 
             // colorOptionsContextMenu
             // 
             this.colorOptionsContextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem1,
             this.menuItem2,
+            this.menuItem4,
             this.menuItem6,
             this.menuItem7,
             this.useWideColorPanelsMenuItem,
@@ -228,24 +220,24 @@
             // 
             // menuItem6
             // 
-            this.menuItem6.Index = 2;
+            this.menuItem6.Index = 3;
             this.menuItem6.Text = "Clear Color Strip";
             this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem7
             // 
-            this.menuItem7.Index = 3;
+            this.menuItem7.Index = 4;
             this.menuItem7.Text = "-";
             // 
             // useWideColorPanelsMenuItem
             // 
-            this.useWideColorPanelsMenuItem.Index = 4;
+            this.useWideColorPanelsMenuItem.Index = 5;
             this.useWideColorPanelsMenuItem.Text = "Use Wide Color Panels";
             this.useWideColorPanelsMenuItem.Click += new System.EventHandler(this.useWideColorPanelsMenuItem_Click);
             // 
             // menuItem8
             // 
-            this.menuItem8.Index = 5;
+            this.menuItem8.Index = 6;
             this.menuItem8.Text = "More Options...";
             this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
@@ -258,6 +250,22 @@
             // 
             this.menuItem3.Index = 0;
             this.menuItem3.Text = "Settings";
+            // 
+            // colorHistoryPanel
+            // 
+            this.colorHistoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.colorHistoryPanel.Location = new System.Drawing.Point(44, 0);
+            this.colorHistoryPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.colorHistoryPanel.Name = "colorHistoryPanel";
+            this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
+            this.colorHistoryPanel.TabIndex = 6;
+            this.colorHistoryPanel.WrapContents = false;
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 2;
+            this.menuItem4.Text = "Select Mode";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click_1);
             // 
             // Window
             // 
@@ -274,6 +282,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -298,7 +307,6 @@
         private System.Windows.Forms.LinkLabel pickColorLink;
         private System.Windows.Forms.ToolTip tip;
         private System.Windows.Forms.Panel informationPanel;
-        private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
         private System.Windows.Forms.ContextMenu colorOptionsContextMenu;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem RGBMenuItem;
@@ -313,6 +321,8 @@
         private System.Windows.Forms.ContextMenu settingsContextMenu;
         private System.Windows.Forms.MenuItem menuItem3;
         public System.Windows.Forms.Panel eyedropper;
+        private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
+        private System.Windows.Forms.MenuItem menuItem4;
     }
 }
 
