@@ -55,5 +55,10 @@ namespace Color_Picker
         {
             Process.Start("mailto:talk@colorpicker.website");
         }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("mailto:talk@colorpicker.website");
+        }
     }
 }

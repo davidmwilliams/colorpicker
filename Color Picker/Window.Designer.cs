@@ -44,6 +44,7 @@
             this.HSBMenuItem = new System.Windows.Forms.MenuItem();
             this.RGBMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.useWideColorPanelsMenuItem = new System.Windows.Forms.MenuItem();
@@ -51,7 +52,6 @@
             this.settingsContextMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,6 +218,12 @@
             this.menuItem2.Text = "Remove";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
             // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 2;
+            this.menuItem4.Text = "Select Mode";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click_1);
+            // 
             // menuItem6
             // 
             this.menuItem6.Index = 3;
@@ -260,12 +266,6 @@
             this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
             this.colorHistoryPanel.TabIndex = 6;
             this.colorHistoryPanel.WrapContents = false;
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Index = 2;
-            this.menuItem4.Text = "Select Mode";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click_1);
             // 
             // Window
             // 
