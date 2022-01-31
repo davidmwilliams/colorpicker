@@ -243,6 +243,7 @@
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "talk@colorpicker.website";
             this.toolTip1.SetToolTip(this.linkLabel4, "Help & Support, etc.");
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // About
             // 

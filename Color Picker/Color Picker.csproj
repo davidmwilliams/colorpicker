@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -74,8 +74,8 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ALMSTWKND.UI.WindowsForms.Controls2">
-      <HintPath>..\..\ALMSTWKND.UI.WindowsForms.Controls\ALMSTWKND.UI.WindowsForms.Controls\bin\Release\ALMSTWKND.UI.WindowsForms.Controls2.dll</HintPath>
+    <Reference Include="ALMSTWKND.UI.WindowsForms.Controls">
+      <HintPath>..\..\ALMSTWKND.UI.WindowsForms.Controls\ALMSTWKND.UI.WindowsForms.Controls\bin\Release\ALMSTWKND.UI.WindowsForms.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
