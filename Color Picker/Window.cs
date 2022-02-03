@@ -48,6 +48,8 @@ namespace Color_Picker
         private bool pickingColor;
         private bool inSelectMode;
         private bool shiftDown;
+        private bool moving;
+        private bool assumeClicked;
 
         public void SetLocation()
         {
@@ -165,11 +167,11 @@ namespace Color_Picker
 
             if (selectedColor != null)
             {
-                ColorPallette colorPallette = new ColorPallette()
-                {
-                    Color = selectedColor,
-                    ColorPanelWidth = defaultColorPanelWidth
-                };
+                //ColorPallette colorPallette = new ColorPallette()
+                //{
+                //    Color = selectedColor,
+                //    ColorPanelWidth = defaultColorPanelWidth
+                //};
 
                 //Program.history = new History();
                 //History.Pallettes.Add(colorPallette);
@@ -296,11 +298,11 @@ namespace Color_Picker
                     {
                         foreach (Color color in dialog.Colors)
                         {
-                            ColorPallette colorPallette = new ColorPallette()
-                            {
-                                Color = color,
-                                ColorPanelWidth = defaultColorPanelWidth
-                            };
+                            //ColorPallette colorPallette = new ColorPallette()
+                            //{
+                            //    Color = color,
+                            //    ColorPanelWidth = defaultColorPanelWidth
+                            //};
 
                             //History.Pallettes.Add(colorPallette);
 
@@ -355,10 +357,48 @@ namespace Color_Picker
                 pickedColorPanel.MouseClick += PickedColorPanel_MouseClick;
                 pickedColorPanel.MouseWheel += PickedColorPanel_MouseWheel;
                 pickedColorPanel.PreviewKeyDown += PickedColorPanel_PreviewKeyDown;
+                pickedColorPanel.MouseDown += PickedColorPanel_MouseDown;
+                pickedColorPanel.MouseMove += PickedColorPanel_MouseMove;
+                pickedColorPanel.MouseUp += PickedColorPanel_MouseUp;
 
                 pickedColorPanel.ContextMenu = colorOptionsContextMenu;
 
                 colorHistoryPanel.Controls.Add(pickedColorPanel);
+            }
+        }
+
+        private void PickedColorPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            pressing = false;
+            moving = false;
+            assumeClicked = false;
+        }
+
+        private void PickedColorPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            moving = true;
+
+            if(pressing)
+            {
+                colorHistoryPanel.Left = colorHistoryPanel.Left - (lastMouseLocation.X - e.Location.X) + 5;
+            }
+        }
+
+        private void PickedColorPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            int left = colorHistoryPanel.Left;
+
+            if (!assumeClicked)
+            {
+                pressing = true;
+                if (colorHistoryPanel.Dock != DockStyle.None)
+                {
+                    colorHistoryPanel.Dock = DockStyle.None;
+                }
+
+                colorHistoryPanel.AutoSize = true;
+                colorHistoryPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                colorHistoryPanel.Left = left + 5;
             }
         }
 
@@ -438,6 +478,7 @@ namespace Color_Picker
 
         public void PickedColorPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            assumeClicked = true;
             if (e.Button == MouseButtons.Right)
             {
                 selectedColor = (sender as Panel).BackColor;
@@ -951,11 +992,11 @@ namespace Color_Picker
                     {
                         selectedColor = ColorOptions.SelectedColor;
 
-                        ColorPallette colorPallette = new ColorPallette()
-                        {
-                            Color = selectedColor,
-                            ColorPanelWidth = defaultColorPanelWidth
-                        };
+                        //ColorPallette colorPallette = new ColorPallette()
+                        //{
+                        //    Color = selectedColor,
+                        //    ColorPanelWidth = defaultColorPanelWidth
+                        //};
 
                         //Program.history = new History();
                         //History.Pallettes.Add(colorPallette);
@@ -964,11 +1005,11 @@ namespace Color_Picker
 
                         foreach(Color color in selectedColors)
                         {
-                            ColorPallette thisColorPallette = new ColorPallette()
-                            {
-                                Color = color,
-                                ColorPanelWidth = defaultColorPanelWidth
-                            };
+                            //ColorPallette thisColorPallette = new ColorPallette()
+                            //{
+                            //    Color = color,
+                            //    ColorPanelWidth = defaultColorPanelWidth
+                            //};
 
                             //History.Pallettes.Add(thisColorPallette);
 
@@ -983,11 +1024,11 @@ namespace Color_Picker
                 {
                     foreach (Color color in selectedColors)
                     {
-                        ColorPallette thisColorPallette = new ColorPallette()
-                        {
-                            Color = color,
-                            ColorPanelWidth = defaultColorPanelWidth
-                        };
+                        //ColorPallette thisColorPallette = new ColorPallette()
+                        //{
+                        //    Color = color,
+                        //    ColorPanelWidth = defaultColorPanelWidth
+                        //};
 
                         //History.Pallettes.Add(thisColorPallette);
 
@@ -1020,6 +1061,41 @@ namespace Color_Picker
             {
                 inSelectMode = true;
                 (sender as MenuItem).Checked = true;
+            }
+        }
+
+        private void colorHistoryPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            pressing = true;
+            lastMouseLocation = e.Location;
+
+            //colorHistoryPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
+            //colorHistoryPanel.AutoSize = true;
+            //colorHistoryPanel.Width = 275;
+        }
+
+        private void colorHistoryPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            moving = true;
+
+            if(pressing && moving)
+            {
+                colorHistoryPanel.Dock = DockStyle.None;
+                colorHistoryPanel.Left = colorHistoryPanel.Left - (lastMouseLocation.X + e.Location.X);
+            }
+        }
+
+        private void colorHistoryPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            pressing = false;
+            moving = false;
+        }
+
+        private void mainPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                colorHistoryPanel.Dock = DockStyle.Fill;
             }
         }
     }
