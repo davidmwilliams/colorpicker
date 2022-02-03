@@ -66,19 +66,5 @@ namespace Color_Picker
                 LocalSettings localSettings = (LocalSettings)dataContractJsonSerializer.ReadObject(memoryStream);
             }
         }
-
-        public static void Save(List<Color> colors, string filePath)
-        {
-            string colorString = "";
-
-            foreach(Color color in colors)
-            {
-                colorString += color.A + "," + color.R + "," + color.G + "," + color.B + ";";
-            }
-
-            colorString = colorString.TrimEnd(';');
-
-            File.WriteAllText(Program.AppDataDirectory + "colorpicker.strip", colorString);
-        }
     }
 }

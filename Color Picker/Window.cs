@@ -651,17 +651,9 @@ namespace Color_Picker
         {
             e.Cancel = true;
 
-            // Save Color Pallette.
-            if (this.Width > 275)
-            {
-                localSettings.DefaultWindowSize = new Size(this.Width, this.Height);
-            }
-            else
-            {
-                localSettings.DefaultWindowSize = new Size(275, this.Height);
-            }
-
-            localSettings.ColorPanelWidth = defaultColorPanelWidth;
+            // Save settings.
+            string settings = defaultColorPanelWidth + "," + defaultSize.Width + ";";
+            File.WriteAllText(Program.AppDataDirectory + "colorpicker.settings", settings);
 
             List<Color> colors = new List<Color>();
 
@@ -670,7 +662,7 @@ namespace Color_Picker
                 colors.Add(Color.FromArgb(panel.BackColor.A, panel.BackColor.R, panel.BackColor.G, panel.BackColor.B));
             }
 
-            AppSettings.Save(colors, Program.ColorPickerSettingsFilePath);
+            Strip.Save(colors, Program.ColorPickerSettingsFilePath);
 
 
             // Allow the program to exit.
@@ -680,6 +672,31 @@ namespace Color_Picker
         private void Window_Shown(object sender, EventArgs e)
         {
             List<Color> colors = AppSettings.GetStrips(Program.AppDataDirectory);
+
+            if (File.Exists(Program.AppDataDirectory + "colorpicker.settings"))
+            {
+                string settings = File.ReadAllText(Program.AppDataDirectory + "colorpicker.settings");
+
+                if(!String.IsNullOrEmpty(settings))
+                {
+                    string[] parts = settings.Split(',');
+
+                    int width = 275;
+                    parts[1] = parts[1].TrimEnd(';');
+
+                    Int32.TryParse(parts[0], out defaultColorPanelWidth);
+                    Int32.TryParse(parts[1], out width);
+
+                    defaultSize = new Size(width, 32);
+                }
+            }
+            else
+            {
+                defaultSize = new Size(275, 32);
+                this.Size = defaultSize;
+                defaultColorPanelWidth = 10;
+            }
+
             if (colors != null)
             {
                 foreach (Color color in colors)
