@@ -60,5 +60,10 @@ namespace Color_Picker
         {
             Process.Start("mailto:talk@colorpicker.website");
         }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/jasonpezzimenti/colorpicker/");
+        }
     }
 }

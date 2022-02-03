@@ -44,6 +44,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,16 +91,15 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(415, 74);
+            this.label2.Size = new System.Drawing.Size(415, 111);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Color Picker is a free, simple and convenient application for Windows that allows" +
-    " you to see and copy the HSB, RGB and HEX values of selected colors to the Clipb" +
-    "oard.";
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // separator1
             // 
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator1.Angle = 0;
             this.separator1.CanHighlight = false;
             this.separator1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(130)))), ((int)(((byte)(224)))));
             this.separator1.Direction = "Horizontal";
@@ -115,12 +115,13 @@
             // 
             this.separator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator2.Angle = 0;
             this.separator2.CanHighlight = false;
             this.separator2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(130)))), ((int)(((byte)(224)))));
             this.separator2.Direction = "Horizontal";
             this.separator2.DisabledColor = System.Drawing.Color.Empty;
             this.separator2.HighlightColor = System.Drawing.Color.Empty;
-            this.separator2.Location = new System.Drawing.Point(15, 149);
+            this.separator2.Location = new System.Drawing.Point(15, 223);
             this.separator2.Name = "separator2";
             this.separator2.Size = new System.Drawing.Size(412, 1);
             this.separator2.TabIndex = 7;
@@ -155,7 +156,7 @@
             this.okButton.FocusedColor = System.Drawing.Color.Empty;
             this.okButton.HasBorder = true;
             this.okButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.okButton.Location = new System.Drawing.Point(352, 156);
+            this.okButton.Location = new System.Drawing.Point(352, 230);
             this.okButton.Name = "okButton";
             this.okButton.RequiresConfirmation = false;
             this.okButton.SeparatorDistance = 0;
@@ -173,7 +174,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
-            this.linkLabel2.Location = new System.Drawing.Point(12, 162);
+            this.linkLabel2.Location = new System.Drawing.Point(12, 236);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(71, 13);
             this.linkLabel2.TabIndex = 9;
@@ -186,7 +187,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
-            this.linkLabel3.Location = new System.Drawing.Point(89, 162);
+            this.linkLabel3.Location = new System.Drawing.Point(89, 236);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(61, 13);
             this.linkLabel3.TabIndex = 10;
@@ -245,12 +246,27 @@
             this.toolTip1.SetToolTip(this.linkLabel4, "Help & Support, etc.");
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
+            this.linkLabel5.Location = new System.Drawing.Point(12, 183);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(148, 13);
+            this.linkLabel5.TabIndex = 14;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Official Repository (GitHub)";
+            this.toolTip1.SetToolTip(this.linkLabel5, "Visit the Color Picker repo on Github.");
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(439, 193);
+            this.ClientSize = new System.Drawing.Size(439, 267);
+            this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -295,5 +311,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel5;
     }
 }
