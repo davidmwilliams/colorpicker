@@ -172,7 +172,7 @@ namespace Color_Picker
                 };
 
                 //Program.history = new History();
-                History.Pallettes.Add(colorPallette);
+                //History.Pallettes.Add(colorPallette);
 
                 CreateColorPanel(selectedColor, defaultColorPanelWidth);
             }
@@ -302,7 +302,7 @@ namespace Color_Picker
                                 ColorPanelWidth = defaultColorPanelWidth
                             };
 
-                            History.Pallettes.Add(colorPallette);
+                            //History.Pallettes.Add(colorPallette);
 
                             CreateColorPanel(color, defaultColorPanelWidth);
                         }
@@ -405,11 +405,11 @@ namespace Color_Picker
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
 
                     // Update it in the list.
-                    ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
-                    if (pallette != null)
-                    {
-                        History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
-                    }
+                    //ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    //if (pallette != null)
+                    //{
+                    //    History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
+                    //}
                 }
             }
             else
@@ -427,11 +427,11 @@ namespace Color_Picker
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
 
                     // Update it in the list.
-                    ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
-                    if (pallette != null)
-                    {
-                        History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
-                    }
+                    //ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    //if (pallette != null)
+                    //{
+                    //    History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
+                    //}
                 }
             }
         }
@@ -770,11 +770,11 @@ namespace Color_Picker
             if (dialogResult == DialogResult.Yes)
             {
                 // Clear the history.
-                Program.history = null;
+                //Program.history = null;
                 colorHistoryPanel.Controls.Clear();
 
-                History.Pallettes.Clear();
-                History.Delete(Program.ColorHistoryFilePath);
+                //History.Pallettes.Clear();
+                //History.Delete(Program.ColorHistoryFilePath);
             }
         }
 
@@ -806,10 +806,10 @@ namespace Color_Picker
                 }
             }
 
-            foreach (ColorPallette pallette in History.Pallettes)
-            {
-                pallette.ColorPanelWidth = defaultColorPanelWidth;
-            }
+            //foreach (ColorPallette pallette in History.Pallettes)
+            //{
+            //    pallette.ColorPanelWidth = defaultColorPanelWidth;
+            //}
         }
 
         private void eyedropper_DragEnter(object sender, DragEventArgs e)
@@ -897,30 +897,30 @@ namespace Color_Picker
             // Remove the Color Panel.
             if (selectedColorPanel != null && !selectedColorPanel.IsDisposed)
             {
-                ColorPallette pallette = History.Pallettes.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
+                //ColorPallette pallette = History.Pallettes.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
 
                 selectedColorPanel.Dispose();
                 selectedColorPanel = null;
                 colorHistoryPanel.Controls.Remove(selectedColorPanel);
 
-                if (pallette != null)
-                {
-                    History.Pallettes.Remove(pallette);
-                }
+                //if (pallette != null)
+                //{
+                //    History.Pallettes.Remove(pallette);
+                //}
             }
 
             if(panel != null && !panel.IsDisposed)
             {
-                ColorPallette pallette = History.Pallettes.Where(x => x.Color == panel.BackColor).FirstOrDefault();
+                //ColorPallette pallette = History.Pallettes.Where(x => x.Color == panel.BackColor).FirstOrDefault();
 
                 panel.Dispose();
                 panel = null;
                 colorHistoryPanel.Controls.Remove(panel);
 
-                if(pallette != null)
-                {
-                    History.Pallettes.Remove(pallette);
-                }
+                //if(pallette != null)
+                //{
+                //    History.Pallettes.Remove(pallette);
+                //}
             }
         }
 
@@ -958,7 +958,7 @@ namespace Color_Picker
                         };
 
                         //Program.history = new History();
-                        History.Pallettes.Add(colorPallette);
+                        //History.Pallettes.Add(colorPallette);
 
                         CreateColorPanel(selectedColor, defaultColorPanelWidth);
 
@@ -970,7 +970,7 @@ namespace Color_Picker
                                 ColorPanelWidth = defaultColorPanelWidth
                             };
 
-                            History.Pallettes.Add(thisColorPallette);
+                            //History.Pallettes.Add(thisColorPallette);
 
                             CreateColorPanel(color, defaultColorPanelWidth);
                         }
@@ -989,7 +989,7 @@ namespace Color_Picker
                             ColorPanelWidth = defaultColorPanelWidth
                         };
 
-                        History.Pallettes.Add(thisColorPallette);
+                        //History.Pallettes.Add(thisColorPallette);
 
                         CreateColorPanel(color, defaultColorPanelWidth);
                     }

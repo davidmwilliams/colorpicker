@@ -22,7 +22,7 @@ namespace Color_Picker
         public static string ColorHistoryFilePath;
         public static string ColorPickerSettingsFilePath;
 
-        public static History history;
+        //public static History history;
 
         static Program()
         {
@@ -31,7 +31,7 @@ namespace Color_Picker
             Program.ColorHistoryFilePath = string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "\\Color Picker\\.history");
             Program.ColorPickerSettingsFilePath = string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "\\Color Picker\\.settings");
 
-            history = new History();
+            //history = new History();
         }
 
         public static void EnsureAppDataDirectoryExists()
@@ -64,10 +64,10 @@ namespace Color_Picker
                 AppSettings.Load(ColorPickerSettingsFilePath);
             }
 
-            if (History.Exists(Program.ColorHistoryFilePath))
-            {
-                History.Load(Program.ColorHistoryFilePath);
-            }
+            //if (History.Exists(Program.ColorHistoryFilePath))
+            //{
+            //    History.Load(Program.ColorHistoryFilePath);
+            //}
 
             AppSettings.GetStrips(Program.AppDataDirectory);
 
