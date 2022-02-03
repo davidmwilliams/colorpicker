@@ -12,16 +12,16 @@ namespace Color_Picker
     public class History
     {
         [DataMember]
-        public static List<ColorPallette> Pallette;
+        public static List<ColorPallette> Pallettes;
 
         static History()
         {
-            History.Pallette = new List<ColorPallette>();
+            History.Pallettes = new List<ColorPallette>();
         }
 
-        public static bool Exists(string path)
+        public static bool Exists(string filePath)
         {
-            return (File.Exists(path) ? true : false);
+            return (File.Exists(filePath) ? true : false);
         }
 
         public static void Load(string filePath)
@@ -38,7 +38,7 @@ namespace Color_Picker
 
                 memoryStream.Position = 0;
 
-                History.Pallette = (List<ColorPallette>)dataContractJsonSerializer.ReadObject(memoryStream);
+                History.Pallettes = (List<ColorPallette>)dataContractJsonSerializer.ReadObject(memoryStream);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Color_Picker
                 {
                     File.Delete(filePath);
                 }
-                catch(Exception exception)
+                catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
                 }
@@ -60,7 +60,7 @@ namespace Color_Picker
         public static void Save(string filePath)
         {
             MemoryStream memoryStream = new MemoryStream();
-            (new DataContractJsonSerializer(typeof(List<ColorPallette>))).WriteObject(memoryStream, History.Pallette);
+            (new DataContractJsonSerializer(typeof(List<ColorPallette>))).WriteObject(memoryStream, History.Pallettes);
             memoryStream.Position = (long)0;
 
 

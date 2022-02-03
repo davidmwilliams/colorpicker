@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -9,27 +10,30 @@ namespace Color_Picker
 {
     public class ColorPallette
     {
-		[DataMember]
-		public System.Drawing.Color Color { get; set; }
+        [DataMember]
+        public List<Color> Colors;
 
-		[DataMember]
-		public int DefaultWindowWidth { get; set; }
+        [DataMember]
+        public Color Color { get; set; }
 
-		private int colorPanelWidth;
+        private int colorPanelWidth;
 
-		[DataMember]
-		public int ColorPanelWidth
+        [DataMember]
+        public int ColorPanelWidth
         {
-			get
-			{
-				return this.colorPanelWidth;
-			}
-			set
-			{
-				colorPanelWidth = value | 10;
-			}
+            get
+            {
+                return this.colorPanelWidth;
+            }
+            set
+            {
+                colorPanelWidth = value | 10;
+            }
         }
 
-		public ColorPallette() { }
-	}
+        public ColorPallette()
+        {
+            Colors = new List<Color>();
+        }
+    }
 }

@@ -32,6 +32,7 @@ namespace Color_Picker
             Visible
         }
 
+        public static AppSettings.LocalSettings localSettings;
         public Timer timer = new Timer();
         public ColorDialog colorDialog;
         public static Color selectedColor;
@@ -86,6 +87,7 @@ namespace Color_Picker
 
             colorDialog = new ColorDialog();
             selectedColors = new List<Color>();
+            localSettings = new AppSettings.LocalSettings();
 
             colorDialog.FullOpen = true;
             colorDialog.ShowHelp = true;
@@ -98,21 +100,13 @@ namespace Color_Picker
 
         private void Window_Load(object sender, EventArgs e)
         {
-            if (History.Pallette == null || History.Pallette.Count == 0)
+            if (localSettings.DefaultWindowSize.Width > 275)
+            {
+                defaultSize = new Size(localSettings.DefaultWindowSize.Width, 32);
+            }
+            else
             {
                 defaultSize = new Size(275, 32);
-            }
-
-            foreach (ColorPallette pallette in History.Pallette)
-            {
-                if (pallette.DefaultWindowWidth > 275)
-                {
-                    defaultSize = new Size(History.Pallette[0].DefaultWindowWidth, 32);
-                }
-                else
-                {
-                    defaultSize = new Size(275, 32);
-                }
             }
 
             SetLocation();
@@ -178,7 +172,7 @@ namespace Color_Picker
                 };
 
                 //Program.history = new History();
-                History.Pallette.Add(colorPallette);
+                History.Pallettes.Add(colorPallette);
 
                 CreateColorPanel(selectedColor, defaultColorPanelWidth);
             }
@@ -296,11 +290,11 @@ namespace Color_Picker
         {
             using (ColorWheelDialog dialog = new ColorWheelDialog())
             {
-                if(dialog.ShowDialog(this) == DialogResult.OK)
+                if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    if(dialog.Colors != null)
+                    if (dialog.Colors != null)
                     {
-                        foreach(Color color in dialog.Colors)
+                        foreach (Color color in dialog.Colors)
                         {
                             ColorPallette colorPallette = new ColorPallette()
                             {
@@ -308,7 +302,7 @@ namespace Color_Picker
                                 ColorPanelWidth = defaultColorPanelWidth
                             };
 
-                            History.Pallette.Add(colorPallette);
+                            History.Pallettes.Add(colorPallette);
 
                             CreateColorPanel(color, defaultColorPanelWidth);
                         }
@@ -316,30 +310,30 @@ namespace Color_Picker
                 }
             }
 
-                // Obsolete
-                //if (colorDialog.ShowDialog(this) == DialogResult.OK)
-                //{
-                //    // Assume that we have a color.
-                //    if (colorDialog.Color != null)
-                //    {
-                //        Color pickedColor = colorDialog.Color;
+            // Obsolete
+            //if (colorDialog.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    // Assume that we have a color.
+            //    if (colorDialog.Color != null)
+            //    {
+            //        Color pickedColor = colorDialog.Color;
 
-                //        ColorPallette colorPallette = new ColorPallette()
-                //        {
-                //            Color = pickedColor,
-                //            ColorPanelWidth = defaultColorPanelWidth
-                //        };
+            //        ColorPallette colorPallette = new ColorPallette()
+            //        {
+            //            Color = pickedColor,
+            //            ColorPanelWidth = defaultColorPanelWidth
+            //        };
 
-                //        //Program.history = new History();
-                //        History.Pallette.Add(colorPallette);
+            //        //Program.history = new History();
+            //        History.Pallette.Add(colorPallette);
 
-                //        CreateColorPanel(pickedColor, defaultColorPanelWidth);
-                //    }
-                //}
+            //        CreateColorPanel(pickedColor, defaultColorPanelWidth);
+            //    }
+            //}
 
-                // We're done. Show the window again.
-                Visibility = VisibilityTypes.Visible;
-                SetLocation();
+            // We're done. Show the window again.
+            Visibility = VisibilityTypes.Visible;
+            SetLocation();
         }
 
         private void CreateColorPanel(Color pickedColor, int colorPanelWidth)
@@ -370,11 +364,11 @@ namespace Color_Picker
 
         protected override bool ProcessCmdKey(ref Message message, Keys keyData)
         {
-            if(keyData == Keys.Delete)
+            if (keyData == Keys.Delete)
             {
-                foreach(Panel panel in colorHistoryPanel.Controls)
+                foreach (Panel panel in colorHistoryPanel.Controls)
                 {
-                    if(panel.Height == 20)
+                    if (panel.Height == 20)
                     {
                         RemoveColorPanel(panel);
                     }
@@ -411,10 +405,10 @@ namespace Color_Picker
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
 
                     // Update it in the list.
-                    ColorPallette pallette = History.Pallette.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
                     if (pallette != null)
                     {
-                        History.Pallette[History.Pallette.IndexOf(pallette)].Color = selectedColor;
+                        History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
                     }
                 }
             }
@@ -433,10 +427,10 @@ namespace Color_Picker
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
 
                     // Update it in the list.
-                    ColorPallette pallette = History.Pallette.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
+                    ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
                     if (pallette != null)
                     {
-                        History.Pallette[History.Pallette.IndexOf(pallette)].Color = selectedColor;
+                        History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
                     }
                 }
             }
@@ -451,7 +445,7 @@ namespace Color_Picker
             }
             else if (e.Button == MouseButtons.Left)
             {
-                if(inSelectMode)
+                if (inSelectMode)
                 {
                     if ((sender as Panel).Height <= 20)
                     {
@@ -464,7 +458,7 @@ namespace Color_Picker
                 }
                 else
                 {
-                    if((sender as Panel).Height <= 20)
+                    if ((sender as Panel).Height <= 20)
                     {
                         (sender as Panel).Height = this.Height;
                     }
@@ -477,7 +471,7 @@ namespace Color_Picker
 
                 foreach (MenuItem item in menuItem1.MenuItems)
                 {
-                    if(item.Checked)
+                    if (item.Checked)
                     {
                         switch (item.Text)
                         {
@@ -658,17 +652,26 @@ namespace Color_Picker
             e.Cancel = true;
 
             // Save Color Pallette.
-            if ((Program.history == null ? false : History.Pallette.Count >= 1))
+            if (this.Width > 275)
             {
-                foreach (ColorPallette pallette in History.Pallette)
-                {
-                    pallette.DefaultWindowWidth = this.Width;
-                }
-
-                History.Save(Program.ColorHistoryFilePath);
+                localSettings.DefaultWindowSize = new Size(this.Width, this.Height);
+            }
+            else
+            {
+                localSettings.DefaultWindowSize = new Size(275, this.Height);
             }
 
-            // Dispose of unused resources.
+            localSettings.ColorPanelWidth = defaultColorPanelWidth;
+
+            List<Color> colors = new List<Color>();
+
+            foreach (Panel panel in colorHistoryPanel.Controls)
+            {
+                colors.Add(Color.FromArgb(panel.BackColor.A, panel.BackColor.R, panel.BackColor.G, panel.BackColor.B));
+            }
+
+            AppSettings.Save(colors, Program.ColorPickerSettingsFilePath);
+
 
             // Allow the program to exit.
             e.Cancel = false;
@@ -676,28 +679,12 @@ namespace Color_Picker
 
         private void Window_Shown(object sender, EventArgs e)
         {
-            if (History.Pallette != null && History.Pallette.Count >= 1)
+            List<Color> colors = AppSettings.GetStrips(Program.AppDataDirectory);
+            if (colors != null)
             {
-                bool usingWideColorPanels = false;
-
-                foreach (ColorPallette pallette in History.Pallette)
+                foreach (Color color in colors)
                 {
-                    if (pallette.ColorPanelWidth >= 24)
-                        usingWideColorPanels = true;
-                    else
-                        usingWideColorPanels = false;
-
-                    defaultColorPanelWidth = pallette.ColorPanelWidth;
-                    CreateColorPanel(pallette.Color, pallette.ColorPanelWidth);
-                }
-
-                if (usingWideColorPanels)
-                {
-                    useWideColorPanelsMenuItem.Checked = true;
-                }
-                else
-                {
-                    useWideColorPanelsMenuItem.Checked = false;
+                    CreateColorPanel(color, 10);
                 }
             }
         }
@@ -769,7 +756,7 @@ namespace Color_Picker
                 Program.history = null;
                 colorHistoryPanel.Controls.Clear();
 
-                History.Pallette.Clear();
+                History.Pallettes.Clear();
                 History.Delete(Program.ColorHistoryFilePath);
             }
         }
@@ -802,7 +789,7 @@ namespace Color_Picker
                 }
             }
 
-            foreach (ColorPallette pallette in History.Pallette)
+            foreach (ColorPallette pallette in History.Pallettes)
             {
                 pallette.ColorPanelWidth = defaultColorPanelWidth;
             }
@@ -893,7 +880,7 @@ namespace Color_Picker
             // Remove the Color Panel.
             if (selectedColorPanel != null && !selectedColorPanel.IsDisposed)
             {
-                ColorPallette pallette = History.Pallette.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
+                ColorPallette pallette = History.Pallettes.Where(x => x.Color == selectedColorPanel.BackColor).FirstOrDefault();
 
                 selectedColorPanel.Dispose();
                 selectedColorPanel = null;
@@ -901,13 +888,13 @@ namespace Color_Picker
 
                 if (pallette != null)
                 {
-                    History.Pallette.Remove(pallette);
+                    History.Pallettes.Remove(pallette);
                 }
             }
 
             if(panel != null && !panel.IsDisposed)
             {
-                ColorPallette pallette = History.Pallette.Where(x => x.Color == panel.BackColor).FirstOrDefault();
+                ColorPallette pallette = History.Pallettes.Where(x => x.Color == panel.BackColor).FirstOrDefault();
 
                 panel.Dispose();
                 panel = null;
@@ -915,7 +902,7 @@ namespace Color_Picker
 
                 if(pallette != null)
                 {
-                    History.Pallette.Remove(pallette);
+                    History.Pallettes.Remove(pallette);
                 }
             }
         }
@@ -954,7 +941,7 @@ namespace Color_Picker
                         };
 
                         //Program.history = new History();
-                        History.Pallette.Add(colorPallette);
+                        History.Pallettes.Add(colorPallette);
 
                         CreateColorPanel(selectedColor, defaultColorPanelWidth);
 
@@ -966,7 +953,7 @@ namespace Color_Picker
                                 ColorPanelWidth = defaultColorPanelWidth
                             };
 
-                            History.Pallette.Add(thisColorPallette);
+                            History.Pallettes.Add(thisColorPallette);
 
                             CreateColorPanel(color, defaultColorPanelWidth);
                         }
@@ -985,7 +972,7 @@ namespace Color_Picker
                             ColorPanelWidth = defaultColorPanelWidth
                         };
 
-                        History.Pallette.Add(thisColorPallette);
+                        History.Pallettes.Add(thisColorPallette);
 
                         CreateColorPanel(color, defaultColorPanelWidth);
                     }

@@ -108,6 +108,9 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorPanel.cs" />
+    <Compile Include="StateManager.cs" />
+    <Compile Include="Strip.cs" />
     <Compile Include="ColorOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,12 +164,14 @@
     <Compile Include="RGBLine.Designer.cs">
       <DependentUpon>RGBLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="Slider.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Slider.Designer.cs">
       <DependentUpon>Slider.cs</DependentUpon>
     </Compile>
+    <Compile Include="StripParser.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>

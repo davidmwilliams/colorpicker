@@ -21,8 +21,14 @@ namespace Color_Picker.experimental
         [DataMember]
         public int ColorPanelWidth
         {
-            get { return this.colorPanelWidth; }
-            set { colorPanelWidth = value | 10; }
+            get
+            {
+                return this.colorPanelWidth;
+            }
+            set
+            {
+                colorPanelWidth = value | 10;
+            }
         }
 
         public ColorPallette()
