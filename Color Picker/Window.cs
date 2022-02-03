@@ -165,11 +165,11 @@ namespace Color_Picker
 
             if (selectedColor != null)
             {
-                ColorPallette colorPallette = new ColorPallette()
-                {
-                    Color = selectedColor,
-                    ColorPanelWidth = defaultColorPanelWidth
-                };
+                //ColorPallette colorPallette = new ColorPallette()
+                //{
+                //    Color = selectedColor,
+                //    ColorPanelWidth = defaultColorPanelWidth
+                //};
 
                 //Program.history = new History();
                 //History.Pallettes.Add(colorPallette);
@@ -296,11 +296,11 @@ namespace Color_Picker
                     {
                         foreach (Color color in dialog.Colors)
                         {
-                            ColorPallette colorPallette = new ColorPallette()
-                            {
-                                Color = color,
-                                ColorPanelWidth = defaultColorPanelWidth
-                            };
+                            //ColorPallette colorPallette = new ColorPallette()
+                            //{
+                            //    Color = color,
+                            //    ColorPanelWidth = defaultColorPanelWidth
+                            //};
 
                             //History.Pallettes.Add(colorPallette);
 
@@ -951,11 +951,11 @@ namespace Color_Picker
                     {
                         selectedColor = ColorOptions.SelectedColor;
 
-                        ColorPallette colorPallette = new ColorPallette()
-                        {
-                            Color = selectedColor,
-                            ColorPanelWidth = defaultColorPanelWidth
-                        };
+                        //ColorPallette colorPallette = new ColorPallette()
+                        //{
+                        //    Color = selectedColor,
+                        //    ColorPanelWidth = defaultColorPanelWidth
+                        //};
 
                         //Program.history = new History();
                         //History.Pallettes.Add(colorPallette);
@@ -964,11 +964,11 @@ namespace Color_Picker
 
                         foreach(Color color in selectedColors)
                         {
-                            ColorPallette thisColorPallette = new ColorPallette()
-                            {
-                                Color = color,
-                                ColorPanelWidth = defaultColorPanelWidth
-                            };
+                            //ColorPallette thisColorPallette = new ColorPallette()
+                            //{
+                            //    Color = color,
+                            //    ColorPanelWidth = defaultColorPanelWidth
+                            //};
 
                             //History.Pallettes.Add(thisColorPallette);
 
@@ -983,11 +983,11 @@ namespace Color_Picker
                 {
                     foreach (Color color in selectedColors)
                     {
-                        ColorPallette thisColorPallette = new ColorPallette()
-                        {
-                            Color = color,
-                            ColorPanelWidth = defaultColorPanelWidth
-                        };
+                        //ColorPallette thisColorPallette = new ColorPallette()
+                        //{
+                        //    Color = color,
+                        //    ColorPanelWidth = defaultColorPanelWidth
+                        //};
 
                         //History.Pallettes.Add(thisColorPallette);
 

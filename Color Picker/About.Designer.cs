@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.versionLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.separator1 = new ALMSTWKND.UI.WindowsForms.Controls.Separator();
             this.separator2 = new ALMSTWKND.UI.WindowsForms.Controls.Separator();
             this.okButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
@@ -45,6 +44,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,18 +82,6 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(0, 13);
             this.versionLabel.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(415, 111);
-            this.label2.TabIndex = 5;
-            this.label2.Text = resources.GetString("label2.Text");
             // 
             // separator1
             // 
@@ -172,6 +160,7 @@
             // 
             this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Enabled = false;
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
             this.linkLabel2.Location = new System.Drawing.Point(12, 236);
@@ -260,12 +249,27 @@
             this.toolTip1.SetToolTip(this.linkLabel5, "Visit the Color Picker repo on Github.");
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 75);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(415, 105);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(439, 267);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox3);
@@ -275,7 +279,6 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.separator1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
@@ -301,7 +304,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label versionLabel;
-        private System.Windows.Forms.Label label2;
         private ALMSTWKND.UI.WindowsForms.Controls.Separator separator1;
         private ALMSTWKND.UI.WindowsForms.Controls.Separator separator2;
         private ALMSTWKND.UI.WindowsForms.Controls.Button okButton;
@@ -312,5 +314,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

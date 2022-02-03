@@ -120,10 +120,13 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="label2.Text" xml:space="preserve">
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="textBox1.Text" xml:space="preserve">
     <value>Color Picker is a free, simple and convenient application for Windows that allows you to see and copy the HSB, RGB and HEX values of selected colors to the Clipboard.
 
-This is a free, open source project by Jason Pezzimenti. Contributions are very welcome. You can find the official repository at GitHub:</value>
+This is a free, open source project by Jason Pezzimenti and can be found at GitHub where contributions are very welcome. Click the link below to view this repository:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

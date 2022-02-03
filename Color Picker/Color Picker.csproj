@@ -117,7 +117,6 @@
     <Compile Include="ColorOptions.Designer.cs">
       <DependentUpon>ColorOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="ColorPallette.cs" />
     <Compile Include="ColorSlider.cs">
       <SubType>Component</SubType>
     </Compile>
