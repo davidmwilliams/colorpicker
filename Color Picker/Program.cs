@@ -20,6 +20,7 @@ namespace Color_Picker
         public static string appVersion;
         public static string AppDataDirectory;
         public static string ColorHistoryFilePath;
+        public static string ColorPickerSettingsFilePath;
 
         public static History history;
 
@@ -28,6 +29,8 @@ namespace Color_Picker
             Program.version = Assembly.GetExecutingAssembly().GetName().Version;
             Program.AppDataDirectory = string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "\\Color Picker\\");
             Program.ColorHistoryFilePath = string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "\\Color Picker\\.history");
+            Program.ColorPickerSettingsFilePath = string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "\\Color Picker\\.settings");
+
             history = new History();
         }
 
@@ -47,17 +50,26 @@ namespace Color_Picker
         {
             AttachConsole(ATTACH_PARENT_PROCESS);
 
-            if(Console.ReadLine() == "H")
-            {
-                Console.WriteLine("HI");
-            }
+            // Do Terminal work.
+
+
+
+            // End Terminal work.
 
             Program.appVersion = Application.ProductVersion;
             Program.EnsureAppDataDirectoryExists();
+
+            if (AppSettings.Exists(ColorPickerSettingsFilePath))
+            {
+                AppSettings.Load(ColorPickerSettingsFilePath);
+            }
+
             if (History.Exists(Program.ColorHistoryFilePath))
             {
                 History.Load(Program.ColorHistoryFilePath);
             }
+
+            AppSettings.GetStrips(Program.AppDataDirectory);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

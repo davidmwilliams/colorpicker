@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Color_Picker
+namespace Color_Picker.experimental
 {
     public class ColorPallette
     {

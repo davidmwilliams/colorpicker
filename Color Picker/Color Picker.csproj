@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>31</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -108,6 +108,9 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorPanel.cs" />
+    <Compile Include="StateManager.cs" />
+    <Compile Include="Strip.cs" />
     <Compile Include="ColorOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +143,8 @@
     <Compile Include="CustCont.Designer.cs">
       <DependentUpon>CustCont.cs</DependentUpon>
     </Compile>
+    <Compile Include="experimental\ColorPallette.cs" />
+    <Compile Include="experimental\History.cs" />
     <Compile Include="FullScreenWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,12 +164,14 @@
     <Compile Include="RGBLine.Designer.cs">
       <DependentUpon>RGBLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="Slider.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Slider.Designer.cs">
       <DependentUpon>Slider.cs</DependentUpon>
     </Compile>
+    <Compile Include="StripParser.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>

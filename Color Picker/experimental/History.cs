@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Color_Picker
+namespace Color_Picker.experimental
 {
     public class History
     {
