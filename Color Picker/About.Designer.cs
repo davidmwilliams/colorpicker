@@ -178,10 +178,10 @@
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
             this.linkLabel3.Location = new System.Drawing.Point(89, 236);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(61, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(85, 13);
             this.linkLabel3.TabIndex = 10;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "PDF Guide";
+            this.linkLabel3.Text = "XPS User Guide";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // pictureBox3

@@ -215,7 +215,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <None Include="Color Picker_TemporaryKey.pfx" />
-    <AdditionalFiles Include="ColorPickerUserGuide.pdf">
+    <None Include="ColorPickerUserGuide.docx" />
+    <AdditionalFiles Include="ColorPickerUserGuide.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
     <None Include="packages.config" />
@@ -234,9 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="eyedropper.ico" />
+    <None Include="Resources\ColorPickerUserGuide.docx" />
     <None Include="Resources\frownyface.png" />
     <None Include="Resources\smileyface.png" />
-    <None Include="Resources\ColorPickerUserGuide.pdf" />
     <None Include="Resources\information2.png" />
     <None Include="Resources\information.png" />
     <None Include="Resources\draggergrey.png" />
