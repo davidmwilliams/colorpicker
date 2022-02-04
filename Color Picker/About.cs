@@ -46,7 +46,7 @@ namespace Color_Picker
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "ColorPickerUserGuide.pdf");
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "ColorPickerUserGuide.xps");
 
             Process.Start(filePath);
         }

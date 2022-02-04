@@ -376,10 +376,10 @@ namespace Color_Picker
 
         private void PickedColorPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            moving = true;
-
-            if(pressing)
+            if (pressing)
             {
+                moving = true;
+
                 colorHistoryPanel.Left = colorHistoryPanel.Left - (lastMouseLocation.X - e.Location.X) + 5;
             }
         }
@@ -388,7 +388,7 @@ namespace Color_Picker
         {
             int left = colorHistoryPanel.Left;
 
-            if (!assumeClicked)
+            if (e.Clicks == 2)
             {
                 pressing = true;
                 if (colorHistoryPanel.Dock != DockStyle.None)

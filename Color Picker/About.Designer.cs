@@ -44,7 +44,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.informationTextField = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -178,10 +178,10 @@
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
             this.linkLabel3.Location = new System.Drawing.Point(89, 236);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(61, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(85, 13);
             this.linkLabel3.TabIndex = 10;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "PDF Guide";
+            this.linkLabel3.Text = "XPS User Guide";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // pictureBox3
@@ -237,6 +237,7 @@
             // 
             // linkLabel5
             // 
+            this.linkLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(106)))), ((int)(((byte)(129)))));
@@ -249,19 +250,22 @@
             this.toolTip1.SetToolTip(this.linkLabel5, "Visit the Color Picker repo on Github.");
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
-            // textBox1
+            // informationTextField
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 75);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(415, 105);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.informationTextField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.informationTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            this.informationTextField.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.informationTextField.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informationTextField.Location = new System.Drawing.Point(12, 75);
+            this.informationTextField.Multiline = true;
+            this.informationTextField.Name = "informationTextField";
+            this.informationTextField.ReadOnly = true;
+            this.informationTextField.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.informationTextField.Size = new System.Drawing.Size(415, 105);
+            this.informationTextField.TabIndex = 15;
+            this.informationTextField.Text = resources.GetString("informationTextField.Text");
             // 
             // About
             // 
@@ -269,7 +273,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(439, 267);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.informationTextField);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox3);
@@ -314,6 +318,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox informationTextField;
     }
 }
