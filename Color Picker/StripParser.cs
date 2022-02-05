@@ -12,6 +12,8 @@ namespace Color_Picker
     {
         public static List<Color> Parse(string input)
         {
+            if (input == null) return null;
+
             List<Color> colors = new List<Color>();
             string[] colorArray = { };
             char[] parts = input.ToCharArray();

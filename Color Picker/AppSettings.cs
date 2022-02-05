@@ -34,10 +34,16 @@ namespace Color_Picker
             {
                 foreach(var file in Directory.GetFiles(colorStripStorageDirectory, searchPattern: "*.strip"))
                 {
-                    string content = File.ReadAllText(file);
+                    if (File.Exists(file))
+                    {
+                        string content = File.ReadAllText(file);
 
-                    // Parse the content.
-                    return StripParser.Parse(content);
+                        if (content != null && !String.IsNullOrEmpty(content))
+                        {
+                            // Parse the content.
+                            return StripParser.Parse(content);
+                        }
+                    }
                 }
             }
 
