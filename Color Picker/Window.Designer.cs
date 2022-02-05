@@ -41,6 +41,7 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.CMYKMenuItem = new System.Windows.Forms.MenuItem();
             this.HEXMenuItem = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.HSBMenuItem = new System.Windows.Forms.MenuItem();
             this.RGBMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -53,7 +54,6 @@
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -154,8 +154,6 @@
             this.eyedropper.Name = "eyedropper";
             this.eyedropper.Size = new System.Drawing.Size(32, 32);
             this.eyedropper.TabIndex = 0;
-            this.tip.SetToolTip(this.eyedropper, "Click to find a color on the screen or drag and drop a color value onto the EyeDr" +
-        "opper to add it to the Color Strip.");
             this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
             this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
             this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
@@ -201,6 +199,13 @@
             this.HEXMenuItem.RadioCheck = true;
             this.HEXMenuItem.Text = "HEX";
             this.HEXMenuItem.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 0;
+            this.menuItem5.RadioCheck = true;
+            this.menuItem5.Text = "Prepend #";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click_1);
             // 
             // HSBMenuItem
             // 
@@ -283,13 +288,6 @@
             this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
             this.colorHistoryPanel.TabIndex = 7;
             this.colorHistoryPanel.WrapContents = false;
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 0;
-            this.menuItem5.RadioCheck = true;
-            this.menuItem5.Text = "Prepend #";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click_1);
             // 
             // Window
             // 
