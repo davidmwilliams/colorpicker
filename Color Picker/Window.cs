@@ -298,40 +298,11 @@ namespace Color_Picker
                     {
                         foreach (Color color in dialog.Colors)
                         {
-                            //ColorPallette colorPallette = new ColorPallette()
-                            //{
-                            //    Color = color,
-                            //    ColorPanelWidth = defaultColorPanelWidth
-                            //};
-
-                            //History.Pallettes.Add(colorPallette);
-
                             CreateColorPanel(color, defaultColorPanelWidth);
                         }
                     }
                 }
             }
-
-            // Obsolete
-            //if (colorDialog.ShowDialog(this) == DialogResult.OK)
-            //{
-            //    // Assume that we have a color.
-            //    if (colorDialog.Color != null)
-            //    {
-            //        Color pickedColor = colorDialog.Color;
-
-            //        ColorPallette colorPallette = new ColorPallette()
-            //        {
-            //            Color = pickedColor,
-            //            ColorPanelWidth = defaultColorPanelWidth
-            //        };
-
-            //        //Program.history = new History();
-            //        History.Pallette.Add(colorPallette);
-
-            //        CreateColorPanel(pickedColor, defaultColorPanelWidth);
-            //    }
-            //}
 
             // We're done. Show the window again.
             Visibility = VisibilityTypes.Visible;
@@ -348,10 +319,6 @@ namespace Color_Picker
                 pickedColorPanel.Height = this.Height;
                 pickedColorPanel.Margin = new Padding(0, 0, 0, 0);
 
-                // TODO: Add event handlers for clicking and dragging.
-                //pickedColorPanel.MouseDown += PickedColorPanel_MouseDown;
-                //pickedColorPanel.MouseMove += PickedColorPanel_MouseMove;
-                //pickedColorPanel.MouseUp += PickedColorPanel_MouseUp;
                 pickedColorPanel.MouseEnter += PickedColorPanel_MouseEnter;
                 pickedColorPanel.MouseLeave += PickedColorPanel_MouseLeave;
                 pickedColorPanel.MouseClick += PickedColorPanel_MouseClick;
@@ -443,13 +410,6 @@ namespace Color_Picker
 
                     this.tip.ToolTipTitle = "Transparency:";
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
-
-                    // Update it in the list.
-                    //ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
-                    //if (pallette != null)
-                    //{
-                    //    History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
-                    //}
                 }
             }
             else
@@ -465,13 +425,6 @@ namespace Color_Picker
 
                     this.tip.ToolTipTitle = "Transparency:";
                     this.tip.SetToolTip((sender as Panel), transparency.ToString());
-
-                    // Update it in the list.
-                    //ColorPallette pallette = History.Pallettes.Where<ColorPallette>(x => x.Color == oldColor).FirstOrDefault();
-                    //if (pallette != null)
-                    //{
-                    //    History.Pallettes[History.Pallettes.IndexOf(pallette)].Color = selectedColor;
-                    //}
                 }
             }
         }
@@ -555,31 +508,6 @@ namespace Color_Picker
         {
             eyedropper.BackColor = (sender as Panel).BackColor;
         }
-
-        //private void PickedColorPanel_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    pressing = false;
-        //}
-
-        //private void PickedColorPanel_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if(pressing)
-        //    {
-        //        colorHistoryPanel.Left = (colorHistoryPanel.Left - lastMouseLocation.X + e.X);
-        //    }
-        //}
-
-        //private void PickedColorPanel_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    pressing = true;
-
-        //    lastMouseLocation = e.Location;
-
-        //    if(colorHistoryPanel.Dock.HasFlag(DockStyle.Fill))
-        //    {
-        //        colorHistoryPanel.Dock = DockStyle.None;
-        //    }
-        //}
 
         private void openClosePanel_MouseUp(object sender, MouseEventArgs e)
         {
@@ -749,7 +677,7 @@ namespace Color_Picker
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            HEXMenuItem.Checked = false;
+            /*HEXMenuItem.Checked = false;*/
             CMYKMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
             RGBMenuItem.Checked = true;
@@ -776,7 +704,7 @@ namespace Color_Picker
             CMYKMenuItem.Checked = false;
             RGBMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
-            HEXMenuItem.Checked = true;
+            /*HEXMenuItem.Checked = true;*/
 
             string hexCode = HexConverter(selectedColor);
             Clipboard.SetText(hexCode);
@@ -784,7 +712,7 @@ namespace Color_Picker
 
         private void menuItem4_Click(object sender, EventArgs e)
         {
-            HEXMenuItem.Checked = false;
+            /*HEXMenuItem.Checked = false;*/
             RGBMenuItem.Checked = false;
             HSBMenuItem.Checked = false;
             CMYKMenuItem.Checked = true;
@@ -795,7 +723,7 @@ namespace Color_Picker
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
-            HEXMenuItem.Checked = false;
+            /*HEXMenuItem.Checked = false;*/
             RGBMenuItem.Checked = false;
             CMYKMenuItem.Checked = false;
             HSBMenuItem.Checked = true;
@@ -811,11 +739,7 @@ namespace Color_Picker
             if (dialogResult == DialogResult.Yes)
             {
                 // Clear the history.
-                //Program.history = null;
                 colorHistoryPanel.Controls.Clear();
-
-                //History.Pallettes.Clear();
-                //History.Delete(Program.ColorHistoryFilePath);
             }
         }
 
@@ -846,11 +770,6 @@ namespace Color_Picker
                     colorPanel.Width = defaultColorPanelWidth;
                 }
             }
-
-            //foreach (ColorPallette pallette in History.Pallettes)
-            //{
-            //    pallette.ColorPanelWidth = defaultColorPanelWidth;
-            //}
         }
 
         private void eyedropper_DragEnter(object sender, DragEventArgs e)
@@ -868,13 +787,12 @@ namespace Color_Picker
                 {
                     if (input.StartsWith("#"))
                     {
-                        if (input.Length == 7)
+                        if (input.Length == 7 || input.Length == 9 || input.Length == 8)
                         {
-                            // Test: #ee55cc ee44cc
+                            // Test: #ee55cc ee44cc #cc3366
                             // It's probably hex.
-                            // I'll make a better solution later.\
+                            // I'll make a better solution later.
                             Color droppedColor = ColorTranslator.FromHtml(input);
-
                             eyedropper.BackColor = droppedColor;
                         }
                     }
@@ -902,7 +820,7 @@ namespace Color_Picker
             {
                 if (input.StartsWith("#"))
                 {
-                    if(input.Length == 7)
+                    if(input.Length == 7 || input.Length == 9 || input.Length == 8)
                     {
                         // Test: #ee55cc ee44cc
                         // It's probably hex.
@@ -1096,6 +1014,34 @@ namespace Color_Picker
             if(e.Button == MouseButtons.Left)
             {
                 colorHistoryPanel.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void menuItem5_Click_1(object sender, EventArgs e)
+        {
+            if ((sender as MenuItem).Checked)
+            {
+                (sender as MenuItem).Checked = false;
+
+                CMYKMenuItem.Checked = false;
+                RGBMenuItem.Checked = false;
+                HSBMenuItem.Checked = false;
+                //HEXMenuItem.Checked = true;CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CC66EECC66EE2, 112, 210
+
+                string hexCode = HexConverter(selectedColor);
+                Clipboard.SetText(hexCode);
+            }
+            else
+            {
+                (sender as MenuItem).Checked = true;
+
+                CMYKMenuItem.Checked = false;
+                RGBMenuItem.Checked = false;
+                HSBMenuItem.Checked = false;
+                //HEXMenuItem.Checked = true;
+
+                string hexCode = HexConverter(selectedColor);
+                Clipboard.SetText("#" + hexCode);
             }
         }
     }

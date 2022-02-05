@@ -41,6 +41,7 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.CMYKMenuItem = new System.Windows.Forms.MenuItem();
             this.HEXMenuItem = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.HSBMenuItem = new System.Windows.Forms.MenuItem();
             this.RGBMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -153,8 +154,6 @@
             this.eyedropper.Name = "eyedropper";
             this.eyedropper.Size = new System.Drawing.Size(32, 32);
             this.eyedropper.TabIndex = 0;
-            this.tip.SetToolTip(this.eyedropper, "Click to find a color on the screen or drag and drop a color value onto the EyeDr" +
-        "opper to add it to the Color Strip.");
             this.eyedropper.DragDrop += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragDrop);
             this.eyedropper.DragEnter += new System.Windows.Forms.DragEventHandler(this.eyedropper_DragEnter);
             this.eyedropper.MouseClick += new System.Windows.Forms.MouseEventHandler(this.eyedropper_MouseClick);
@@ -195,9 +194,18 @@
             // HEXMenuItem
             // 
             this.HEXMenuItem.Index = 1;
+            this.HEXMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem5});
             this.HEXMenuItem.RadioCheck = true;
             this.HEXMenuItem.Text = "HEX";
             this.HEXMenuItem.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 0;
+            this.menuItem5.RadioCheck = true;
+            this.menuItem5.Text = "Prepend #";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click_1);
             // 
             // HSBMenuItem
             // 
@@ -340,6 +348,7 @@
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
+        private System.Windows.Forms.MenuItem menuItem5;
     }
 }
 
