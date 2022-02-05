@@ -142,8 +142,6 @@
     <Compile Include="CustCont.Designer.cs">
       <DependentUpon>CustCont.cs</DependentUpon>
     </Compile>
-    <Compile Include="experimental\ColorPallette.cs" />
-    <Compile Include="experimental\History.cs" />
     <Compile Include="FullScreenWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="eyedropper.ico" />
+    <None Include="Resources\settingsiconsmaller.png" />
+    <None Include="Resources\settingsiconsmall.png" />
+    <None Include="Resources\settingsicon.png" />
     <None Include="Resources\ColorPickerUserGuide.docx" />
     <None Include="Resources\frownyface.png" />
     <None Include="Resources\smileyface.png" />
