@@ -813,7 +813,7 @@ namespace Color_Picker
             }
         }
 
-        private void eyedropper_DragDrop(object sender, DragEventArgs e)
+        public void eyedropper_DragDrop(object sender, DragEventArgs e)
         {
             string input = e.Data.GetData(DataFormats.Text).ToString();
             if (!string.IsNullOrEmpty(input))
@@ -986,10 +986,6 @@ namespace Color_Picker
         {
             pressing = true;
             lastMouseLocation = e.Location;
-
-            //colorHistoryPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
-            //colorHistoryPanel.AutoSize = true;
-            //colorHistoryPanel.Width = 275;
         }
 
         private void colorHistoryPanel_MouseMove(object sender, MouseEventArgs e)
