@@ -53,6 +53,7 @@
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -195,6 +196,8 @@
             // HEXMenuItem
             // 
             this.HEXMenuItem.Index = 1;
+            this.HEXMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem5});
             this.HEXMenuItem.RadioCheck = true;
             this.HEXMenuItem.Text = "HEX";
             this.HEXMenuItem.Click += new System.EventHandler(this.menuItem3_Click);
@@ -281,6 +284,13 @@
             this.colorHistoryPanel.TabIndex = 7;
             this.colorHistoryPanel.WrapContents = false;
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 0;
+            this.menuItem5.RadioCheck = true;
+            this.menuItem5.Text = "Prepend #";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click_1);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -340,6 +350,7 @@
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
+        private System.Windows.Forms.MenuItem menuItem5;
     }
 }
 
