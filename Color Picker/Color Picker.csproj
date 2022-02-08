@@ -27,7 +27,7 @@
     <ProductName>Color Picker</ProductName>
     <PublisherName>JASON PEZZIMENTI</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -108,7 +108,25 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorChooserControl.Designer.cs">
+      <DependentUpon>ColorChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorPanel.cs" />
+    <Compile Include="MultiView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiView.Designer.cs">
+      <DependentUpon>MultiView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shader.Designer.cs">
+      <DependentUpon>Shader.cs</DependentUpon>
+    </Compile>
     <Compile Include="StateManager.cs" />
     <Compile Include="Strip.cs" />
     <Compile Include="ColorOptions.cs">
@@ -178,6 +196,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorChooserControl.resx">
+      <DependentUpon>ColorChooserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ColorOptions.resx">
       <DependentUpon>ColorOptions.cs</DependentUpon>

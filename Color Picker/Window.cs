@@ -489,7 +489,6 @@ namespace Color_Picker
                                 {
                                     Clipboard.SetText(selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
                                 }
-
                                 break;
                         }
                     }
@@ -1022,7 +1021,7 @@ namespace Color_Picker
                 CMYKMenuItem.Checked = false;
                 RGBMenuItem.Checked = false;
                 HSBMenuItem.Checked = false;
-                //HEXMenuItem.Checked = true;CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CC66EECC66EE2, 112, 210
+                //HEXMenuItem.Checked = true;
 
                 string hexCode = HexConverter(selectedColor);
                 Clipboard.SetText(hexCode);

@@ -112,6 +112,7 @@
             // 
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator1.Angle = 0;
             this.separator1.CanHighlight = false;
             this.separator1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(205)))), ((int)(((byte)(224)))));
             this.separator1.Direction = "Horizontal";
@@ -684,6 +685,8 @@
             // 
             this.rgbLine1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgbLine1.BackColor = System.Drawing.Color.Transparent;
+            this.rgbLine1.ChosenColor = System.Drawing.Color.Empty;
             this.rgbLine1.LineThickness = 0F;
             this.rgbLine1.Location = new System.Drawing.Point(45, 97);
             this.rgbLine1.MaximumSize = new System.Drawing.Size(255, 1);
@@ -698,6 +701,8 @@
             // 
             this.rgbLine2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgbLine2.BackColor = System.Drawing.Color.Transparent;
+            this.rgbLine2.ChosenColor = System.Drawing.Color.Empty;
             this.rgbLine2.LineThickness = 0F;
             this.rgbLine2.Location = new System.Drawing.Point(45, 148);
             this.rgbLine2.MaximumSize = new System.Drawing.Size(255, 1);
@@ -712,6 +717,8 @@
             // 
             this.rgbLine3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgbLine3.BackColor = System.Drawing.Color.Transparent;
+            this.rgbLine3.ChosenColor = System.Drawing.Color.Empty;
             this.rgbLine3.LineThickness = 0F;
             this.rgbLine3.Location = new System.Drawing.Point(45, 199);
             this.rgbLine3.MaximumSize = new System.Drawing.Size(255, 1);
