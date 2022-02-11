@@ -37,11 +37,10 @@ namespace Color_Picker
         public ColorDialog colorDialog;
         public static Color selectedColor;
         private Panel selectedColorPanel;
-        private bool mouseMoved;
-        public int defaultColorPanelWidth;
         public static List<Color> selectedColors;
         public static VisibilityTypes Visibility { get; set; }
         public int transparency;
+        public int defaultColorPanelWidth;
         public Size defaultSize;
         public Point lastMouseLocation;
         public bool pressing;
@@ -50,6 +49,7 @@ namespace Color_Picker
         private bool shiftDown;
         private bool moving;
         private bool assumeClicked;
+        private bool mouseMoved;
 
         public void SetLocation()
         {
