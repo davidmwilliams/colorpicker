@@ -37,19 +37,20 @@ namespace Color_Picker
         public ColorDialog colorDialog;
         public static Color selectedColor;
         private Panel selectedColorPanel;
-        private bool mouseMoved;
-        public int defaultColorPanelWidth;
         public static List<Color> selectedColors;
         public static VisibilityTypes Visibility { get; set; }
-        public int transparency;
         public Size defaultSize;
         public Point lastMouseLocation;
-        public bool pressing;
-        private bool pickingColor;
-        private bool inSelectMode;
-        private bool shiftDown;
-        private bool moving;
-        private bool assumeClicked;
+        public int transparency,
+            defaultColorPanelWidth;
+        
+        private bool pressing,
+            pickingColor,
+            inSelectMode,
+            shiftDown,
+            moving,
+            assumeClicked,
+            mouseMoved;
 
         public void SetLocation()
         {
@@ -489,7 +490,6 @@ namespace Color_Picker
                                 {
                                     Clipboard.SetText(selectedColor.R + ", " + selectedColor.G + ", " + selectedColor.B);
                                 }
-
                                 break;
                         }
                     }
@@ -931,7 +931,10 @@ namespace Color_Picker
 
                             //History.Pallettes.Add(thisColorPallette);
 
-                            CreateColorPanel(color, defaultColorPanelWidth);
+                            // If they have hit the plus button in the ColorOptions window,
+                            // we don't want to add it twice.
+                            if(selectedColor != color)
+                                CreateColorPanel(color, defaultColorPanelWidth);
                         }
 
                         Visibility = VisibilityTypes.Visible;
@@ -1022,7 +1025,7 @@ namespace Color_Picker
                 CMYKMenuItem.Checked = false;
                 RGBMenuItem.Checked = false;
                 HSBMenuItem.Checked = false;
-                //HEXMenuItem.Checked = true;CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CCEE66CCEE66#CCEE66#CCEE66CC66EECC66EE2, 112, 210
+                //HEXMenuItem.Checked = true;
 
                 string hexCode = HexConverter(selectedColor);
                 Clipboard.SetText(hexCode);
