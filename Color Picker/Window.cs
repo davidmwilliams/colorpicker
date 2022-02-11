@@ -930,7 +930,10 @@ namespace Color_Picker
 
                             //History.Pallettes.Add(thisColorPallette);
 
-                            CreateColorPanel(color, defaultColorPanelWidth);
+                            // If they have hit the plus button in the ColorOptions window,
+                            // we don't want to add it twice.
+                            if(selectedColor != color)
+                                CreateColorPanel(color, defaultColorPanelWidth);
                         }
 
                         Visibility = VisibilityTypes.Visible;
