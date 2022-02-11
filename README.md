@@ -1,4 +1,4 @@
-# Color Picker 2.0.0.34
+# Color Picker 2.0.0.35
 A free and open source Color Picker for Windows is back with a new version. See below for previous version.
 
 Download Links:
