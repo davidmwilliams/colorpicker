@@ -39,17 +39,18 @@ namespace Color_Picker
         private Panel selectedColorPanel;
         public static List<Color> selectedColors;
         public static VisibilityTypes Visibility { get; set; }
-        public int transparency;
-        public int defaultColorPanelWidth;
         public Size defaultSize;
         public Point lastMouseLocation;
-        public bool pressing;
-        private bool pickingColor;
-        private bool inSelectMode;
-        private bool shiftDown;
-        private bool moving;
-        private bool assumeClicked;
-        private bool mouseMoved;
+        public int transparency,
+            defaultColorPanelWidth;
+        
+        private bool pressing,
+            pickingColor,
+            inSelectMode,
+            shiftDown,
+            moving,
+            assumeClicked,
+            mouseMoved;
 
         public void SetLocation()
         {
