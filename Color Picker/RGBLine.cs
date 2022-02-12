@@ -44,6 +44,12 @@ namespace Color_Picker
         [DisplayName("Color")]
         public Color ChosenColor { get; set; }
 
+        [Browsable(true)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Category("Appearance")]
+        [DisplayName("Starting Color")]
+        public Color StartingColor { get; set; }
+
         public RGBLine()
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -94,7 +100,7 @@ namespace Color_Picker
                     }
                     break;
                 case Colors.Shade:
-                    using (Brush shadedGradientBrush = new LinearGradientBrush(new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new PointF(255, (int)LineThickness), Color.White, ChosenColor))
+                    using (Brush shadedGradientBrush = new LinearGradientBrush(new Point(0, (this.Height / 2) - (int)(LineThickness / 2)), new PointF(255, (int)LineThickness), StartingColor, ChosenColor))
                     {
                         using (Pen shadedGradientPen = new Pen(shadedGradientBrush, LineThickness))
                         {
@@ -119,7 +125,7 @@ namespace Color_Picker
                                 new Point(currentLocation.X + 5, -3)
                             };
 
-                            pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
+                            pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
 
                         }
                         else
@@ -134,7 +140,7 @@ namespace Color_Picker
                                 //new Point(lastMouseLocation.X + 10, -3)
                             };
 
-                            pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
+                            pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
                         }
                     }
                     else
@@ -145,7 +151,7 @@ namespace Color_Picker
                             new Point(this.Width - 10 + 5, 3), 
                             new Point(this.Width - 10 + 10, -2) 
                         };
-                        pe.Graphics.FillPolygon(new SolidBrush(Color.FromArgb(11, 109, 255)), points2);
+                        pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
                     }
                     break;
             }

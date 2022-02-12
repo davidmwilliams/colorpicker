@@ -38,9 +38,9 @@ namespace Color_Picker
 
             SetChosenColor();
 
-            rValueTextField.Text = rTrackBar.Value.ToString();
-            gValueTextField.Text = gTrackBar.Value.ToString();
-            bValueTextField.Text = bTrackBar.Value.ToString();
+            //rValueTextField.Text = rTrackBar.Value.ToString();
+            //gValueTextField.Text = gTrackBar.Value.ToString();
+            //bValueTextField.Text = bTrackBar.Value.ToString();
             aValueTextField.Text = aTrackBar.Value.ToString();
 
         }
@@ -65,35 +65,35 @@ namespace Color_Picker
                     break;
             }
 
-            rTrackBar.Value = SelectedColor.R;
-            gTrackBar.Value = SelectedColor.G;
-            bTrackBar.Value = SelectedColor.B;
+            //rTrackBar.Value = SelectedColor.R;
+            //gTrackBar.Value = SelectedColor.G;
+            //bTrackBar.Value = SelectedColor.B;
             aTrackBar.Value = SelectedColor.A;
         }
 
-        private void rTrackBar_Scroll(object sender, EventArgs e)
-        {
-            colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
-            SelectedColor = colorPanel.BackColor;
-            colorNameLabel.Text = SelectedColor.Name;
-            rValueTextField.Text = rTrackBar.Value.ToString();
-        }
+        //private void rTrackBar_Scroll(object sender, EventArgs e)
+        //{
+        //    colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+        //    SelectedColor = colorPanel.BackColor;
+        //    colorNameLabel.Text = SelectedColor.Name;
+        //    rValueTextField.Text = rTrackBar.Value.ToString();
+        //}
 
-        private void gTrackBar_Scroll(object sender, EventArgs e)
-        {
-            colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
-            SelectedColor = colorPanel.BackColor;
-            colorNameLabel.Text = SelectedColor.Name;
-            gValueTextField.Text = gTrackBar.Value.ToString();
-        }
+        //private void gTrackBar_Scroll(object sender, EventArgs e)
+        //{
+        //    colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+        //    SelectedColor = colorPanel.BackColor;
+        //    colorNameLabel.Text = SelectedColor.Name;
+        //    gValueTextField.Text = gTrackBar.Value.ToString();
+        //}
 
-        private void bTrackBar_Scroll(object sender, EventArgs e)
-        {
-            colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
-            SelectedColor = colorPanel.BackColor;
-            colorNameLabel.Text = SelectedColor.Name;
-            bValueTextField.Text = bTrackBar.Value.ToString();
-        }
+        //private void bTrackBar_Scroll(object sender, EventArgs e)
+        //{
+        //    colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+        //    SelectedColor = colorPanel.BackColor;
+        //    colorNameLabel.Text = SelectedColor.Name;
+        //    bValueTextField.Text = bTrackBar.Value.ToString();
+        //}
 
         private void okButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
         {
@@ -148,9 +148,9 @@ namespace Color_Picker
             colorPanel.BackColor = originalSelectedColor;
             SelectedColor = originalSelectedColor;
 
-            rTrackBar.Value = SelectedColor.R;
-            gTrackBar.Value = SelectedColor.G;
-            bTrackBar.Value = SelectedColor.B;
+            //rTrackBar.Value = SelectedColor.R;
+            //gTrackBar.Value = SelectedColor.G;
+            //bTrackBar.Value = SelectedColor.B;
 
             rValueTextField.Text = SelectedColor.R.ToString();
             gValueTextField.Text = SelectedColor.G.ToString();
@@ -163,7 +163,7 @@ namespace Color_Picker
 
             Int32.TryParse(rValueTextField.Text, out colorValue);
 
-            rTrackBar.Value = colorValue;
+            //rTrackBar.Value = colorValue;
         }
 
         private void gValueTextField_TextChanged(object sender, EventArgs e)
@@ -172,7 +172,7 @@ namespace Color_Picker
 
             Int32.TryParse(gValueTextField.Text, out colorValue);
 
-            gTrackBar.Value = colorValue;
+            //gTrackBar.Value = colorValue;
         }
 
         private void bValueTextField_TextChanged(object sender, EventArgs e)
@@ -181,7 +181,7 @@ namespace Color_Picker
 
             Int32.TryParse(bValueTextField.Text, out colorValue);
 
-            bTrackBar.Value = colorValue;
+            //bTrackBar.Value = colorValue;
         }
 
         private void rMinusButton_Clicked(object sender, ALMSTWKND.UI.WindowsForms.Controls.Button.ButtonClickedEventArgs e)
@@ -240,9 +240,10 @@ namespace Color_Picker
 
         private void aTrackBar_Scroll(object sender, EventArgs e)
         {
-            colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+            //colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
+            colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, SelectedColor.R, SelectedColor.G, SelectedColor.B);
             aValueTextField.Text = aTrackBar.Value.ToString();
         }
 
@@ -252,7 +253,7 @@ namespace Color_Picker
 
             Int32.TryParse(aValueTextField.Text, out colorValue);
 
-            aTrackBar.Value = colorValue; colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+            //aTrackBar.Value = colorValue; colorPanel.BackColor = Color.FromArgb(aTrackBar.Value, rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
             SelectedColor = colorPanel.BackColor;
             colorNameLabel.Text = SelectedColor.Name;
         }
@@ -273,6 +274,71 @@ namespace Color_Picker
 
             if (value >= 0 && value <= 254)
                 aValueTextField.Text = (value + 1).ToString();
+        }
+
+        private void redLine_MouseMove(object sender, MouseEventArgs e)
+        {
+            Color color = (sender as RGBLine).ManuallySelectedColor;
+            colorPanel.BackColor = color;
+            int number;
+
+            number = colorPanel.BackColor.R;
+            rValueTextField.Text = number.ToString();
+
+            int r, g, b;
+            Int32.TryParse(rValueTextField.Text, out r);
+            Int32.TryParse(gValueTextField.Text, out g);
+            Int32.TryParse(bValueTextField.Text, out b);
+
+            colorPanel.BackColor = Color.FromArgb(r, g, b);
+
+            SelectedColor = colorPanel.BackColor;
+            colorNameLabel.Text = SelectedColor.Name;
+        }
+
+        private void greenLine_MouseMove(object sender, MouseEventArgs e)
+        {
+            Color color = (sender as RGBLine).ManuallySelectedColor;
+            colorPanel.BackColor = color;
+            int number;
+
+            number = colorPanel.BackColor.G;
+            gValueTextField.Text = number.ToString();
+
+            int r, g, b;
+            Int32.TryParse(rValueTextField.Text, out r);
+            Int32.TryParse(gValueTextField.Text, out g);
+            Int32.TryParse(bValueTextField.Text, out b);
+
+            colorPanel.BackColor = Color.FromArgb(r, g, b);
+
+            SelectedColor = colorPanel.BackColor;
+            colorNameLabel.Text = SelectedColor.Name;
+        }
+
+        private void blueLine_MouseMove(object sender, MouseEventArgs e)
+        {
+            Color color = (sender as RGBLine).ManuallySelectedColor;
+            colorPanel.BackColor = color;
+            int number;
+
+            number = colorPanel.BackColor.B;
+            bValueTextField.Text = number.ToString();
+
+            int r, g, b;
+            Int32.TryParse(rValueTextField.Text, out r);
+            Int32.TryParse(gValueTextField.Text, out g);
+            Int32.TryParse(bValueTextField.Text, out b);
+
+            colorPanel.BackColor = Color.FromArgb(r, g, b);
+
+            SelectedColor = colorPanel.BackColor;
+            colorNameLabel.Text = SelectedColor.Name;
+
+            //    colorPanel.BackColor = Color.FromArgb(rTrackBar.Value, gTrackBar.Value, bTrackBar.Value);
+            //    SelectedColor = colorPanel.BackColor;
+            //    colorNameLabel.Text = SelectedColor.Name;
+            //    rValueTextField.Text = rTrackBar.Value.ToString();
         }
     }
 }
