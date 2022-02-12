@@ -105,10 +105,12 @@ namespace Color_Picker
         {
             if (localSettings.DefaultWindowSize.Width > 275)
             {
+                defaultColorPanelWidth = localSettings.ColorPanelWidth;
                 defaultSize = new Size(localSettings.DefaultWindowSize.Width, 32);
             }
             else
             {
+                defaultColorPanelWidth = localSettings.ColorPanelWidth;
                 defaultSize = new Size(275, 32);
             }
 
@@ -673,6 +675,8 @@ namespace Color_Picker
                     CreateColorPanel(color, 10);
                 }
             }
+
+            ChangeColorPanelWidth();
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
@@ -769,6 +773,15 @@ namespace Color_Picker
                 {
                     colorPanel.Width = defaultColorPanelWidth;
                 }
+            }
+
+            if (defaultColorPanelWidth >= 24)
+            {
+                useWideColorPanelsMenuItem.Checked = true;
+            }
+            else
+            {
+                useWideColorPanelsMenuItem.Checked = false;
             }
         }
 
