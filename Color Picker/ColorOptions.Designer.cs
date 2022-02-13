@@ -56,8 +56,8 @@
             this.aPlusButton = new ALMSTWKND.UI.WindowsForms.Controls.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.redLine = new Color_Picker.RGBLine();
-            this.greenLine = new Color_Picker.RGBLine();
             this.blueLine = new Color_Picker.RGBLine();
+            this.greenLine = new Color_Picker.RGBLine();
             ((System.ComponentModel.ISupportInitialize)(this.aTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -659,23 +659,6 @@
             this.redLine.Text = "rgbLine3";
             this.redLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.redLine_MouseMove);
             // 
-            // greenLine
-            // 
-            this.greenLine.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.greenLine.BackColor = System.Drawing.Color.Transparent;
-            this.greenLine.ChosenColor = System.Drawing.Color.Green;
-            this.greenLine.LineThickness = 7F;
-            this.greenLine.Location = new System.Drawing.Point(33, 157);
-            this.greenLine.MaximumSize = new System.Drawing.Size(255, 10);
-            this.greenLine.MinimumSize = new System.Drawing.Size(255, 10);
-            this.greenLine.Name = "greenLine";
-            this.greenLine.SelectedColor = Color_Picker.RGBLine.Colors.Shade;
-            this.greenLine.Size = new System.Drawing.Size(255, 10);
-            this.greenLine.StartingColor = System.Drawing.Color.Black;
-            this.greenLine.TabIndex = 28;
-            this.greenLine.Text = "rgbLine2";
-            this.greenLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.greenLine_MouseMove);
-            // 
             // blueLine
             // 
             this.blueLine.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -693,14 +676,31 @@
             this.blueLine.Text = "rgbLine1";
             this.blueLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.blueLine_MouseMove);
             // 
+            // greenLine
+            // 
+            this.greenLine.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.greenLine.BackColor = System.Drawing.Color.Transparent;
+            this.greenLine.ChosenColor = System.Drawing.Color.Green;
+            this.greenLine.LineThickness = 7F;
+            this.greenLine.Location = new System.Drawing.Point(33, 157);
+            this.greenLine.MaximumSize = new System.Drawing.Size(255, 10);
+            this.greenLine.MinimumSize = new System.Drawing.Size(255, 10);
+            this.greenLine.Name = "greenLine";
+            this.greenLine.SelectedColor = Color_Picker.RGBLine.Colors.Shade;
+            this.greenLine.Size = new System.Drawing.Size(255, 10);
+            this.greenLine.StartingColor = System.Drawing.Color.Black;
+            this.greenLine.TabIndex = 30;
+            this.greenLine.Text = "rgbLine3";
+            this.greenLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.greenLine_MouseMove);
+            // 
             // ColorOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(427, 347);
-            this.Controls.Add(this.redLine);
             this.Controls.Add(this.greenLine);
+            this.Controls.Add(this.redLine);
             this.Controls.Add(this.blueLine);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.aPlusButton);
@@ -768,7 +768,7 @@
         private ALMSTWKND.UI.WindowsForms.Controls.Button aPlusButton;
         private System.Windows.Forms.Label label4;
         private RGBLine blueLine;
-        private RGBLine greenLine;
         private RGBLine redLine;
+        private RGBLine greenLine;
     }
 }

@@ -903,6 +903,7 @@ namespace Color_Picker
 
         private void menuItem8_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("ARGB: " + selectedColor);
             ColorOptions.SelectedColor = selectedColor;
 
             if (RGBMenuItem.Checked)
@@ -973,6 +974,11 @@ namespace Color_Picker
                     SetLocation();
                 }
             }
+        }
+
+        private void menuItem9_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Window_Activated(object sender, EventArgs e)
