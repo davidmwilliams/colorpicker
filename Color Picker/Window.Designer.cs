@@ -54,6 +54,8 @@
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.colorHistoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuItem9 = new System.Windows.Forms.MenuItem();
+            this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.pickColorPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +173,8 @@
             this.menuItem4,
             this.menuItem6,
             this.menuItem7,
+            this.menuItem9,
+            this.menuItem10,
             this.useWideColorPanelsMenuItem,
             this.menuItem8});
             // 
@@ -247,13 +251,13 @@
             // 
             // useWideColorPanelsMenuItem
             // 
-            this.useWideColorPanelsMenuItem.Index = 5;
+            this.useWideColorPanelsMenuItem.Index = 7;
             this.useWideColorPanelsMenuItem.Text = "Use Wide Color Panels";
             this.useWideColorPanelsMenuItem.Click += new System.EventHandler(this.useWideColorPanelsMenuItem_Click);
             // 
             // menuItem8
             // 
-            this.menuItem8.Index = 6;
+            this.menuItem8.Index = 8;
             this.menuItem8.Text = "More Options...";
             this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
@@ -288,6 +292,18 @@
             this.colorHistoryPanel.Size = new System.Drawing.Size(159, 32);
             this.colorHistoryPanel.TabIndex = 7;
             this.colorHistoryPanel.WrapContents = false;
+            // 
+            // menuItem9
+            // 
+            this.menuItem9.Enabled = false;
+            this.menuItem9.Index = 5;
+            this.menuItem9.Text = "Set as desktop background";
+            this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            // 
+            // menuItem10
+            // 
+            this.menuItem10.Index = 6;
+            this.menuItem10.Text = "-";
             // 
             // Window
             // 
@@ -349,6 +365,8 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.FlowLayoutPanel colorHistoryPanel;
         private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuItem9;
+        private System.Windows.Forms.MenuItem menuItem10;
     }
 }
 

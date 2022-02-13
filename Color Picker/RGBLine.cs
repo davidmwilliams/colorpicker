@@ -15,6 +15,8 @@ namespace Color_Picker
             lastGuideLocation;
         private bool moving;
         public Color ManuallySelectedColor;
+        private int currentPosition;
+        private bool positionChanged;
 
         private Color selectedColor { get; set; }
 
@@ -66,6 +68,14 @@ namespace Color_Picker
             this.Size = new Size(255, this.Height);
         }
 
+        public void ChangePositionOnSlider(int position)
+        {
+            currentPosition = position;
+            positionChanged = true;
+
+            this.Refresh();
+        }
+
         protected override void OnPaint(PaintEventArgs pe)
         {
             pe.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -108,30 +118,45 @@ namespace Color_Picker
                         }
                     }
 
-                    if (pressing)
+                    if (positionChanged)
                     {
-                        // Get the color below the tip of the triangle.
-                        // Please help, I am having difficulty here.
-                        Color color = GetColorAt(Cursor.Position.X, Cursor.Position.Y);
-
-                        ManuallySelectedColor = color;
-
-                        if (moving)
+                        Point[] points2 =
                         {
-                            Point[] points2 =
+                            new Point(currentPosition - 5 | 0, -2),
+                            new Point(currentPosition - 5 + 5, 3),
+                            new Point(currentPosition - 5 + 10, -2)
+                        };
+
+                        pe.Graphics.FillPolygon(new SolidBrush(Color.Black), points2);
+
+                        positionChanged = false;
+                    }
+                    else
+                    {
+                        if (pressing)
+                        {
+                            // Get the color below the tip of the triangle.
+                            // Please help, I am having difficulty here.
+                            Color color = GetColorAt(Cursor.Position.X, Cursor.Position.Y);
+
+                            ManuallySelectedColor = color;
+
+                            if (moving)
                             {
+                                Point[] points2 =
+                                {
                                 new Point(currentLocation.X - 5, -3),
                                 new Point(currentLocation.X, 3),
                                 new Point(currentLocation.X + 5, -3)
                             };
 
-                            pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+                                pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
 
-                        }
-                        else
-                        {
-                            Point[] points2 = 
+                            }
+                            else
                             {
+                                Point[] points2 =
+                                {
                                 new Point(currentLocation.X - 5, -3),
                                 new Point(currentLocation.X, 3),
                                 new Point(currentLocation.X + 5, -3)
@@ -140,18 +165,30 @@ namespace Color_Picker
                                 //new Point(lastMouseLocation.X + 10, -3)
                             };
 
-                            pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+                                pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+                            }
                         }
-                    }
-                    else
-                    {
-                        Point[] points2 = 
-                        { 
-                            new Point(this.Width - 10 | 0, -2), 
-                            new Point(this.Width - 10 + 5, 3), 
-                            new Point(this.Width - 10 + 10, -2) 
-                        };
-                        pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+                        else
+                        {
+                            Point[] points2 =
+                            {
+                                new Point(currentPosition - 5 | 0, -2),
+                                new Point(currentPosition - 5 + 5, 3),
+                                new Point(currentPosition - 5 + 10, -2)
+                            };
+
+                            pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+
+                            positionChanged = false;
+
+                            //Point[] points2 =
+                            //{
+                            //new Point(this.Width - 10 | 0, -2),
+                            //new Point(this.Width - 10 + 5, 3),
+                            //new Point(this.Width - 10 + 10, -2)
+                            //};
+                            //pe.Graphics.FillPolygon(new SolidBrush(ManuallySelectedColor), points2);
+                        }
                     }
                     break;
             }
