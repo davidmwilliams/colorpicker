@@ -29,6 +29,7 @@ namespace Color_Picker
             InitializeComponent();
             lastMouseLocation = new Point();
             Colors = new List<Color>();
+            
         }
 
         public Color GetColorAt(int x, int y)
@@ -165,6 +166,33 @@ namespace Color_Picker
                     }
                 }
             }
+        }
+
+        private void centerColorChooser_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch (centerColorChooser.Text)
+            {
+                case "Black":
+                    colorWheel.ChangeCenterColor(Color.Black);
+                    break;
+                case "White":
+                    colorWheel.ChangeCenterColor(Color.White);
+                    break;
+                case "Red":
+                    colorWheel.ChangeCenterColor(Color.Red);
+                    break;
+                case "Green":
+                    colorWheel.ChangeCenterColor(Color.Green);
+                    break;
+                case "Blue":
+                    colorWheel.ChangeCenterColor(Color.Blue);
+                    break;
+            }
+        }
+
+        private void ColorWheelDialog_Shown(object sender, EventArgs e)
+        {
+            centerColorChooser.SelectedText = "Black";
         }
     }
 }

@@ -28,6 +28,16 @@ namespace Color_Picker
         public Color SelectedColor { get; set; }
         public Bitmap screenBitmap = new Bitmap(1, 1);
 
+        public static Color CenterColor;
+
+        public void ChangeCenterColor(Color color)
+        {
+            if(color != Color.Empty)
+            {
+                CenterColor = color;
+                this.Refresh();
+            }
+        }
 
         public ColorWheel()
         {
@@ -139,7 +149,7 @@ namespace Color_Picker
 
             using (PathGradientBrush pathBrush = new PathGradientBrush(graphicsPath))
             {
-                pathBrush.CenterColor = Color.White;
+                pathBrush.CenterColor = CenterColor;
                 pathBrush.SurroundColors = surroundColors;
 
                 graphics.FillPath(pathBrush, graphicsPath);
