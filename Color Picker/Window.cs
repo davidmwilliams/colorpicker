@@ -1,4 +1,5 @@
 ﻿using Color_Picker.Properties;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace Color_Picker
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         public static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, String pvParam, UInt32 fWinIni);
+        private static UInt32 SPI_SETDESKWALLPAPER = 20;
+        private static UInt32 SPIF_UPDATEINIFILE = 0x1;
+        private static String imageFileName = Program.AppDataDirectory + @"\backgrouund.png";
 
         public Bitmap screenBitmap = new Bitmap(1, 1);
 
@@ -802,7 +809,6 @@ namespace Color_Picker
                     {
                         if (input.Length == 7 || input.Length == 9 || input.Length == 8)
                         {
-                            // Test: #ee55cc ee44cc #cc3366
                             // It's probably hex.
                             // I'll make a better solution later.
                             Color droppedColor = ColorTranslator.FromHtml(input);
@@ -811,7 +817,7 @@ namespace Color_Picker
                     }
                     else
                     {
-                        if (input.Length == 6)
+                        if (input.Length == 6 || input.Length == 8)
                         {
                             // It's probably hex.
                             // Prepend a hash.
@@ -845,7 +851,7 @@ namespace Color_Picker
                 }
                 else
                 {
-                    if(input.Length == 6)
+                    if(input.Length == 6 || input.Length == 8)
                     {
                         // It's probably hex.
                         // Prepend a hash.
@@ -976,9 +982,54 @@ namespace Color_Picker
             }
         }
 
+        /// <summary>
+        /// Sets the desktop background to the selected solid color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuItem9_Click(object sender, EventArgs e)
         {
-            
+            // Create an Image/Bitmap.
+            Size size = new Size();
+            size = Screen.PrimaryScreen.WorkingArea.Size;
+
+            Bitmap bitmap = new Bitmap(size.Width, size.Height);
+
+            Graphics graphics = Graphics.FromImage(bitmap);
+            graphics.FillRectangle(new SolidBrush(selectedColor), 0, 0, size.Width, size.Height);
+
+            // Save it.
+            try
+            {
+                
+
+                bitmap.Save(Program.AppDataDirectory + @"\background.png");
+
+                // Set the background.
+                SetImage(Program.AppDataDirectory + @"\background.png");
+            }
+            catch(Exception exception)
+            {
+                using (System.Windows.Forms.SaveFileDialog dialog = new System.Windows.Forms.SaveFileDialog())
+                {
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        bitmap.Save(dialog.FileName);
+
+                        // Set the background.
+                        SetImage(dialog.FileName);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to save file to this location. Please try again.");
+                    }
+                }
+            }
+        }
+
+        private static void SetImage(string filename)
+        {
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, filename, SPIF_UPDATEINIFILE);
         }
 
         private void Window_Activated(object sender, EventArgs e)

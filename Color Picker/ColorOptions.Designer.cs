@@ -222,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 104);
+            this.label1.Location = new System.Drawing.Point(30, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 15);
             this.label1.TabIndex = 4;
@@ -231,7 +231,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 155);
+            this.label2.Location = new System.Drawing.Point(29, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 15);
             this.label2.TabIndex = 6;
@@ -240,7 +240,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 206);
+            this.label3.Location = new System.Drawing.Point(29, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 15);
             this.label3.TabIndex = 8;
@@ -252,7 +252,7 @@
             this.rValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.rValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rValueTextField.Location = new System.Drawing.Point(343, 102);
+            this.rValueTextField.Location = new System.Drawing.Point(343, 107);
             this.rValueTextField.Name = "rValueTextField";
             this.rValueTextField.Size = new System.Drawing.Size(42, 23);
             this.rValueTextField.TabIndex = 13;
@@ -264,7 +264,7 @@
             this.gValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.gValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gValueTextField.Location = new System.Drawing.Point(343, 153);
+            this.gValueTextField.Location = new System.Drawing.Point(343, 158);
             this.gValueTextField.Name = "gValueTextField";
             this.gValueTextField.Size = new System.Drawing.Size(42, 23);
             this.gValueTextField.TabIndex = 14;
@@ -276,7 +276,7 @@
             this.bValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.bValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bValueTextField.Location = new System.Drawing.Point(343, 204);
+            this.bValueTextField.Location = new System.Drawing.Point(343, 209);
             this.bValueTextField.Name = "bValueTextField";
             this.bValueTextField.Size = new System.Drawing.Size(42, 23);
             this.bValueTextField.TabIndex = 15;
@@ -311,7 +311,7 @@
             this.rMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.rMinusButton.HasBorder = false;
             this.rMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.rMinusButton.Location = new System.Drawing.Point(314, 102);
+            this.rMinusButton.Location = new System.Drawing.Point(314, 107);
             this.rMinusButton.Name = "rMinusButton";
             this.rMinusButton.RequiresConfirmation = false;
             this.rMinusButton.SeparatorDistance = 0;
@@ -352,7 +352,7 @@
             this.rPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.rPlusButton.HasBorder = false;
             this.rPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.rPlusButton.Location = new System.Drawing.Point(391, 102);
+            this.rPlusButton.Location = new System.Drawing.Point(391, 107);
             this.rPlusButton.Name = "rPlusButton";
             this.rPlusButton.RequiresConfirmation = false;
             this.rPlusButton.SeparatorDistance = 0;
@@ -393,7 +393,7 @@
             this.gMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.gMinusButton.HasBorder = false;
             this.gMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.gMinusButton.Location = new System.Drawing.Point(314, 153);
+            this.gMinusButton.Location = new System.Drawing.Point(314, 158);
             this.gMinusButton.Name = "gMinusButton";
             this.gMinusButton.RequiresConfirmation = false;
             this.gMinusButton.SeparatorDistance = 0;
@@ -434,7 +434,7 @@
             this.gPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.gPlusButton.HasBorder = false;
             this.gPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.gPlusButton.Location = new System.Drawing.Point(391, 153);
+            this.gPlusButton.Location = new System.Drawing.Point(391, 158);
             this.gPlusButton.Name = "gPlusButton";
             this.gPlusButton.RequiresConfirmation = false;
             this.gPlusButton.SeparatorDistance = 0;
@@ -475,7 +475,7 @@
             this.bMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.bMinusButton.HasBorder = false;
             this.bMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.bMinusButton.Location = new System.Drawing.Point(314, 204);
+            this.bMinusButton.Location = new System.Drawing.Point(314, 209);
             this.bMinusButton.Name = "bMinusButton";
             this.bMinusButton.RequiresConfirmation = false;
             this.bMinusButton.SeparatorDistance = 0;
@@ -516,7 +516,7 @@
             this.bPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.bPlusButton.HasBorder = false;
             this.bPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.bPlusButton.Location = new System.Drawing.Point(391, 204);
+            this.bPlusButton.Location = new System.Drawing.Point(391, 209);
             this.bPlusButton.Name = "bPlusButton";
             this.bPlusButton.RequiresConfirmation = false;
             this.bPlusButton.SeparatorDistance = 0;
@@ -532,10 +532,10 @@
             // 
             this.aTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.aTrackBar.Location = new System.Drawing.Point(33, 255);
+            this.aTrackBar.Location = new System.Drawing.Point(31, 268);
             this.aTrackBar.Maximum = 255;
             this.aTrackBar.Name = "aTrackBar";
-            this.aTrackBar.Size = new System.Drawing.Size(263, 45);
+            this.aTrackBar.Size = new System.Drawing.Size(265, 45);
             this.aTrackBar.TabIndex = 22;
             this.aTrackBar.Scroll += new System.EventHandler(this.aTrackBar_Scroll);
             // 
@@ -545,7 +545,7 @@
             this.aValueTextField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(245)))), ((int)(((byte)(248)))));
             this.aValueTextField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.aValueTextField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.aValueTextField.Location = new System.Drawing.Point(343, 255);
+            this.aValueTextField.Location = new System.Drawing.Point(343, 260);
             this.aValueTextField.Name = "aValueTextField";
             this.aValueTextField.Size = new System.Drawing.Size(42, 23);
             this.aValueTextField.TabIndex = 23;
@@ -580,7 +580,7 @@
             this.aMinusButton.FocusedColor = System.Drawing.Color.Empty;
             this.aMinusButton.HasBorder = false;
             this.aMinusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.aMinusButton.Location = new System.Drawing.Point(314, 255);
+            this.aMinusButton.Location = new System.Drawing.Point(314, 260);
             this.aMinusButton.Name = "aMinusButton";
             this.aMinusButton.RequiresConfirmation = false;
             this.aMinusButton.SeparatorDistance = 0;
@@ -621,7 +621,7 @@
             this.aPlusButton.FocusedColor = System.Drawing.Color.Empty;
             this.aPlusButton.HasBorder = false;
             this.aPlusButton.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(222)))), ((int)(((byte)(226)))));
-            this.aPlusButton.Location = new System.Drawing.Point(391, 255);
+            this.aPlusButton.Location = new System.Drawing.Point(391, 260);
             this.aPlusButton.Name = "aPlusButton";
             this.aPlusButton.RequiresConfirmation = false;
             this.aPlusButton.SeparatorDistance = 0;
@@ -636,7 +636,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 257);
+            this.label4.Location = new System.Drawing.Point(28, 250);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 15);
             this.label4.TabIndex = 26;
@@ -648,7 +648,7 @@
             this.redLine.BackColor = System.Drawing.Color.Transparent;
             this.redLine.ChosenColor = System.Drawing.Color.Red;
             this.redLine.LineThickness = 7F;
-            this.redLine.Location = new System.Drawing.Point(33, 106);
+            this.redLine.Location = new System.Drawing.Point(33, 115);
             this.redLine.MaximumSize = new System.Drawing.Size(255, 10);
             this.redLine.MinimumSize = new System.Drawing.Size(255, 10);
             this.redLine.Name = "redLine";
@@ -665,7 +665,7 @@
             this.blueLine.BackColor = System.Drawing.Color.Transparent;
             this.blueLine.ChosenColor = System.Drawing.Color.Blue;
             this.blueLine.LineThickness = 7F;
-            this.blueLine.Location = new System.Drawing.Point(33, 208);
+            this.blueLine.Location = new System.Drawing.Point(32, 217);
             this.blueLine.MaximumSize = new System.Drawing.Size(255, 10);
             this.blueLine.MinimumSize = new System.Drawing.Size(255, 10);
             this.blueLine.Name = "blueLine";
@@ -682,7 +682,7 @@
             this.greenLine.BackColor = System.Drawing.Color.Transparent;
             this.greenLine.ChosenColor = System.Drawing.Color.Green;
             this.greenLine.LineThickness = 7F;
-            this.greenLine.Location = new System.Drawing.Point(33, 157);
+            this.greenLine.Location = new System.Drawing.Point(33, 166);
             this.greenLine.MaximumSize = new System.Drawing.Size(255, 10);
             this.greenLine.MinimumSize = new System.Drawing.Size(255, 10);
             this.greenLine.Name = "greenLine";
